@@ -1,0 +1,162 @@
+body {
+    font-size: 14px;
+    font-family:'微软雅黑' ,Helvetica,"Helvetica Neue","segoe UI Light","Kozuka Gothic Pro";
+}
+.row-fluid > .span3 {
+    width: 20%;
+}
+.row-fluid > .span9 {
+    width: 74%;
+}
+.row-fluid > [class*="span"] {
+    float: left;
+    margin-left: 1%;
+}
+.well{
+    background-color: #d9edf7;
+}
+.nav li {
+    padding-top: 5px;
+}
+
+.sidebar-nav {
+    padding: 9px 0;
+}
+.leaderboard {
+    padding: 10px;
+    margin-bottom: 30px;
+    background-repeat:repeat;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+}
+.leaderboard h1 {
+    font-size: 40px;
+    margin-bottom: 5px;
+    line-height: 1;
+    letter-spacing: -1px;
+    color:#92B901;
+}
+.leaderboard p {
+    font-size: 18px;
+    font-weight: 200;
+    line-height: 27px;
+}
+
+.well {
+    background-repeat:repeat;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    background-color: #d9edf7;
+    border-radius: 6px;
+    min-height: 300px;
+}
+
+.nav .nav-header {
+    font-size: 18px;
+    color:#92B901;
+}
+.nav-list {
+    padding-left: 14px;
+    padding-right: 14px;
+    margin-bottom: 0;
+}
+.nav-list .active > a, .nav-list .active > a:hover {
+    color: #ffffff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+    background-color: #0088cc;
+}
+.row-fluid {
+    width: 100%;
+}
+.row-fluid:before, .row-fluid:after {
+    display: table;
+    content: "";
+}
+.row-fluid:after {
+    clear: both;
+}
+.row-fluid:before, .row-fluid:after {
+    display: table;
+    content: "";
+}
+.title {
+    padding-left: 20px;
+    padding-right: 30px;
+    background-image: url("../images/title.png");
+    background-repeat: repeat-x;
+    background-size: 100% 100%;
+    width: auto;
+    height: 30px;
+    text-align: center;
+    border: 0;
+    background-color: transparent;
+    color: white;
+    font-size: 14px;
+}
+.orderhead
+{
+    border-bottom: 1px solid #dddddd;
+    height: 35px;
+    margin: 20px;
+}
+.order
+{
+    width: 100%;
+}
+.orderfooter
+{
+    margin: 10px 100px;
+    height: 50px;
+}
+.orderstep
+{
+    color: red;
+    font-weight: bold;
+    padding-left: 20px;
+    vertical-align: middle;
+}
+.maincontent
+{
+    margin-top: 90px;
+
+}
+.mainhead
+{
+    height: 75px
+}
+#sidebar-left
+{
+    height: auto;
+    text-align: center;
+}
+.logo
+{
+    width: 80px;
+    height: 30px;
+}
+.ordertitle
+{
+    font-weight: bold;
+}
+.ordercontent
+{
+
+}
+.orderinputtext
+{
+    display:inline-block;
+}
+.orderinputlabel
+{
+    text-align: right;
+}
+ .ordersubtitle
+ {
+     background-color:#808080;
+     font-weight: bold;
+     text-align: center;
+     color: wheat;
+     width: 100%;
+ }
+

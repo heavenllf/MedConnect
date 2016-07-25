@@ -1,0 +1,207 @@
+﻿<!doctype html>
+<html xmlns:ng="http://angularjs.org" lang="zh-cmn-Hans" id="ng-app"
+      data-ng-app="wtOuterApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="maximum-scale=1.0,width=device-width,initial-scale=1.0,user-scalable=no">
+    <title>登录 - Checklist</title>
+    <link rel="stylesheet" type="text/css" href="/css/base_common.css?ver=4.3.5">
+    <link rel="stylesheet" type="text/css" href="/css/base_outer.css?ver=4.3.5">
+	<script>
+    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F6091ae364b1e135eee2ab1cd60659210' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+
+</head>
+<body>
+<body class="ng-cloak" data-ng-cloak>
+<div id="wrap-all" class=""><div id="main" class="inner ">
+
+<div class="other-warp login-wrap" data-ng-controller="userLoginCtrl" ng-init="vm.weixin_unionid=''">
+    <div wt-minheight="58" class="single-panel clearfix">
+        <div class="single-panel-inner login-mini" ng-if="status.code == 0">
+            <div class="single-panel-header login_logo_area">
+                <!--<h3>登录</h3>-->
+                <a class="logo-min" href="/" title="Worktile"><i class="wtfont wtf-worktile"></i><i
+                        class="wtfont wtf-worktiletext"></i></a>
+            </div>
+            <div class="single-panel-body">
+                <ul class="login-tab flex_row" ng-show="vm.weixin_unionid==''">
+                    <li class="flex_se1 al_r" ng-class="{'current':!vm.weixin_login}"
+                        ng-click="vm.js_change_login_mode('default')">帐号登录
+                    </li>
+                    <li class="line">|</li>
+                    <li class="flex_se1" ng-class="{'current':vm.weixin_login}"
+                        ng-click="vm.js_change_login_mode('weixin')"><i class="fa fa-weixin"></i> 微信登录
+                    </li>
+                </ul>
+                <div ng-hide="vm.weixin_login" class="single-panel-section">
+                    <form w5c-form-validate="" name="login_form"
+                          class="form-horizontal wt-form" novalidate>
+                        <div class="form-group">
+                            <div class="input-group-">
+                                <!--<span class="input-group-addon"><i class="icon icon-user"></i></span>-->
+                                <input class="form-control" type="text" placeholder="邮箱/用户名/手机"
+                                       name="login_name" ng-model="signin_user.name" required="" wt-autofocus=""
+                                       tabindex="1"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="input-group-">
+                                <!--<span class="input-group-addon fs_17"><i class="icon icon-lock"></i></span>-->
+                                <input class="form-control" type="password" placeholder="密码"
+                                       name="login_password" ng-model="signin_user.password" required=""
+                                       ng-minlength="6" tabindex="2"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group" ng-if="iscode">
+                            <div>
+                                <img class="pull-left login-code" alt="看不清？点击更换" ng-click="getcode()"
+                                     ng-src="{{signin_user.imgsrc}}"/>
+                                <input class="form-control pull-left login-code-input" type="text" placeholder="验证码"
+                                       name="code" ng-model="signin_user.code" required="" ng-minlength="4"
+                                       tabindex="3"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group" ng-if="login_form.$errors.length > 0">
+                            <div class="alert alert-danger">
+                                <i class="icon-remove-sign mr_5"></i>{{login_form.$errors[0]}}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button w5c-form-submit="signin(login_form)" class="btn btn-success btn-lg btn-block"
+                                    type="button"
+                                    tabindex="4"
+                                    data-loading-text="登录中…" wt-loading-status="signin_user.is_login_ing"> 登 录
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div id="weixin_qr_code" class="login_weixin_qr_code al_c" ng-show="vm.weixin_login"></div>
+
+            </div>
+            <div class="single-panel-footer" ng-hide="vm.weixin_login">
+                <a href="/forgot">忘记密码</a>
+                <span class="split"></span>
+                <a href="/signup" ng-click="$root.go_to_signup($event)">免费注册</a>
+            </div>
+        </div>
+
+        <div class="single-panel-inner login-mini" ng-if="status.code == 1">
+            <div class="single-panel-header">
+                <!--<h3>登录</h3>-->
+                <a class="logo-min" href="/" title="Worktile"><i class="wtfont wtf-worktile"></i><i
+                        class="wtfont wtf-worktiletext"></i></a>
+            </div>
+            <div class="single-panel-body">
+                <div class="single-panel-section">
+
+                    <form w5c-form-validate="" name="twofactor_form"
+                          class="form-horizontal wt-form" novalidate>
+                        <div class="form-group text-center color-text-grayer ">
+                            您的帐户开启了两步验证，请输入动态验证码登录<br/>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="text" placeholder="输入动态验证码"
+                                   name="factor" ng-model="signin_user.factor" required="" wt-autofocus=""/>
+                        </div>
+
+                        <div class="form-group" ng-if="twofactor_form.$errors.length > 0">
+                            <div class="alert alert-danger">
+                                <i class="icon-remove-sign mr_5"></i>{{twofactor_form.$errors[0]}}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button w5c-form-submit="js_signin_twofactor(twofactor_form)"
+                                    class="btn btn-success btn-lg btn-block"
+                                    type="button"
+                                    data-loading-text="登录中…" wt-loading-status="signin_user.is_signfactoing">登录
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="single-panel-footer">
+                <div class="lh-150p">
+                    <a href="javascript:;" data-ng-click="status.code = 2">手机设备丢失？使用安全码登录</a>
+                    <br/>
+                    <a href="/feedback" target="_blank">或者通过人工申诉解除绑定</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="single-panel-inner login-mini" ng-if="status.code == 2">
+            <div class="single-panel-header">
+                <!--<h3>登录</h3>-->
+                <a class="logo-min" href="/" title="Worktile"><i class="wtfont wtf-worktile"></i><i
+                        class="wtfont wtf-worktiletext"></i></a>
+            </div>
+            <div class="single-panel-body">
+                <div class="single-panel-section">
+
+                    <form w5c-form-validate="" name="recovery_form"
+                          class="form-horizontal wt-form" novalidate>
+                        <div class="form-group text-center color-text-grayer ">
+                            您的帐户开启了两次验证，请输入安全码登录<br/>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="text" placeholder="输入安全码"
+                                   name="recovery_code" ng-model="signin_user.recovery_code" required="" autofocus=""/>
+                        </div>
+
+                        <div class="form-group" ng-if="recovery_form.$errors.length > 0">
+                            <div class="alert alert-danger">
+                                <i class="icon-remove-sign mr_5"></i>{{recovery_form.$errors[0]}}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button w5c-form-submit="js_signin_recovery(recovery_form)"
+                                    class="btn btn-success btn-lg btn-block"
+                                    type="button"
+                                    data-loading-text="登录中…" wt-loading-status="signin_user.is_signrecoverying">登录
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="single-panel-footer">
+                <div class="pull-right-">
+                    <a href="javascript:;" data-ng-click="status.code = 1">使用动态验证码登录</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<footer class="text-center color_text_lighter login-footer"><i class="wtfont wtf-worktile"></i><i class="wtfont wtf-worktiletext" style="font-size: 60px"></i>© 2015 Worktile.com <span class="ml_10 mr_10">京ICP备13017353号-3</span>   京公网安备11010802012357号 </footer>
+</div></div>
+<script type="text/javascript">window.wt = {};
+
+wt.appConfig = {
+    feed_host: 'https://feed.worktile.com',
+    box      : {
+        wtprj_url    : 'https://wt-prj.oss.aliyuncs.com/',
+        base_url     : 'https://box.worktile.com/',
+        box_url_regex: '^https://box.worktile.com/(.*)$'
+    }
+};
+</script>
+
+<script src="/dest/worktile.outer.min.js?ver=4.3.5"></script>
+
+<!-- Start Alexa Certify Javascript -->
+<script type="text/javascript">
+  _atrk_opts = { atrk_acct:"I+xBi1a4ZP00O9", domain:"worktile.com",dynamic: true};
+  (function() { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "https://d31qbv1cthcecs.cloudfront.net/atrk.js"; var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(as, s); })();
+</script>
+<noscript><img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=I+xBi1a4ZP00O9" style="display:none" height="1" width="1" alt="" /></noscript>
+<!-- End Alexa Certify Javascript -->
+
+
+<div app-promotion-bar></div>
+</body>
+</html>

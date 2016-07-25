@@ -1,0 +1,46 @@
+{
+  "name": "healthchecklist",
+  "version": "0.0.1",
+  "authors": [
+    "victor"
+  ],
+  "description": "healthchecklist",
+  "main": "",
+  "moduleType": [],
+  "keywords": [
+    "healthchecklist"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~1.9.1",
+    "bootstrap": "latest",
+    "angular": "latest",
+    "angular-resource": "latest",
+    "angular-cookies": "latest",
+    "angular-mocks": "latest",
+    "angular-route": "latest",
+    "angular-bootstrap": "0.10.0",
+    "angular-ui-router": "#master",
+    "jquery-ui": "^1.12.0",
+    "masonry": "^4.1.0"
+  },
+  "exportsOverride": {
+    "bootstrap": {
+      "css": "docs/assets/css/bootstrap*.css",
+      "js": "docs/assets/js/bootstrap.js",
+      "img": "docs/assets/img/glyphicons-halflings*.png"
+    },
+    "angular-ui-utils": {
+      "modules": "modules/route/route.js"
+    }
+  }
+}

@@ -1,0 +1,397 @@
+<div class="order">
+    <div class="col-lg-12 orderhead ordertitle">
+        <ul class="pull-left list-inline hidden-xs">
+            <li><p >患者姓名: <span>张某某 男 27岁</span></p></li>
+            <li><span class="orderstep">3/6</span></li>
+        </ul>
+        <div class="pull-right">
+            <h6 class="ordertitle">临床评估--正面微笑</h6>
+        </div>
+    </div>
+</div>
+<div class="ordercontent">
+    <div class="col-lg-12">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <div class="ordersubtitle">唇齿关系</div>
+            </div>
+            <div class="form-group">
+                <label for="inputfsztlc" class="col-md-3 control-label">放松状态露齿</label>
+                <div class="col-md-9">
+                    <div class="row-fluid">
+                        <div class="span9">
+                            <input type="text" class="form-control" id="inputfsztlc" ng-model="order_faceSmile_fsztlc" placeholder="">
+                        </div>
+                        <div class="span3">
+                            <span>mm （1.5--3mm）</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputwxztlc" class="col-md-3 control-label">微笑状态</label>
+                <div class="col-md-9">
+                    <div class="row-fluid">
+                        <div class="span2">
+                            <span class="help-block"> 露齿 </span>
+                        </div>
+                        <div class="span10">
+                            <input type="text" class="form-control" id="inputwxztlc" ng-model="order_faceSmile_wxztlc" placeholder="">
+                        </div>
+                        <div class="span12">
+                            <span class="help-block">（正常范围：上切牙8-12，上中切牙高度9--12）</span>
+                        </div>
+                        <div class="span2">
+                            <span  class="help-block"> 露牙龈 </span>
+                        </div>
+                        <div class="span10">
+                            <input type="text" class="form-control" id="inputwxztlyy" ng-model="order_faceSmile_wxztlyy" placeholder="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputscydfdzc" class="col-md-3 control-label">上唇运动幅度</label>
+                <div class="col-md-9">
+                    <div >
+                        <label class="radio-inline">
+                            <input type="radio" name="scydfd" id="inputscydfdzc" ng-model="order_faceSmile_scydfd" value="1" checked>
+                            正常
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="scydfd" id="inputscydfdzgyd" ng-model="order_faceSmile_scydfd" value="2">
+                            左高右低
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="radio" name="scydfd" id="inputscydfdygzd" ng-model="order_faceSmile_scydfd" value="3">
+                            右高左低
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputsepmpxzc" class="col-md-3 control-label">上颌平面偏斜</label>
+                <div class="col-md-9">
+                    <div >
+                        <label class="radio-inline">
+                            <input type="radio" name="sepmpx" id="inputsepmpxzc" ng-model="order_faceSmile_sepmpx" value="1" checked>
+                            正常
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="sepmpx" id="inputsepmpxzgyd" ng-model="order_faceSmile_sepmpx" value="2">
+                            左高右低
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="radio" name="sepmpx" id="inputsepmpxygzd" ng-model="order_faceSmile_sepmpx" value="3">
+                            右高左低
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputwxqxzc" class="col-md-3 control-label">微笑曲线</label>
+                <div class="col-md-9">
+                    <div >
+                        <label class="radio-inline">
+                            <input type="radio" name="wxqx" id="inputwxqxzc" ng-model="order_faceSmile_wxqx" value="1" checked>
+                            正常
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="wxqx" id="inputwxqxpt" ng-model="order_faceSmile_wxqx" value="2">
+                            平坦
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class=" ordersubtitle">倾斜面</div>
+            </div>
+            <div class="form-group">
+                <label for="inputegzfybz" class="col-md-3 control-label">颧骨左</label>
+                <div class="col-md-9">
+                    <div >
+                        <label class="radio-inline">
+                            <input type="radio" name="egz" id="inputegzfybz" ng-model="order_faceSmile_egz" value="1" checked>
+                            发育不足
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="egz" id="inputegzqd" ng-model="order_faceSmile_egz" value="2">
+                            适当
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="radio" name="egz" id="inputegzfygd" ng-model="order_faceSmile_egz" value="3">
+                            发育过度
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputegyfybz" class="col-md-3 control-label">颧骨右</label>
+                <div class="col-md-9">
+                    <div >
+                        <label class="radio-inline">
+                            <input type="radio" name="egy" id="inputegyfybz" ng-model="order_faceSmile_egy" value="1" checked>
+                            发育不足
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="egy" id="inputegyqd" ng-model="order_faceSmile_egy" value="2">
+                            适当
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="radio" name="egy" id="inputegyfygd" ng-model="order_faceSmile_egy" value="3">
+                            发育过度
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputmxbd" class="col-md-3 control-label">面下部 上唇/人中</label>
+                <div class="col-md-9">
+                    <div >
+                        <label class="radio-inline">
+                            <input type="radio" name="mxb" id="inputmxbd" ng-model="order_faceSmile_mxb" value="1" checked>
+                            短
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="mxb" id="inputmxbqd" ng-model="order_faceSmile_mxb" value="2">
+                            适当
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="radio" name="mxb" id="inputmxbc" ng-model="order_faceSmile_mxb" value="3">
+                            长
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputchh" class="col-md-3 control-label">唇红</label>
+                <div class="col-md-9">
+                    <div >
+                        <label class="radio-inline">
+                            <input type="radio" name="ch" id="inputchh" ng-model="order_faceSmile_ch" value="1" checked>
+                            厚
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="ch" id="inputchqd" ng-model="order_faceSmile_mxb" value="2">
+                            适当
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="radio" name="ch" id="inputchb" ng-model="order_faceSmile_mxb" value="3">
+                            薄
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputxrqxhx" class="col-md-3 control-label">笑容曲线</label>
+                <div class="col-md-9">
+                    <div >
+                        <label class="radio-inline">
+                            <input type="radio" name="ch" id="inputxrqxhx" ng-model="order_faceSmile_xrqx" value="1" checked>
+                            和谐
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="ch" id="inputxrqxbp" ng-model="order_faceSmile_xrqx" value="2">
+                            扁平
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="ordersubtitle">侧面</div>
+            </div>
+            <div class="form-group">
+                <label for="inputczbls" class="col-md-3 control-label">垂直比例</label>
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-1" ><span>上</span></div>
+                        <div class="col-md-10"><input type="text" class="form-control"  ng-model="order_faceSmile_czbls" id="inputczbls" placeholder=""> </div>
+                        <span class="col-md-1">mm</span>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1" ><span>中</span></div>
+                        <div class="col-md-10"><input type="text" class="form-control" id="inputczblz"  ng-model="order_faceSmile_czblz" placeholder=""> </div>
+                        <span class="col-md-1">mm</span>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1" ><span>下</span></div>
+                        <div class="col-md-10"><input type="text" class="form-control" id="inputczblx"  ng-model="order_faceSmile_czblx" placeholder=""> </div>
+                        <span class="col-md-1">mm</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputmxzmx" class="col-md-3 control-label">面型</label>
+                <div class="col-md-9">
+                    <div >
+                        <label class="radio-inline">
+                            <input type="radio" name="mx" id="inputmxzmx" ng-model="order_faceSmile_mx" value="1" checked>
+                            直面型
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="mx" id="inputmxamx" ng-model="order_faceSmile_mx" value="2">
+                            凹面型
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="mx" id="inputmxdmx" ng-model="order_faceSmile_mx" value="3">
+                            凸面型
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputshfybz" class="col-md-3 control-label">上颌</label>
+                <div class="col-md-9">
+                    <div >
+                        <label class="radio-inline">
+                            <input type="radio" name="sh" id="inputshfybz" ng-model="order_faceSmile_sh" value="1" checked>
+                            发育不足
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="sh" id="inputshqd" ng-model="order_faceSmile_sh" value="2">
+                            适当
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="sh" id="inputshfygd" ng-model="order_faceSmile_sh" value="3">
+                            发育过度
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputxhfybz" class="col-md-3 control-label">下颌</label>
+                <div class="col-md-9">
+                    <div >
+                        <label class="radio-inline">
+                            <input type="radio" name="sh" id="inputxhfybz" ng-model="order_faceSmile_xh" value="1" checked>
+                            发育不足
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="sh" id="inputxhqd" ng-model="order_faceSmile_xh" value="2">
+                            适当
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="sh" id="inputxhfygd" ng-model="order_faceSmile_xh" value="3">
+                            发育过度
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputkxrzzxdyqwzh" class="col-md-3 control-label">眶下软组织相对眼球位置</label>
+                <div class="col-md-9">
+                    <div >
+                        <label class="radio-inline">
+                            <input type="radio" name="kxrzzxdyqwz" id="inputkxrzzxdyqwzh" ng-model="order_faceSmile_kxrzzxdyqwz" value="1" checked>
+                            后方
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="kxrzzxdyqwz" id="inputkxrzzxdyqwzp" ng-model="order_faceSmile_kxrzzxdyqwz" value="2">
+                            平齐
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="kxrzzxdyqwz" id="inputkxrzzxdyqwzq" ng-model="order_faceSmile_kxrzzxdyqwz" value="3">
+                            前方
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputbcg" class="col-md-3 control-label">鼻唇沟</label>
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" id="inputbcg" placeholder=""  ng-model="order_faceSmile_bcg">
+                        </div>
+                        <div class="col-md-3">
+                            <span>度 （90--120度）</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputhcgs" class="col-md-3 control-label">颏唇沟</label>
+                <div class="col-md-9">
+                    <div >
+                        <label class="radio-inline">
+                            <input type="radio" name="kxrzzxdyqwz" id="inputhcgs" ng-model="order_faceSmile_hcg" value="1" checked>
+                            深
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="kxrzzxdyqwz" id="inputhcgq" ng-model="order_faceSmile_hcg" value="2">
+                            浅
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="kxrzzxdyqwz" id="inputhcgzc" ng-model="order_faceSmile_hcg" value="3">
+                            正常
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputhbtdqt" class="col-md-3 control-label">颏部突度</label>
+                <div class="col-md-9">
+                    <div >
+                        <label class="radio-inline">
+                            <input type="radio" name="hbtd" id="inputhbtdqt" ng-model="order_faceSmile_hbtd" value="1" checked>
+                            前突
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="hbtd" id="inputhbtdzc" ng-model="order_faceSmile_hbtd" value="2">
+                            正常
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="hbtd" id="inputhbtdhs" ng-model="order_faceSmile_hbtd" value="3">
+                            后缩
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputxcebrdjddj" class="col-md-3 control-label">下唇，颏部，R点角度</label>
+                <div class="col-md-9">
+                    <div >
+                        <label class="radio-inline">
+                            <input type="radio" name="xcebrdjd" id="inputxcebrdjd90" ng-model="order_faceSmile_xcebrdjd" value="1" checked>
+                            小于90
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="xcebrdjd" id="inputxcebrdjddj" ng-model="order_faceSmile_xcebrdjd" value="2">
+                            钝角
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputejcd" class="col-md-3 control-label">颏颈长度</label>
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-11">
+                            <input type="text" class="form-control" id="inputejcd" placeholder="" ng-model="order_faceSmile_ejcd">
+                        </div>
+                        <div class="col-md-1">
+                            <span>mm</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputejj" class="col-md-3 control-label">颏颈角</label>
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" id="inputejj" placeholder="" ng-model="order_faceSmile_ejj">
+                        </div>
+                        <div class="col-md-3">
+                            <span> 度 （105--120度）</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="orderfooter">
+    <a class="btn btn-default pull-right" href="#/teethCheck" role="button">下一步</a>
+    <a class="btn btn-default pull-left" href="#/faceStatic" role="button">上一步</a>
+</div>

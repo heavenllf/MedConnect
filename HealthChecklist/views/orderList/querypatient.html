@@ -1,0 +1,92 @@
+<div ng-controller="QueryPatientController" class="row-fluid sortable">
+    <div class="box span12">
+        <div class="box-content">
+            <form class="form-horizontal" role="form">
+
+                <div class="form-group">
+                    <label for="name" class="col-sm-1 control-label">患者年龄</label>
+                    <div class="col-sm-2">
+                        <select class="form-control" ng-model="age" ng-disabled="nameQuery">
+                            <option>所有年龄段</option>
+                            <option>0～10岁</option>
+                            <option>11～20岁</option>
+                            <option>21～30岁</option>
+                            <option>31～40岁</option>
+                            <option>41～50岁</option>
+                            <option>61～70岁</option>
+                            <option>71～  </option>
+                        </select>
+                    </div>
+                    <label for="dtp_input1" class="col-md-2 control-label">检查开始日期</label>
+                    <div class="col-sm-3" >
+                        
+                        <div class="input-group date form_date " data-date="" data-date-format="yyyy-mm-dd" data-link-field="dtp_input1" data-link-format="yyyy-mm-dd" >
+                            <input class="form-control" size="16" type="text" value="" readonly ng-model="startTime" ng-disabled="nameQuery">
+                            <span class="input-group-addon" ng-hide="nameQuery"><span class="glyphicon glyphicon-remove" ></span></span>
+                            <span class="input-group-addon" ng-hide="nameQuery"><span class="glyphicon glyphicon-calendar"></span></span>
+                        </div>
+                        </div>
+
+                        <!-- <input type="hidden" id="dtp_input1" value="" /><br/> -->
+                        <label for="dtp_input2" class="col-md-1 control-label">结束日期</label>
+                        <div class="col-sm-3">
+                        <div class="input-group date form_date" data-date="" data-date-format="yyyy-mm-dd" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd" ng-disabled="nameQuery">
+                            <input class="form-control" size="16" type="text" value="" readonly ng-model="endTime">
+                            <span class="input-group-addon" ng-hide="nameQuery"><span class="glyphicon glyphicon-remove"></span></span>
+                            <span class="input-group-addon" ng-hide="nameQuery"><span class="glyphicon glyphicon-calendar"></span></span>
+                        </div>
+                        <input type="hidden" id="dtp_input2" value="" /><br/>
+                        </div>
+                </div>
+
+                <div class="form-group" >
+                    <label for="name" class="col-sm-2 control-label">患者姓名</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="name"
+                        placeholder="请输入患者姓名" ng-model="patientName" ng-disabled="!nameQuery">
+                    </div>
+                    <div class="col-sm-2 checkbox">
+                        <label>
+                            <input type="checkbox" ng-model="nameQuery"> 患者姓名查询
+                        </label>
+                    </div>
+                    <div class="col-sm-2">
+                        <button type="submit" class="btn btn-default" ng-click="tableParams.reload()">查询</button>
+                    </div>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+            <table ng-table="tableParams"  class="table table-striped table-bordered table-hover col-sm-12" >
+            <tr ng-repeat="patient in tableParams.data" ng-click="setClickedRow($index)" ng-dblclick="editOneCheck()" ng-class="{'selected':$index == selectedRow}">
+                <td data-title="'患者姓名'" >
+                    {{patient.name}}
+                </td>
+                <td data-title="'性别'">
+                    {{patient.gender}}
+                </td>
+                <td data-title="'年龄'">
+                    {{patient.age}}
+                </td>
+                <td data-title="'检查日期'">
+                    {{patient.checktime}}
+                </td>
+            </tr>
+            </table>
+
+        </div><!--/row-->
+
+        
+<script type="text/javascript">
+$('.form_date').datetimepicker({
+    language: 'zh-CN',
+    weekStart: 1,
+    todayBtn: 1,
+    autoclose: 1,
+    todayHighlight: 1,
+    startView: 2,
+    minView: 2,
+    forceParse: 0
+});
+</script>

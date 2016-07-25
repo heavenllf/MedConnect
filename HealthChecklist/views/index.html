@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:ng="http://angularjs.org" lang="zh-cmn-Hans"  ng-app="app">
+  <head>
+    <meta charset="utf-8" />
+   <!-- <meta http-equiv="Expires" CONTENT="0">
+    <meta http-equiv="Cache-Control" CONTENT="no-cache">
+    <meta http-equiv="Cache-Control" CONTENT="no-store">
+    <meta http-equiv="Pragma" content="no-cache"> -->
+    <title>CheckList</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="../components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <!-- <script src="http://link/to/html5shiv.js"></script> -->
+    <![endif]-->
+    <link href="../public/stylesheets/app.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <div ng-view></div>
+    </div><!-- end of container -->
+	<script src="/components/jquery/jquery.js"></script>
+    <script src="/components/angular/angular.js"></script>
+    <script src="/components/angular-route/angular-route.js"></script>
+	<script src="/components/angular-cookies/angular-cookies.js"></script>
+    <script src="/components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="/components/bootstrap/dist/js/bootstrap.js"></script>
+    
+    <script src="../public/javascripts/app.js"></script>
+	
+	 <script src="../services/authentication.service.js"></script>
+    <script src="../services/flash.service.js"></script>
+
+    <!-- Real user service that uses an api -->
+    <!-- <script src="app-services/user.service.js"></script> -->
+
+    <!-- Fake user service for demo that uses local storage -->
+    <script src="../services/user.service.local-storage.js"></script>
+	
+	<script src="../controllers/home.controller.js"></script>
+    <script src="../controllers/login.controller.js"></script>
+    <script src="../controllers/register.controller.js"></script>
+	
+  </body>
+</html>

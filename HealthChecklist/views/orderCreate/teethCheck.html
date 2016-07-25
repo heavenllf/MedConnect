@@ -1,0 +1,333 @@
+<div class="order">
+    <div class="col-lg-12 orderhead ordertitle">
+        <ul class="pull-left list-inline hidden-xs">
+            <li><p >患者姓名: <span>张某某 男 27岁</span></p></li>
+            <li><span class="orderstep">4/6</span></li>
+        </ul>
+        <div class="pull-right">
+            <h6 class="ordertitle">>临床评估--牙齿检查</h6>
+        </div>
+    </div>
+</div>
+<div class="ordercontent">
+    <div class="col-lg-12 ">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <div class="ordersubtitle">水平向</div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">牙弓形态</label>
+                <div class="col-md-9">
+                    <div class="row">
+                        <label for="inputygxtshux" class="col-md-2 control-label">上颌</label>
+                        <div class="col-md-10">
+                            <div >
+                                <label class="radio-inline">
+                                    <input type="radio" name="ygxtsh" id="inputygxtshux" ng-model="order_teethcheck_ygxtsh" value="1" checked>
+                                    U型
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="ygxtsh" id="inputygxtshvx" ng-model="order_teethcheck_ygxtsh" value="2">
+                                    V型
+                                </label>
+                            </div>
+                        </div>
+                        <label  for="inputygxtxhux" class="col-md-2 control-label">下颌</label>
+                        <div class="col-md-10">
+                            <div >
+                                <label class="radio-inline">
+                                    <input type="radio" name="ygxtxh" id="inputygxtxhux" ng-model="order_teethcheck_ygxtxh" value="1" checked>
+                                    U型
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="ygxtxh" id="inputygxtxhvx" ng-model="order_teethcheck_ygxtxh" value="2">
+                                    V型
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputygkdxt" class="col-md-3 control-label">牙弓宽度</label>
+                <div class="col-md-9">
+                    <div >
+                        <label class="radio-inline">
+                            <input type="radio" name="ygkd" id="inputygkdxt" ng-model="order_teethcheck_ygkd" value="1" checked>
+                            协调
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="ygkd" id="inputygkdbxt" ng-model="order_teethcheck_ygkd" value="2">
+                            不协调
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputwilsonqxzc" class="col-md-3 control-label">Wilson曲线</label>
+                <div class="col-md-9">
+                    <div >
+                        <label class="radio-inline">
+                            <input type="radio" name="wilsonqx" id="inputwilsonqxzc" ng-model="order_teethcheck_wilsonqx" value="1" checked>
+                            正常
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="wilsonqx" id="inputwilsonqxbzc" ng-model="order_teethcheck_wilsonqx" value="2">
+                            不正常
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="ordersubtitle">前后向</div>
+            </div>
+            <div class="form-group">
+                <label for="inputzcmy1" class="col-md-3 control-label">左侧磨牙</label>
+                <div class="col-md-9">
+                    <div >
+                        <label class="radio-inline">
+                            <input type="radio" name="zcmy" id="inputzcmy1" ng-model="order_teethcheck_zcmy" value="1" checked>
+                            I
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="zcmy" id="inputzcmy2" ng-model="order_teethcheck_zcmy" value="2">
+                            II
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="zcmy" id="inputzcmy3" ng-model="order_teethcheck_zcmy" value="3">
+                            III
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputycmy1" class="col-md-3 control-label">右侧磨牙</label>
+                <div class="col-md-9">
+                    <div >
+                        <label class="radio-inline">
+                            <input type="radio" name="ycmy" id="inputycmy1" ng-model="order_teethcheck_ycmy" value="1" checked>
+                            I
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="ycmy" id="inputycmy2" ng-model="order_teethcheck_ycmy" value="2">
+                            II
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="ycmy" id="inputycmy3" ng-model="order_teethcheck_ycmy" value="3">
+                            III
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputzcjy1" class="col-md-3 control-label">左侧尖牙</label>
+                <div class="col-md-9">
+                    <div >
+                        <label class="radio-inline">
+                            <input type="radio" name="zcjy" id="inputzcjy1" ng-model="order_teethcheck_zcjy" value="1" checked>
+                            I
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="zcjy" id="inputzcjy2" ng-model="order_teethcheck_zcjy" value="2">
+                            II
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="zcjy" id="inputzcjy3" ng-model="order_teethcheck_zcjy" value="3">
+                            III
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputycjy1" class="col-md-3 control-label">右侧尖牙</label>
+                <div class="col-md-9">
+                    <div >
+                        <label class="radio-inline">
+                            <input type="radio" name="ycjy" id="inputycjy1" ng-model="order_teethcheck_ycjy" value="1" checked>
+                            I
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="ycjy" id="inputycjy2" ng-model="order_teethcheck_ycjy" value="2">
+                            II
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="ycjy" id="inputycjy3" ng-model="order_teethcheck_ycjy" value="3">
+                            III
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputspeeqxzc" class="col-md-3 control-label">Spee曲线</label>
+                <div class="col-md-9">
+                    <div >
+                        <label class="radio-inline">
+                            <input type="radio" name="speeqx" id="inputspeeqxzc" ng-model="order_teethcheck_speeqx" value="1" checked>
+                            正常
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="speeqx" id="inputspeeqxpt" ng-model="order_teethcheck_speeqx" value="2">
+                            平坦
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="speeqx" id="inputspeeqxfz" ng-model="order_teethcheck_speeqx" value="3">
+                            反转
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputsfh" class="col-md-3 control-label">深覆颌</label>
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-11">
+                            <input type="text" class="form-control" id="inputsfh" placeholder="" ng-model="order_teethcheck_sfh">
+                        </div>
+                        <div class="col-md-1">
+                            <span>mm</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputsfg" class="col-md-3 control-label">深覆盖</label>
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-11">
+                            <input type="text" class="form-control" id="inputsfg" placeholder="" ng-model="order_teethcheck_sfg">
+                        </div>
+                        <div class="col-md-1">
+                            <span>mm</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputqykh" class="col-md-3 control-label">前牙开颌</label>
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-11">
+                            <input type="text" class="form-control" id="inputqykh" placeholder="" ng-model="order_teethcheck_qykh">
+                        </div>
+                        <div class="col-md-1">
+                            <span>mm</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputqyfhy" class="col-md-3 control-label">后牙反颌</label>
+                <div class="col-md-9">
+                    <div >
+                        <label class="radio-inline">
+                            <input type="radio" name="speeqx" id="inputqyfhy" ng-model="order_teethcheck_qyfh" value="1" checked>
+                            有
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="speeqx" id="inputqyfhw" ng-model="order_teethcheck_qyfh" value="2">
+                            无
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputsqyzjzl" class="col-md-3 control-label">上切牙转矩</label>
+                <div class="col-md-9">
+                    <div >
+                        <label class="radio-inline">
+                            <input type="radio" name="speeqx" id="inputsqyzjzl" ng-model="order_teethcheck_sqyzj" value="1" checked>
+                            直立
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="speeqx" id="inputsqyzjwz" ng-model="order_teethcheck_sqyzj" value="2">
+                            外展
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="speeqx" id="inputsqyzjnq" ng-model="order_teethcheck_sqyzj" value="3">
+                            内倾
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputqyyw" class="col-md-3 control-label">缺牙牙位</label>
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-11">
+                            <input type="text" class="form-control" id="inputqyyw" placeholder="" ng-model="order_teethcheck_qyyw">
+                        </div>
+                        <div class="col-md-1">
+                            <span>mm</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputdsmy" class="col-md-3 control-label">第三磨牙</label>
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-11">
+                            <input type="text" class="form-control" id="inputdsmy" placeholder="" ng-model="order_teethcheck_dsmy">
+                        </div>
+                        <div class="col-md-1">
+                            <span>mm</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputhdxyzby" class="col-md-3 control-label">活动性牙周病</label>
+                <div class="col-md-9">
+                    <div >
+                        <label class="radio-inline">
+                            <input type="radio" name="hdxyzb" id="inputhdxyzby" ng-model="order_teethcheck_hdxyzb" value="1" checked>
+                            有
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="hdxyzb" id="inputhdxyzbw" ng-model="order_teethcheck_hdxyzb" value="2">
+                            无
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputfzyzc" class="col-md-3 control-label">附着龈</label>
+                <div class="col-md-9">
+                    <div >
+                        <label class="radio-inline">
+                            <input type="radio" name="hdxyzb" id="inputfzyzc" ng-model="order_teethcheck_fzy" value="1" checked>
+                            正常
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="hdxyzb" id="inputfzyyc" ng-model="order_teethcheck_fzy" value="2">
+                            异常
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputnmbb" class="col-md-3 control-label">粘膜病变</label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" id="inputnmbb" placeholder="" ng-model="order_teethcheck_nmbb">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputqtkqwt" class="col-md-3 control-label">其他口腔问题</label>
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <label for="inputqtkqwt">（修复体，填充体，牙体磨耗等）</label>
+                        </div>
+                        <div class="col-md-7">
+                            <input type="text" class="form-control" id="inputqtkqwt" placeholder="" ng-model="order_teethcheck_qtkqwt">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="orderfooter">
+    <a class="btn btn-default pull-right" href="#/temporomandibularJoint" role="button">下一步</a>
+    <a class="btn btn-default pull-left" href="#/faceSmile" role="button">上一步</a>
+</div>
