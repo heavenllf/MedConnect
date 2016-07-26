@@ -25,7 +25,7 @@
                 controllerAs: 'vm'
             })
             .when('/faceStatic',{
-                controller:'FaceSmileController',
+                controller:'FaceStaticController',
                 templateUrl:'orderCreate/faceStatic.html',
                 controllerAs:'vm'
 
