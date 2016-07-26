@@ -15,7 +15,7 @@
     OrderCreateService.$inject = ['$http'];
     function OrderCreateService($http) {
         var service = {
-            checkDataCache: {},
+            dataCache: {},
             sendCheckDataToServer: function () {
                 var me = this;
                 me.checkDataCache;

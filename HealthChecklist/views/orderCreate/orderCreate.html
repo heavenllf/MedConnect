@@ -29,13 +29,13 @@
                  <div class="col-md-9">
                      <div class="radio">
                          <label>
-                             <input type="radio" name="UserRadios" id="sexman" ng-model="sex" value="1" checked>
+                             <input type="radio" name="UserRadios" id="sexman" ng-model="male" value="1" checked>
                              男
                          </label>
                      </div>
                      <div class="radio">
                          <label>
-                             <input type="radio" name="UserRadios" id="sexwoman"  ng-model="sex" value="2">
+                             <input type="radio" name="UserRadios" id="sexwoman"  ng-model="female" value="2">
                              女
                          </label>
                      </div>
@@ -55,7 +55,7 @@
              </div>
          </form>
          <div class="orderfooter">
-         <a class="btn btn-default pull-right" href="#/faceStatic" role="button">下一步</a>
+         <a class="btn btn-default pull-right" href="#/faceStatic" role="button" ng-click="storeModelsToService()">下一步</a>
          </div>
      </div>
 
