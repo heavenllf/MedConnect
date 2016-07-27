@@ -36,7 +36,7 @@
             applyInfo.female = $scope.female;
             applyInfo.order_phone = $scope.order_phone;
             applyInfo.order_birthday = $scope.order_birthday;
-        }
+        };
 
     }
 

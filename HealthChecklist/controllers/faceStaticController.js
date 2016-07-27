@@ -1,10 +1,10 @@
-(function(){
+(function() {
     'use strict';
     angular.module('mainapp')
-        .controller('FaceStaticController',FaceStaticController);
-    FaceStaticController.$inject = [ 'OrderCreateService','$location', '$scope'];
+        .controller('FaceStaticController', FaceStaticController);
+    FaceStaticController.$inject = ['OrderCreateService', '$location', '$scope'];
 
-    function FaceStaticController( OrderCreateService,$location, $scope) {
+    function FaceStaticController(OrderCreateService, $location, $scope) {
         if (OrderCreateService.dataCache.faceStatic != undefined) {
             var faceStatic = OrderCreateService.dataCache.faceStatic;
             $scope.order_faceStatic_ztmxs = faceStatic.order_faceStatic_ztmxs;
@@ -34,7 +34,7 @@
             $scope.order_faceStatic_xedcxa = faceStatic.order_faceStatic_xedcxa;
             $scope.order_faceStatic_xedcxb = faceStatic.order_faceStatic_xedcxb;
             $scope.order_faceStatic_hdcxa = faceStatic.order_faceStatic_hdcxa;
-			$scope.order_faceStatic_hdcxb = faceStatic.order_faceStatic_hdcxb;
+            $scope.order_faceStatic_hdcxb = faceStatic.order_faceStatic_hdcxb;
             $scope.order_faceStatic_zzlhhszmcy = faceStatic.order_faceStatic_zzlhhszmcy;
             $scope.order_faceStatic_zchpgd = faceStatic.order_faceStatic_zchpgd;
             $scope.order_faceStatic_ychpgd = faceStatic.order_faceStatic_ychpgd;
@@ -91,14 +91,14 @@
             faceStatic.order_faceStatic_sepmb = $scope.order_faceStatic_sepmb;
             faceStatic.order_faceStatic_bkdcxa = $scope.order_faceStatic_bkdcxa;
             faceStatic.order_faceStatic_bkdcxb = $scope.order_faceStatic_bkdcxb;
-            faceStatic.order_faceStatic_bkdcxc = $scope.order_faceStatic_bkdcxc;	
+            faceStatic.order_faceStatic_bkdcxc = $scope.order_faceStatic_bkdcxc;
             faceStatic.order_faceStatic_bzgpqa = $scope.order_faceStatic_bzgpqa;
             faceStatic.order_faceStatic_bzgpqb = $scope.order_faceStatic_bzgpqb;
             faceStatic.order_faceStatic_bzgpqc = $scope.order_faceStatic_bzgpqc;
             faceStatic.order_faceStatic_xbjfda = $scope.order_faceStatic_xbjfda;
             faceStatic.order_faceStatic_xbjfdb = $scope.order_faceStatic_xbjfdb;
-            
-        }
+
+        };
 
     }
 })();

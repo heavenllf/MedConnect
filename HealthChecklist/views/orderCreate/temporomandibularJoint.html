@@ -17,11 +17,11 @@
         <div class="col-md-9">
             <div >
                 <label class="radio-inline">
-                    <input type="radio" name="ygxtsh" id="inputzzy" ng-model="temporomandibularJoint_zz" value="1" checked>
+                    <input type="radio" name="ygxtsh" id="inputzzy" ng-model="temporomandibularJoint_zza" value="1" checked>
                     有
                 </label>
                 <label class="radio-inline">
-                    <input type="radio" name="ygxtsh" id="inputzzw" ng-model="temporomandibularJoint_zz" value="2">
+                    <input type="radio" name="ygxtsh" id="inputzzw" ng-model="temporomandibularJoint_zzb" value="2">
                     无
                 </label>
             </div>
@@ -32,15 +32,15 @@
         <div class="col-md-9">
             <div >
                 <label class="radio-inline">
-                    <input type="radio" name="eqyt" id="inputeqytw" ng-model="order_temporomandibularJoint_eqyt" value="1" checked>
+                    <input type="radio" name="eqyt" id="inputeqytw" ng-model="order_temporomandibularJoint_eqyta" value="1" checked>
                     无
                 </label>
                 <label class="radio-inline">
-                    <input type="radio" name="eqyt" id="inputeqytyc" ng-model="order_temporomandibularJoint_eqyt" value="2">
+                    <input type="radio" name="eqyt" id="inputeqytyc" ng-model="order_temporomandibularJoint_eqytb" value="2">
                     右侧
                 </label>
                 <label class="radio-inline">
-                    <input type="radio" name="eqyt" id="inputeqytzc" ng-model="order_temporomandibularJoint_eqyt" value="3">
+                    <input type="radio" name="eqyt" id="inputeqytzc" ng-model="order_temporomandibularJoint_eqytc" value="3">
                     左侧
                 </label>
             </div>
@@ -51,15 +51,15 @@
         <div class="col-md-9">
             <div >
                 <label class="radio-inline">
-                    <input type="radio" name="jsyt" id="inputjsytw" ng-model="order_temporomandibularJoint_jsyt" value="1" checked>
+                    <input type="radio" name="jsyt" id="inputjsytw" ng-model="order_temporomandibularJoint_jsyta" value="1" checked>
                     无
                 </label>
                 <label class="radio-inline">
-                    <input type="radio" name="jsyt" id="inputjsytyv" ng-model="order_temporomandibularJoint_jsyt" value="2">
+                    <input type="radio" name="jsyt" id="inputjsytyv" ng-model="order_temporomandibularJoint_jsytb" value="2">
                     右侧
                 </label>
                 <label class="radio-inline">
-                    <input type="radio" name="jsyt" id="inputjsytzc" ng-model="order_temporomandibularJoint_jsyt" value="3">
+                    <input type="radio" name="jsyt" id="inputjsytzc" ng-model="order_temporomandibularJoint_jsytc" value="3">
                     左侧
                 </label>
             </div>
@@ -70,11 +70,11 @@
         <div class="col-md-9">
             <div >
                 <label class="radio-inline">
-                    <input type="radio" name="tx" id="inputtxy" ng-model="order_temporomandibularJoint_tx" value="1" checked>
+                    <input type="radio" name="tx" id="inputtxy" ng-model="order_temporomandibularJoint_txa" value="1" checked>
                     有
                 </label>
                 <label class="radio-inline">
-                    <input type="radio" name="tx" id="inputtxw" ng-model="order_temporomandibularJoint_tx" value="2">
+                    <input type="radio" name="tx" id="inputtxw" ng-model="order_temporomandibularJoint_txb" value="2">
                     无
                 </label>
             </div>
@@ -157,15 +157,15 @@
         <div class="col-md-9">
             <div >
                 <label class="radio-inline">
-                    <input type="radio" name="ch" id="inputkkpxw" ng-model="order_temporomandibularJoint_kkpx" value="1" checked>
+                    <input type="radio" name="ch" id="inputkkpxw" ng-model="order_temporomandibularJoint_kkpxa" value="1" checked>
                     无
                 </label>
                 <label class="radio-inline">
-                    <input type="radio" name="ch" id="inputkkpxyc" ng-model="order_temporomandibularJoint_kkpx" value="2">
+                    <input type="radio" name="ch" id="inputkkpxyc" ng-model="order_temporomandibularJoint_kkpxb" value="2">
                     右侧
                 </label>
                 <label class="radio-inline">
-                    <input type="radio" name="ch" id="inputkkpxzc" ng-model="order_temporomandibularJoint_kkpx" value="3">
+                    <input type="radio" name="ch" id="inputkkpxzc" ng-model="order_temporomandibularJoint_kkpxc" value="3">
                     左侧
                 </label>
             </div>
@@ -176,6 +176,6 @@
 </div>
 
 <div class="orderfooter">
-    <a class="btn btn-default pull-right" href="#/other" role="button">下一步</a>
-    <a class="btn btn-default pull-left" href="#/teethCheck" role="button">上一步</a>
+    <a class="btn btn-default pull-right" href="#/other" role="button" ng-click="storeModelsToService()">下一步</a>
+    <a class="btn btn-default pull-left" href="#/teethCheck" role="button" ng-click="storeModelsToService()">上一步</a>
 </div>
