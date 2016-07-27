@@ -41,8 +41,8 @@ var app = express();
 var http = require('http');
 var bodyParser = require('./node_modules/body-Parser');
 var querystring = require('querystring');
-var Setting = require('./config/setting.js');
-var Logger = require('./common/Logger');
+var Setting = require('./server/setting.js');
+var Logger = require('./server/Logger');
 
 
 Logger.initLogConfig(Setting.LOG_HOME, Setting.LOG_LEVEL);
@@ -62,7 +62,7 @@ var Log = Logger.getLogger();
         app.use(bodyParser());
 		app.use(express.static('public'));
         //Dispatch HTTP request
-        require('./routes/Router.js')(app);
+        require('./server/Router.js')(app);
         var server = http.createServer(app);
         server.on('listening', function () {
             console.log("test at [http://localhost:" + port + "/views/index.html]");
