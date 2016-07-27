@@ -159,4 +159,10 @@ body {
      color: wheat;
      width: 100%;
  }
+ 
+ .selected {
+    background-color:yellow !important;
+    color:black;
+    font-weight:bold;
+}
 
