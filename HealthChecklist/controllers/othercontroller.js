@@ -13,31 +13,31 @@
 	OtherController.$inject = ['OrderCreateService', '$location', '$scope'];
 
 	function OtherController(OrderCreateService, $location, $scope) {
-		if (OrderCreateService.dataCache.temporo != undefined) {
-			var temporo = OrderCreateService.dataCache.temporo;
-			$scope.order_other_qddca = faceStatic.order_other_qddca;
-			$scope.order_other_qddcb = faceStatic.order_other_qddcb;
-			$scope.order_other_dtqa = faceStatic.order_other_dtqa;
-			$scope.order_other_dtqb = faceStatic.order_other_dtqb;
-			$scope.order_other_fybqa = faceStatic.order_other_fybqa;
-			$scope.order_other_fybqb = faceStatic.order_other_fybqb;
-			$scope.order_other_yj = faceStatic.order_other_yj;
-			$scope.order_other_qtwt = faceStatic.order_other_qtwt;
+		if (OrderCreateService.dataCache.other != undefined) {
+			var other = OrderCreateService.dataCache.other;
+			$scope.order_other_qddca = other.order_other_qddca;
+			$scope.order_other_qddcb = other.order_other_qddcb;
+			$scope.order_other_dtqa = other.order_other_dtqa;
+			$scope.order_other_dtqb = other.order_other_dtqb;
+			$scope.order_other_fybqa = other.order_other_fybqa;
+			$scope.order_other_fybqb = other.order_other_fybqb;
+			$scope.order_other_yj = other.order_other_yj;
+			$scope.order_other_qtwt = other.order_other_qtwt;
 		}
 
 		$scope.storeModelsToService = function() {
-			if (OrderCreateService.dataCache.temporo == undefined) {
-				OrderCreateService.dataCache.temporo = {};
+			if (OrderCreateService.dataCache.other == undefined) {
+				OrderCreateService.dataCache.other = {};
 			}
-			var temporo = OrderCreateService.dataCache.temporo;
-			faceStatic.order_other_qddca = $scope.order_other_qddca;
-			faceStatic.order_other_qddcb = $scope.order_other_qddcb;
-			faceStatic.order_other_dtqa = $scope.order_other_dtqa;
-			faceStatic.order_other_dtqb = $scope.order_other_dtqb;
-			faceStatic.order_other_fybqa = $scope.order_other_fybqa;
-			faceStatic.order_other_fybqb = $scope.order_other_fybqb;
-			faceStatic.order_other_yj = $scope.order_other_yj;
-			faceStatic.order_other_qtwt = $scope.order_other_qtwt;
+			var other = OrderCreateService.dataCache.other;
+			other.order_other_qddca = $scope.order_other_qddca;
+			other.order_other_qddcb = $scope.order_other_qddcb;
+			other.order_other_dtqa = $scope.order_other_dtqa;
+			other.order_other_dtqb = $scope.order_other_dtqb;
+			other.order_other_fybqa = $scope.order_other_fybqa;
+			other.order_other_fybqb = $scope.order_other_fybqb;
+			other.order_other_yj = $scope.order_other_yj;
+			other.order_other_qtwt = $scope.order_other_qtwt;
 		};
 
 
