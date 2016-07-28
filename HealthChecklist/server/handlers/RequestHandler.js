@@ -73,6 +73,12 @@ exports.QueryPatients = QueryPatients;
 
 var CreateOneCheck = function(action, req, res) {
 	var checkContent = JSON.stringify(req.body);
+	console.log(checkContent);
+	req.body.applyInfo.order_username;
+	req.body.applyInfo.order_phone;
+	req.body.applyInfo.order_birthday;
+	req.body.applyInfo.male;
+	req.body.applyInfo.female;
 	// var param = {};
 	// param.checkuid = '0001';
 	// param.patientuid = '0001';

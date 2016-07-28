@@ -33,7 +33,9 @@
 			other.order_other_qtwt = $scope.order_other_qtwt;
 		};
 
-		$scope.sendCheckDataToServer = OrderCreateService.sendCheckDataToServer();
+		$scope.sendCheckDataToServer = function() {
+			OrderCreateService.sendCheckDataToServer();
+		};
 
 	}
 
