@@ -1,10 +1,3 @@
-/**
- * Created with IntelliJ IDEA.
- * User: libaoxia
- * Date: 16-7-7
- * Time: 下午8:56
- * To change this template use File | Settings | File Templates.
- */
 (function() {
     'use strict';
 

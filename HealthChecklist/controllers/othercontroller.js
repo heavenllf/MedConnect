@@ -1,10 +1,3 @@
-/**
- * Created with IntelliJ IDEA.
- * User: libaoxia
- * Date: 16-7-14
- * Time: 下午9:37
- * To change this template use File | Settings | File Templates.
- */
 (function() {
 	'use strict';
 	angular
@@ -40,6 +33,7 @@
 			other.order_other_qtwt = $scope.order_other_qtwt;
 		};
 
+		$scope.sendCheckDataToServer = OrderCreateService.sendCheckDataToServer();
 
 	}
 

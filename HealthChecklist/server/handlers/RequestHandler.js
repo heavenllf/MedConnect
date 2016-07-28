@@ -43,7 +43,7 @@ exports.VerifyCodeRequestHandler = VerifyCodeRequestHandler;
 var QueryPatients = function(action, req, res) {
 	var params = JSON.stringify(req.query);
 
-
+	//test code start
 	var patientList = [];
 	for (var i=0; i<1000; i++) {
 		var patient = {};
@@ -63,13 +63,16 @@ var QueryPatients = function(action, req, res) {
 	});
 	res.write(JSON.stringify(result));
 	res.end();
+	//test code end
+
+	// MysqlAccessor.QueryCheckList(params,res);
 };
 exports.QueryPatients = QueryPatients;
 
 //-------------------------------------------------------------------
 
 var CreateOneCheck = function(action, req, res) {
-	var params = JSON.stringify(req.body);
+	var checkContent = JSON.stringify(req.body);
 	// var param = {};
 	// param.checkuid = '0001';
 	// param.patientuid = '0001';
