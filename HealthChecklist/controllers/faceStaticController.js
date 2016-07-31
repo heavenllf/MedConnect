@@ -1,6 +1,6 @@
 (function() {
     'use strict';
-    angular.module('mainapp')
+    angular.module('app')
         .controller('FaceStaticController', FaceStaticController);
     FaceStaticController.$inject = ['OrderCreateService', '$location', '$scope'];
 

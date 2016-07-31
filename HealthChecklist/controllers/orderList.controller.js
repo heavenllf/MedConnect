@@ -9,7 +9,7 @@
     'use strict';
 
     angular
-        .module('mainapp')
+        .module('app')
         .controller('OrderListController', OrderListController);
 
     OrderListController.$inject = ['OrderListService', '$location', '$rootScope'];

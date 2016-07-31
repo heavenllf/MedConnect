@@ -1,7 +1,7 @@
 (function() {
 	'use strict';
 	angular
-		.module('mainapp')
+		.module('app')
 		.controller('OtherController', OtherController);
 	OtherController.$inject = ['OrderCreateService', '$location', '$scope'];
 

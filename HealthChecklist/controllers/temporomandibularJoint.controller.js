@@ -1,7 +1,7 @@
 (function() {
 	'use strict';
 	angular
-		.module('mainapp')
+		.module('app')
 		.controller('OrderTemporomandibularJointController', OrderTemporomandibularJointController);
 	OrderTemporomandibularJointController.$inject = ['OrderCreateService', '$location', '$rootScope', '$scope'];
 

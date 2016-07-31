@@ -10,7 +10,10 @@
         var vm = this;
 
         vm.register = register;
-
+        vm.cancel=cancel;
+        function cancel(){
+            $location.path("/login")  ;
+        }
         function register() {
             vm.dataLoading = true;
             UserService.Create(vm.user)

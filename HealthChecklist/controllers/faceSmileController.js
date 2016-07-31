@@ -2,7 +2,7 @@
       'use strict';
 
       angular
-            .module('mainapp')
+            .module('app')
             .controller('FaceSmileController', FaceSmileController);
 
       FaceSmileController.$inject = ['OrderCreateService', '$location', '$scope'];

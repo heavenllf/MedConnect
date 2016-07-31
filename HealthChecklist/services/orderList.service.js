@@ -9,7 +9,7 @@
     'use strict';
 
     angular
-        .module('mainapp')
+        .module('app')
         .factory('OrderListService', OrderListService);
 
     OrderListService.$inject = ['$http'];

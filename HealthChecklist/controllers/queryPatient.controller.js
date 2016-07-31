@@ -1,7 +1,7 @@
 (function() {
     'use strict';
     angular
-        .module('mainapp')
+        .module('app')
         .controller('QueryPatientController', QueryPatientController);
 
     QueryPatientController.$inject = ['$scope', '$http', '$state','NgTableParams'];

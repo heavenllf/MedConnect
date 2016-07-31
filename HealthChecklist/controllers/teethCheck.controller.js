@@ -1,7 +1,7 @@
 (function() {
 	'use strict';
 	angular
-		.module('mainapp')
+		.module('app')
 		.controller('TeethCheckController', TeethCheckController);
 	TeethCheckController.$inject = ['OrderCreateService', '$location', '$rootScope', '$scope'];
 

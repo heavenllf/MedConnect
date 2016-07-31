@@ -1,13 +1,5 @@
-(function() {
-    'use strict';
-
-    angular
-        .module('mainapp')
-        .controller('OrderCreateController', OrderCreateController);
-
-    OrderCreateController.$inject = ['OrderCreateService', '$location', '$rootScope', '$scope'];
-
-    function OrderCreateController(OrderCreateService, $location, $rootScope, $scope) {
+createOrder.controller("OrderCreateController", ['$rootScope', '$scope', '$state', '$location', 'OrderCreateService',
+    function ($rootScope, $scope, $state, $location, OrderCreateService) {
         if (OrderCreateService.dataCache.applyInfo != undefined) {
             var applyInfo = OrderCreateService.dataCache.applyInfo;
             $scope.order_servicename = applyInfo.order_servicename;
@@ -30,7 +22,4 @@
             applyInfo.order_phone = $scope.order_phone;
             applyInfo.order_birthday = $scope.order_birthday;
         };
-
-    }
-
-})();
+    }]);

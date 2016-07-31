@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html xmlns:ng="http://angularjs.org" lang="zh-cmn-Hans"  ng-app="mainapp">
+<head>
+    <meta charset="utf-8" />
+    <title>CheckList</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="../components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="../components/bootstrap/dist/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="../components/bootstrap/dist/css/style.css" rel="stylesheet">
+    <link href="../components/bootstrap/dist/css/style-responsive.css" rel="stylesheet">
+    <link href="../components/bootstrap/dist/css/bootstrap-datetimepicker.min.css" rel="stylesheet" >
+    <link href="../components/ng-table/dist/ng-table.min.css" rel="stylesheet">
+    <link href="../components/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <![endif]-->
+    <link href="../public/stylesheets/style.css" rel="stylesheet" />
+    <link href="../public/stylesheets/main.css" rel="stylesheet" />
+    <link href="../public/stylesheets/icons.css" rel="stylesheet" />
+</head>
+<body>
+<!-- Start Page Loading -->
+<div class="loading"><img src="../public/images/loading.gif" alt="loading-img"></div>
+<div id="top" class="clearfix">
+
+    <!-- Start App Logo -->
+    <div class="applogo">
+        <a href="index.html" class="logo">检查列表</a>
+    </div>
+    <!-- End App Logo -->
+
+    <!-- Start Sidebar Show Hide Button -->
+    <a href="#" class="sidebar-open-button"><i class="fa fa-bars"></i></a>
+    <a href="#" class="sidebar-open-button-mobile"><i class="fa fa-bars"></i></a>
+    <!-- End Sidebar Show Hide Button -->
+
+
+    <!-- Start Sidepanel Show-Hide Button -->
+    <a href="#sidepanel" class="sidepanel-open-button"><i class="fa fa-outdent"></i></a>
+    <!-- End Sidepanel Show-Hide Button -->
+
+    <!-- Start Top Right -->
+    <ul class="top-right">
+
+        <li class="link">
+            <a href="#" class="notifications">6</a>
+        </li>
+
+        <li class="dropdown link">
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle profilebox"><img src="../public/images/doctor.jpg" alt="img"><b>张三</b><span class="caret"></span></a>
+            <ul class="dropdown-menu dropdown-menu-list dropdown-menu-right">
+                <li role="presentation" class="dropdown-header">基本情况</li>
+                <li><a href="#"><i class="fa falist fa-power-off"></i> 注销</a></li>
+            </ul>
+        </li>
+
+    </ul>
+    <!-- End Top Right -->
+
+</div>
+<!-- END TOP -->
+<!-- End Page Loading -->
+<!-- START SIDEBAR -->
+<div class="sidebar clearfix">
+    <div class="user-panel">
+        <div class="pull-left image">
+            <img src="../public/images/doctor.jpg" class="img-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+            <p>张三</p>
+            <span class="text-aqua text-sm">主任医师</span>
+        </div>
+    </div>
+    <ul class="sidebar-panel nav">
+        <li class="sidetitle">主要操作</li>
+        <li><a href="#"><span class="icon color7"><i class="fa fa-flask"></i></span>检查操作<span class="caret"></span><span class="label label-danger">NEW</span></a>
+            <ul>
+                <li><a href="icons.html">患者检查</a></li>
+                <li><a href="tabs.html">查询检查<span class="label label-default">19</span></a></li>
+            </ul>
+        </li>
+    </ul>
+
+    <ul class="sidebar-panel nav">
+        <li class="sidetitle">其他</li>
+        <li><a href="grid.html"><span class="icon color15"><i class="fa fa-columns"></i></span>用户管理</a></li>
+    </ul>
+
+
+</div>
+<!-- END SIDEBAR -->
+<!-- //////////////////////////////////////////////////////////////////////////// -->
+<!-- //////////////////////////////////////////////////////////////////////////// -->
+<!-- START CONTENT -->
+<div class="content">
+
+    <!-- Start Page Header -->
+    <div class="page-header">
+        <h1 class="title">创建检查</h1>
+    </div>
+    <div class="container-widget">
+        <div class="col-md-12">
+            <div ng-view></div>
+        </div>
+    </div>
+<!-- End Page Header -->
+    <div class="row footer">
+        <div class="col-md-6 text-left">
+            Copyright © 2015 <a href="#" target="_blank">vital</a> All rights reserved.
+        </div>
+        <div class="col-md-6 text-right">
+            Design and Developed by <a href="#" target="_blank">vital</a>
+        </div>
+    </div>
+    <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+            <b>Version</b> 1.3.2
+        </div>
+        <strong>Copyright © <a href="https://opensource.org/licenses/MIT" target="_blank">The MIT License (MIT)</a>.</strong> All rights reserved.
+    </footer>
+    <!-- //////////////////////////////////////////////////////////////////////////// -->
+    <!--
+    <div class="container">
+        <div class="row">
+            <div class="navbar navbar-fixed-top navbar-inverse mainhead">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#"><img class="logo" src="../public/images/logo.jpg" alt="患者检查"></a>
+                    </div>
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="#" class="glyphicon-home"><span>主页</span></a></li>
+                            <li><a href="#/"><span >创建</span></a></li>
+                            <li><a href="#/querypatient"><span>查询</span></a></li>
+                        </ul>
+                        <p class="navbar-text pull-right">登录用户： <a href="#">张三</a></p>
+                    </div><!-- /.nav-collapse -->
+           <!-- </div><!-- /.container -->
+        <!--</div>
+        <div class="container maincontent">
+            <div class="row">
+                <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
+                    <!-- start: Main Menu -->
+                    <!--<div id="sidebar-left" class="span2">
+                        <div class=" sidebar-nav">
+                            <ul class="nav nav-tabs nav-stacked main-menu">
+                                <li><a href="#/"><i class="icon-pencil"></i><span class="hidden-tablet"> 创建检查</span></a></li>
+                                <li><a href="messages.html"><i class="icon-edit"></i><span class="hidden-tablet"> 更改检查</span></a></li>
+                                <li><a href="#/querypatient" ><i class="icon-question-sign"></i><span class="hidden-tablet"> 查询检查</span></a></li>
+                                <li><a href="#"><i class="icon-trash"></i><span class="hidden-tablet"> 删除查询</span></a></li>
+
+                                <li>
+                                    <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Dropdown</span><span class="label label-important"> 3 </span></a>
+                                    <ul>
+                                        <li><a class="submenu" href="submenu.html"><i class="icon-file-alt"></i><span class="hidden-tablet"> Sub Menu 1</span></a></li>
+                                        <li><a class="submenu" href="submenu2.html"><i class="icon-file-alt"></i><span class="hidden-tablet"> Sub Menu 2</span></a></li>
+                                        <li><a class="submenu" href="submenu3.html"><i class="icon-file-alt"></i><span class="hidden-tablet"> Sub Menu 3</span></a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="form.html"><i class="icon-edit"></i><span class="hidden-tablet"> Item6</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- end: Main Menu -->
+                <!-- start: Content -->
+               <!-- <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+                       <div ng-view></div>
+               </div>
+
+            </div>
+        </div>
+    </div>
+</div><-->
+<script src="../components/jquery/jquery.js"></script>
+<script src="../components/jquery-ui/jquery-ui.js"></script>
+<script src="../components/angular/angular.js"></script>
+<script src="../components/angular-route/angular-route.js"></script>
+<script src="../components/angular-ui-router/angular-ui-router.js"></script>
+<script src="../components/angular-cookies/angular-cookies.js"></script>
+<script src="../components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="../components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="/components/ng-table/dist/ng-table.min.js"></script>
+<script src="../components/bootstrap/dist/js/bootstrap-datetimepicker.js" ></script>
+<script src="../components/bootstrap/dist/js/locales/bootstrap-datetimepicker.zh-CN.js" ></script>
+<script src="../public/javascripts/custom.js"></script> 
+<script src="../public/javascripts/main.js"></script>
+<script src="../public/javascripts/plugin.js"></script>
+
+<script src="../services/orderCreate.service.js"></script>
+<script src="../services/orderList.service.js"></script>
+<script src="../controllers/orderCreate.controller.js"></script>
+<script src="../controllers/orderList.controller.js"></script>
+<script src="../controllers/faceSmileController.js"></script>
+<script src="../controllers/teethCheck.controller.js"></script>
+<script src="../controllers/temporomandibularJoint.controller.js"></script>
+<script src="../controllers/othercontroller.js"></script>
+<script src="../controllers/faceStaticController.js"></script>
+<script src="../controllers/queryPatient.controller.js"></script>
+
+</body>
+</html>
