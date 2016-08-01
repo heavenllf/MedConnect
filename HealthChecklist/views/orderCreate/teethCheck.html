@@ -192,39 +192,27 @@
                                 <div class="form-group">
                                     <label for="inputsfh" class="col-md-3 control-label">深覆颌</label>
                                     <div class="col-md-9">
-                                        <div class="row">
-                                            <div class="col-md-11">
-                                                <input type="text" class="form-control" id="inputsfh" placeholder="" ng-model="order_teethcheck_sfh">
-                                            </div>
-                                            <div class="col-md-1">
-                                                <span>mm</span>
-                                            </div>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="inputsfh" placeholder="" ng-model="order_teethcheck_sfh">
+                                            <span class="input-group-addon">mm</span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="inputsfg" class="col-md-3 control-label">深覆盖</label>
                                     <div class="col-md-9">
-                                        <div class="row">
-                                            <div class="col-md-11">
-                                                <input type="text" class="form-control" id="inputsfg" placeholder="" ng-model="order_teethcheck_sfg">
-                                            </div>
-                                            <div class="col-md-1">
-                                                <span>mm</span>
-                                            </div>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="inputsfg" placeholder="" ng-model="order_teethcheck_sfg">
+                                            <span class="input-group-addon">mm</span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="inputqykh" class="col-md-3 control-label">前牙开颌</label>
                                     <div class="col-md-9">
-                                        <div class="row">
-                                            <div class="col-md-11">
-                                                <input type="text" class="form-control" id="inputqykh" placeholder="" ng-model="order_teethcheck_qykh">
-                                            </div>
-                                            <div class="col-md-1">
-                                                <span>mm</span>
-                                            </div>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="inputqykh" placeholder="" ng-model="order_teethcheck_qykh">
+                                            <span class="input-group-addon">mm</span>
                                         </div>
                                     </div>
                                 </div>
@@ -265,26 +253,18 @@
                                 <div class="form-group">
                                     <label for="inputqyyw" class="col-md-3 control-label">缺牙牙位</label>
                                     <div class="col-md-9">
-                                        <div class="row">
-                                            <div class="col-md-11">
-                                                <input type="text" class="form-control" id="inputqyyw" placeholder="" ng-model="order_teethcheck_qyyw">
-                                            </div>
-                                            <div class="col-md-1">
-                                                <span>mm</span>
-                                            </div>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="inputqyyw" placeholder="" ng-model="order_teethcheck_qyyw">
+                                            <span class="input-group-addon">mm</span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="inputdsmy" class="col-md-3 control-label">第三磨牙</label>
                                     <div class="col-md-9">
-                                        <div class="row">
-                                            <div class="col-md-11">
-                                                <input type="text" class="form-control" id="inputdsmy" placeholder="" ng-model="order_teethcheck_dsmy">
-                                            </div>
-                                            <div class="col-md-1">
-                                                <span>mm</span>
-                                            </div>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="inputdsmy" placeholder="" ng-model="order_teethcheck_dsmy">
+                                            <span class="input-group-addon">mm</span>
                                         </div>
                                     </div>
                                 </div>
@@ -327,13 +307,9 @@
                                 <div class="form-group">
                                     <label for="inputqtkqwt" class="col-md-3 control-label">其他口腔问题</label>
                                     <div class="col-md-9">
-                                        <div class="row">
-                                            <div class="col-md-5">
-                                                <label for="inputqtkqwt">（修复体，填充体，牙体磨耗等）</label>
-                                            </div>
-                                            <div class="col-md-7">
-                                                <input type="text" class="form-control" id="inputqtkqwt" placeholder="" ng-model="order_teethcheck_qtkqwt">
-                                            </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">（修复体，填充体，牙体磨耗等）</span>
+                                            <input type="text" class="form-control" id="inputqtkqwt" placeholder="" ng-model="order_teethcheck_qtkqwt">
                                         </div>
                                     </div>
                                 </div>
@@ -343,9 +319,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="box-footer">
-                    <a class="btn btn-default pull-right" ui-sref="app.temporomandibularJoint" role="button" ng-click="storeModelsToService()">下一步</a>
-                    <a class="btn btn-default pull-left" ui-sref="app.faceSmile" role="button" ng-click="storeModelsToService()">上一步</a>
+                <div class="box-footer orderfooter">
+                    <a class="btn next btn-warning btn-sm btn-flat pull-right" ui-sref="app.temporomandibularJoint" role="button" ng-click="storeModelsToService()">下一步</a>
+                    <a class="btn prev btn-info btn-sm btn-flat pull-left" ui-sref="app.faceSmile" role="button" ng-click="storeModelsToService()">上一步</a>
                 </div>
             </div>
         </div>

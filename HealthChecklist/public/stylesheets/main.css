@@ -1,4 +1,3 @@
-
 html,
 body {
     min-height: 100%;
@@ -14,6 +13,8 @@ body {
     font-weight: 400;
     overflow-x: hidden;
     overflow-y: auto;
+    font-size: 14px;
+    /*font-family:'微软雅黑' ,Helvetica,"Helvetica Neue","segoe UI Light","Kozuka Gothic Pro";  */
 }
 /* Layout */
 .wrapper {
@@ -4784,4 +4785,21 @@ Page Header
 .ordersublabel
 {
     font-weight: normal;
+}
+.orderfooter
+{
+    margin: 10px 100px;
+    height: 50px;
+}
+.navbar {
+    background-image: -webkit-linear-gradient(#ffffff, #eeeeee 50%, #e4e4e4);
+    background-image: -o-linear-gradient(#ffffff, #eeeeee 50%, #e4e4e4);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), color-stop(50%, #eeeeee), to(#e4e4e4));
+    background-image: linear-gradient(#ffffff, #C1E0FF 50%, #399bff);
+    background-repeat: no-repeat;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe4e4e4', GradientType=0);
+    -webkit-filter: none;
+    filter: none;
+    border: 1px solid #d5d5d5;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
 }
