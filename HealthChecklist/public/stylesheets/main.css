@@ -9,12 +9,12 @@ body {
 body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    /*font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;  */
     font-weight: 400;
     overflow-x: hidden;
     overflow-y: auto;
-    font-size: 14px;
-    /*font-family:'微软雅黑' ,Helvetica,"Helvetica Neue","segoe UI Light","Kozuka Gothic Pro";  */
+    font-size: 15px;
+    font-family:'微软雅黑' ,Helvetica,"Helvetica Neue","segoe UI Light","Kozuka Gothic Pro";
 }
 /* Layout */
 .wrapper {
