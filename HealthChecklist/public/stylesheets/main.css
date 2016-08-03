@@ -1,6 +1,7 @@
 html,
 body {
     min-height: 100%;
+    background-color: #222;
 }
 .layout-boxed html,
 .layout-boxed body {
@@ -90,9 +91,9 @@ body {
     z-index: 800;
 }
 .main-footer {
-    background: #fff;
+    background: #222d32;
     padding: 15px;
-    color: #444;
+    color: #fff;
     border-top: 1px solid #d2d6de;
 }
 /* Fixed layout */
@@ -4795,11 +4796,15 @@ Page Header
     background-image: -webkit-linear-gradient(#ffffff, #eeeeee 50%, #e4e4e4);
     background-image: -o-linear-gradient(#ffffff, #eeeeee 50%, #e4e4e4);
     background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), color-stop(50%, #eeeeee), to(#e4e4e4));
-    background-image: linear-gradient(#ffffff, #C1E0FF 50%, #399bff);
+    background-image: linear-gradient(#18bc9c, #18bc9c 50%, #18bc9c);
     background-repeat: no-repeat;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe4e4e4', GradientType=0);
     -webkit-filter: none;
     filter: none;
     border: 1px solid #d5d5d5;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+.padding-top-100
+{
+    padding-top: 100px;
 }
