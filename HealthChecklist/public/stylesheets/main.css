@@ -4781,7 +4781,7 @@ Page Header
 }
 .box-body-padding
 {
-    padding:100px;
+    padding:70px;
 }
 .ordersublabel
 {
@@ -4808,3 +4808,7 @@ Page Header
 {
     padding-top: 100px;
 }
+.box-height {
+    height: 500px;;
+}
+
