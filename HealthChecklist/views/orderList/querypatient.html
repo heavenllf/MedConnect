@@ -71,10 +71,10 @@
                         {{patient.checktime}}
                     </td>
                     <td data-title="'操作'" class="center">
-                        <a class="btn btn-info" href="#">
+                        <a class="btn btn-info" ui-sref="app.createOrder">
                             <i class="glyphicon glyphicon-edit"></i>
                         </a>
-                        <a class="btn btn-danger" href="#">
+                        <a class="btn btn-danger" ng-click="deleterow($index)" href="javascript:void(0)">
                             <i class="	glyphicon glyphicon-trash white trash"></i>
                         </a>
                     </td>

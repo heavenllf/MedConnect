@@ -15,7 +15,10 @@
         }
 
         $scope.editOneCheck = function() {
-            $state.go('orderCreate');
+            $state.go('app.orderCreate');
+        }
+        $scope.deleterow=function(index){
+             confirm("确认删除该记录吗？"+index);
         }
         //Table configuration
         $scope.tableParams = new NgTableParams({
