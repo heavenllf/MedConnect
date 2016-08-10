@@ -15,6 +15,8 @@ body {
     overflow-x: hidden;
     overflow-y: auto;
     font-size: 15px;
+    color: #2a2c36;
+    background-color: #e4e5e6;
     font-family:'微软雅黑' ,Helvetica,"Helvetica Neue","segoe UI Light","Kozuka Gothic Pro";
 }
 /* Layout */
@@ -87,13 +89,10 @@ body {
 .content-wrapper,
 .right-side {
     min-height: 100%;
-    background-color: #ecf0f5;
     z-index: 800;
 }
 .main-footer {
-    background: #222d32;
     padding: 15px;
-    color: #fff;
     border-top: 1px solid #d2d6de;
 }
 /* Fixed layout */
@@ -1520,7 +1519,6 @@ a:focus {
     position: relative;
     border-radius: 3px;
     background: #ffffff;
-    border-top: 3px solid #d2d6de;
     margin-bottom: 20px;
     width: 100%;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
@@ -4792,18 +4790,6 @@ Page Header
     margin: 10px 100px;
     height: 50px;
 }
-.navbar {
-    background-image: -webkit-linear-gradient(#ffffff, #eeeeee 50%, #e4e4e4);
-    background-image: -o-linear-gradient(#ffffff, #eeeeee 50%, #e4e4e4);
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), color-stop(50%, #eeeeee), to(#e4e4e4));
-    background-image: linear-gradient(#18bc9c, #18bc9c 50%, #18bc9c);
-    background-repeat: no-repeat;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe4e4e4', GradientType=0);
-    -webkit-filter: none;
-    filter: none;
-    border: 1px solid #d5d5d5;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
-}
 .padding-top-100
 {
     padding-top: 100px;
@@ -4811,4 +4797,9 @@ Page Header
 .box-height {
     height: 650px;;
 }
+.no-box-margin-bottom
+{
+    margin-bottom: 0px;
+}
+
 
