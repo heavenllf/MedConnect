@@ -15,8 +15,6 @@ body {
     overflow-x: hidden;
     overflow-y: auto;
     font-size: 15px;
-    color: #2a2c36;
-    background-color: #e4e5e6;
     font-family:'微软雅黑' ,Helvetica,"Helvetica Neue","segoe UI Light","Kozuka Gothic Pro";
 }
 /* Layout */
@@ -4800,6 +4798,11 @@ Page Header
 .no-box-margin-bottom
 {
     margin-bottom: 0px;
+}
+.btn_width
+{
+    width: 70px;
+    margin: 0;
 }
 
 

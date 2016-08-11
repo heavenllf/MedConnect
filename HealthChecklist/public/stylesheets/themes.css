@@ -31,6 +31,9 @@
 .skin-blue .main-header .navbar .sidebar-toggle:hover {
   background-color: #367fa9;
 }
+.skin-blue .main-header {
+    background-color: #367fa9;
+}
 @media (max-width: 767px) {
   .skin-blue .main-header .navbar .dropdown-menu li.divider {
     background-color: rgba(255, 255, 255, 0.1);
@@ -1561,7 +1564,7 @@
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe4e4e4', GradientType=0);
     -webkit-filter: none;
     filter: none;
-    border: 1px solid #d5d5d5;
+    border-bottom: 1px solid #d5d5d5;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 .skin-purple .main-header .navbar .nav > li > a {
@@ -1579,6 +1582,9 @@
 }
 .skin-purple .box {
     border-top: 1px solid #d2d6de;
+}
+.skin-purple .main-header {
+    background-color: #141519;
 }
 .skin-purple .main-footer {
     background: #fff;
@@ -1605,7 +1611,8 @@
     background-color: rgba(255, 255, 255, 0.1);
   }
   .skin-purple .main-header .navbar .dropdown-menu li a {
-    color: #fff;
+      color: inherit;
+      background: transparent;
   }
   .skin-purple .main-header .navbar .dropdown-menu li a:hover {
     background: #141519;
@@ -1614,7 +1621,7 @@
 .skin-purple .main-header .logo {
   background-color: #141519;
   color: #ffffff;
-  border-bottom: 0 solid transparent;
+  border-bottom: 1px solid #141519;
 }
 .skin-purple .main-header .logo:hover {
   background-color: #141519;
