@@ -21,7 +21,7 @@
                 var me = this;
                 $http({
                     url: 'CreateOneCheckActor',
-                    method: "POST",
+                    method: 'POST',
                     data: me.dataCache,
                     headers: {'Content-Type': 'application/json;charset=UTF-8'},
                 })

@@ -189,3 +189,10 @@ var DeletePatientInfo = function(params, res) {
 exports.DeletePatientInfo = DeletePatientInfo;
 
 //---------------------------------------------------------------------------------------------
+
+var UserInfoRegister = function(params, res) {
+
+};
+exports.UserInfoRegister = UserInfoRegister;
+
+//---------------------------------------------------------------------------------------------

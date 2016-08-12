@@ -85,28 +85,35 @@ var CreateOneCheck = function(action, req, res) {
 	// param.checkcontent = '{"bla":"bla" }';
 	// param.checktime = '2016-01-01';
 	// MysqlAccessor.CreateOneCheck(param,res);
-}
+};
 exports.CreateOneCheck = CreateOneCheck;
 
 //-------------------------------------------------------------------
 
 var UpdateOneCheck = function(action, req, res) {
 	var params = JSON.stringify(req.body);
-}
+};
 exports.UpdateOneCheck = UpdateOneCheck;
 
 //-------------------------------------------------------------------
 
 var GetOneCheck = function(action, req, res) {
 	var params = JSON.stringify(req.query);
-}
+};
 exports.GetOneCheck = GetOneCheck;
 
 //-------------------------------------------------------------------
 
 var DeleteOneCheck = function(action, req, res) {
 	var params = JSON.stringify(req.body);
-}
+};
 exports.DeleteOneCheck = DeleteOneCheck;
 
 //-------------------------------------------------------------------
+
+var UserRegister = function(action, req, res) {
+	var params = JSON.stringify(req.body);
+	MysqlAccessor.UserInfoRegister(param,res);
+	console.log('UserRegister: ' + params);
+};
+exports.UserRegister = UserRegister;

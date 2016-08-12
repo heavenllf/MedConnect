@@ -9,23 +9,38 @@
     function RegisterController(UserService, $location, $rootScope, FlashService) {
         var vm = this;
 
-        vm.register = register;
         vm.cancel=cancel;
         function cancel(){
             $location.path("/login")  ;
         }
-        function register() {
-            vm.dataLoading = true;
-            UserService.Create(vm.user)
-                .then(function (response) {
-                    if (response.success) {
-                        FlashService.Success('Registration successful', true);
-                        $location.path('/login');
-                    } else {
-                        FlashService.Error(response.message);
-                        vm.dataLoading = false;
-                    }
-                });
+        vm.register = function() {
+            $http({
+                url: 'RegisterActor',
+                method: 'POST',
+                data: vm.setUser,
+                headers: {
+                    'Content-Type': 'application/json;charset=UTF-8'
+                },
+            }).then(function(response) {
+                if (response.success) {
+                    FlashService.Success('用户注册成功！', true);
+                    $location.path('/login');
+                } else {
+                    FlashService.Error(response.message);
+                }
+            });
+
+            // vm.dataLoading = true;
+            // UserService.Create(vm.setUser)
+            //     .then(function (response) {
+            //         if (response.success) {
+            //             FlashService.Success('Registration successful', true);
+            //             $location.path('/login');
+            //         } else {
+            //             FlashService.Error(response.message);
+            //             vm.dataLoading = false;
+            //         }
+            //     });
         }
     }
 
