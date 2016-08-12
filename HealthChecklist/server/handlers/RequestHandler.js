@@ -113,7 +113,7 @@ exports.DeleteOneCheck = DeleteOneCheck;
 
 var UserRegister = function(action, req, res) {
 	var params = JSON.stringify(req.body);
-	MysqlAccessor.UserInfoRegister(param,res);
+	MysqlAccessor.UserInfoRegister(params,res);
 	console.log('UserRegister: ' + params);
 };
 exports.UserRegister = UserRegister;

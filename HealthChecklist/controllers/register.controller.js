@@ -5,8 +5,8 @@
         .module('app')
         .controller('RegisterController', RegisterController);
 
-    RegisterController.$inject = ['UserService', '$location', '$rootScope', 'FlashService'];
-    function RegisterController(UserService, $location, $rootScope, FlashService) {
+    RegisterController.$inject = ['$http', 'UserService', '$location', '$rootScope', 'FlashService'];
+    function RegisterController($http, UserService, $location, $rootScope, FlashService) {
         var vm = this;
 
         vm.cancel=cancel;
@@ -21,7 +21,8 @@
                 headers: {
                     'Content-Type': 'application/json;charset=UTF-8'
                 },
-            }).then(function(response) {
+            })
+            .then(function(response) {
                 if (response.success) {
                     FlashService.Success('用户注册成功！', true);
                     $location.path('/login');
