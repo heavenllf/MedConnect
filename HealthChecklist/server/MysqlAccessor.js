@@ -196,3 +196,10 @@ var UserInfoRegister = function(params, res) {
 exports.UserInfoRegister = UserInfoRegister;
 
 //---------------------------------------------------------------------------------------------
+
+var UserLogin = function(params, res) {
+
+};
+exports.UserLogin = UserLogin;
+
+//---------------------------------------------------------------------------------------------

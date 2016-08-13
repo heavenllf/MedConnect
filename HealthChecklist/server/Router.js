@@ -24,6 +24,9 @@ module.exports = function(app) {
 	app.post(Setting.ROOT + 'RegisterActor', function(req, res) {
 		RequestHandler.UserRegister('RegisterActor', req, res);
 	});
+	app.post(Setting.ROOT + 'LoginActor', function(req, res) {
+		RequestHandler.UserLogin('LoginActor', req, res);
+	});
 
 	app.get('*', function(req, res) {
 		BaseHandler.GeneralHandler(req, res);

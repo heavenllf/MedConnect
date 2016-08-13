@@ -117,3 +117,18 @@ var UserRegister = function(action, req, res) {
 	console.log('UserRegister: ' + params);
 };
 exports.UserRegister = UserRegister;
+
+//-------------------------------------------------------------------
+
+var UserLogin = function(action, req, res) {
+	var params = JSON.stringify(req.body);
+	MysqlAccessor.UserLogin(params,res);
+	res.success = true;
+	res.writeHead(200, {
+		"Content-Type": "text/html;charset=UTF-8"
+	});
+	res.write(JSON.stringify({success:true}));
+	res.end();
+	console.log('UserLogin: ' + params);
+};
+exports.UserLogin = UserLogin;

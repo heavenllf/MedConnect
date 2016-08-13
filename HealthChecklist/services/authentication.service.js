@@ -16,8 +16,22 @@
         return service;
 
         function Login(username, password, callback) {
-            var response = { success: true };
-            callback(response);
+            
+            var param = {UserName:username, PassWord:password};
+            $http({
+                url: 'LoginActor',
+                method: 'POST',
+                data: param,
+                headers: {
+                    'Content-Type': 'application/json;charset=UTF-8'
+                },
+            })
+                .then(function(response) {
+                    callback(response.data);
+                });
+
+            
+
             /* Dummy authentication for testing, uses $timeout to simulate api call
              ----------------------------------------------
             $timeout(function () {
