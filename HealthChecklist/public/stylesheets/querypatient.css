@@ -1,5 +1,15 @@
  .patient-list-row-selected {
-    background-color:#FFDDAA !important;
+    background-color:#DDDDDD !important;
     color:black;
     font-weight:bold;
+}
+
+.table-text-align-left {
+	vertical-align:middle !important; 
+	text-align:left;
+}
+
+.table-text-align-center {
+	vertical-align:middle !important; 
+	text-align:center;
 }
