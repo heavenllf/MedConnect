@@ -57,7 +57,7 @@
         <div class="box-content">
             <table ng-table="tableParams"  class="table table-striped table-bordered table-hover col-md-12" >
                 <tr ng-repeat="patient in tableParams.data" ng-click="setClickedRow($index)" ng-dblclick="editOneCheck()"
-                    ng-class="{'selected':$index == selectedRow}">
+                    ng-class="{'patient-list-row-selected':$index == selectedRow}">
                     <td data-title="'患者姓名'" >
                         {{patient.name}}
                     </td>
