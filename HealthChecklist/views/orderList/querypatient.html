@@ -56,7 +56,7 @@
     <div class="box span12 box-height no-box-margin-bottom">
         <div class="box-content">
             <table ng-table="tableParams"  class="table table-striped table-bordered table-hover col-md-12" >
-                <tr ng-repeat="patient in tableParams.data" ng-click="setClickedRow($index)" ng-dblclick="editOneCheck()"
+                <tr ng-repeat="patient in tableParams.data" ng-click="setClickedRow($index)" ng-dblclick="editOneCheck($index)"
                     ng-class="{'patient-list-row-selected':$index == selectedRow}">
                     <td data-title="'患者姓名'" class="table-text-align-center">
                         {{patient.name}}
@@ -71,11 +71,11 @@
                         {{patient.checktime}}
                     </td>
                     <td data-title="'操作'" class="center">
-                        <a class="btn btn-info" ui-sref="app.createOrder">
-                            <i class="glyphicon glyphicon-edit"></i>
+                        <a class="btn btn-info" ng-click="editOneCheck($index)" ui-sref="app.createOrder">
+                            <i class="glyphicon glyphicon-edit" ></i>
                         </a>
                         <a class="btn btn-danger" ng-click="deleterow($index)" href="javascript:void(0)">
-                            <i class="	glyphicon glyphicon-trash white trash"></i>
+                            <i class="glyphicon glyphicon-trash white trash"></i>
                         </a>
                     </td>
                 </tr>

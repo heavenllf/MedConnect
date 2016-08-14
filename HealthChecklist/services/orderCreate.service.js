@@ -16,11 +16,17 @@
 
     function OrderCreateService($http) {
         var service = {
-            dataCache: {},
+            dataCache: {checkUID: null},
             sendCheckDataToServer: function() {
-                var me = this;
+                var me = this, action;
+                if(me.dataCache.checkUID) {
+                    action = 'UpdateOneCheckActor';
+                } else {
+                    action = 'CreateOneCheckActor';
+                }
+
                 $http({
-                    url: 'CreateOneCheckActor',
+                    url: action,
                     method: 'POST',
                     data: me.dataCache,
                     headers: {'Content-Type': 'application/json;charset=UTF-8'},
@@ -33,6 +39,23 @@
                         }
                 );
 
+            },
+            getCheckDataFromServer: function(uid) {
+                var me = this;
+                $http({
+                    url: 'GetOneCheckActor',
+                    method: 'GET',
+                    params: {checkUID: uid},
+                    headers: {'Content-Type': 'application/json;charset=UTF-8'},
+                })
+                    .then(function(response) {
+                            // success
+                        },
+                        function(response) { // optional
+                            // failed
+                        }
+                );
+                me.dataCache.checkUID = uid;
             },
         };
 

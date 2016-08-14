@@ -10,7 +10,7 @@ module.exports = function(app) {
 		RequestHandler.QueryPatients('QueryPatientsActor', req, res);
 	});
 	app.get(Setting.ROOT + 'GetOneCheckActor', function(req, res) {
-		RequestHandler.QueryPatients('GetOneCheckActor', req, res);
+		RequestHandler.GetOneCheck('GetOneCheckActor', req, res);
 	});
 	app.post(Setting.ROOT + 'CreateOneCheckActor', function(req, res) {
 		RequestHandler.CreateOneCheck('CreateOneCheckActor', req, res);

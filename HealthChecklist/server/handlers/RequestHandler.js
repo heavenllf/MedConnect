@@ -93,6 +93,7 @@ exports.CreateOneCheck = CreateOneCheck;
 
 var UpdateOneCheck = function(action, req, res) {
 	var params = JSON.stringify(req.body);
+	console.log('UpdateOneCheck' + params);
 };
 exports.UpdateOneCheck = UpdateOneCheck;
 
@@ -100,6 +101,7 @@ exports.UpdateOneCheck = UpdateOneCheck;
 
 var GetOneCheck = function(action, req, res) {
 	var params = JSON.stringify(req.query);
+	console.log('GetOneCheck' + params);
 };
 exports.GetOneCheck = GetOneCheck;
 
@@ -107,7 +109,7 @@ exports.GetOneCheck = GetOneCheck;
 
 var DeleteOneCheck = function(action, req, res) {
 	var params = JSON.stringify(req.body);
-	console.log(params);
+	console.log('DeleteOneCheck' + params);
 };
 exports.DeleteOneCheck = DeleteOneCheck;
 

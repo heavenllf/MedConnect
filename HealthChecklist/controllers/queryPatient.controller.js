@@ -4,9 +4,9 @@
         .module('app')
         .controller('QueryPatientController', QueryPatientController);
 
-    QueryPatientController.$inject = ['$scope', '$http', '$state', 'NgTableParams'];
+    QueryPatientController.$inject = ['$scope', '$http', '$state', 'NgTableParams', 'OrderCreateService'];
 
-    function QueryPatientController($scope, $http, $state, NgTableParams) { //ngTableParams => NgTableParams
+    function QueryPatientController($scope, $http, $state, NgTableParams,OrderCreateService) { //ngTableParams => NgTableParams
         var tableData = []
 
         $scope.selectedRow = null;
@@ -14,8 +14,10 @@
             $scope.selectedRow = index;
         };
 
-        $scope.editOneCheck = function() {
-            $state.go('app.orderCreate');
+        $scope.editOneCheck = function(index) {
+            // $state.go('app.orderCreate');
+            var checkUID = $scope.tableParams.data[index].uid;
+            OrderCreateService.getCheckDataFromServer(checkUID);
         };       
 
         $scope.deleterow = function(index) {
