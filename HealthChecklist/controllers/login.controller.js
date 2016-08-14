@@ -21,9 +21,9 @@
         }
         function login() {
             vm.dataLoading = true;
-            AuthenticationService.Login(vm.username, vm.password, function (response) {
+            AuthenticationService.Login(vm.getUser.Username, vm.getUser.Password, function (response) {
                 if (response.success) {
-                    AuthenticationService.SetCredentials(vm.username, vm.password);
+                    AuthenticationService.SetCredentials(vm.getUser.Username, vm.getUser.Password);
                     $state.go("app.createOrder");
                 } else {
                     FlashService.Error(response.message);
