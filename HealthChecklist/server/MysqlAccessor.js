@@ -93,6 +93,7 @@ exports.QueryCheckList = QueryCheckList;
 
 var CreateOneCheck = function(params, res) {
 	var conn = GetConnection();
+	params.checkuid = uuid.v4();
 	var sql = 'insert into clinicalevaluatetbl(EVALUATION_UID, PATIENT_UID, EVALUATION, EVALUATION_TIME) values(?, ?, ?, ?) ';
 	var param = [params.checkuid, params.patientuid, params.checkcontent,params.checktime];
 	conn.query(sql, param, function(err, result) {

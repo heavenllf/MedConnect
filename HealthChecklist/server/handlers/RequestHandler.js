@@ -94,6 +94,7 @@ exports.CreateOneCheck = CreateOneCheck;
 var UpdateOneCheck = function(action, req, res) {
 	var params = JSON.stringify(req.body);
 	console.log('UpdateOneCheck' + params);
+	MysqlAccessor.UpdateOneCheck(params,res);
 };
 exports.UpdateOneCheck = UpdateOneCheck;
 
@@ -102,6 +103,7 @@ exports.UpdateOneCheck = UpdateOneCheck;
 var GetOneCheck = function(action, req, res) {
 	var params = JSON.stringify(req.query);
 	console.log('GetOneCheck' + params);
+	MysqlAccessor.GetOneCheck(params,res);
 };
 exports.GetOneCheck = GetOneCheck;
 
@@ -110,6 +112,7 @@ exports.GetOneCheck = GetOneCheck;
 var DeleteOneCheck = function(action, req, res) {
 	var params = JSON.stringify(req.body);
 	console.log('DeleteOneCheck' + params);
+	MysqlAccessor.DeleteOneCheck(params,res);
 };
 exports.DeleteOneCheck = DeleteOneCheck;
 
