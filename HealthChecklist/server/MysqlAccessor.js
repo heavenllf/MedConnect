@@ -1,4 +1,5 @@
 var mysql = require('mysql');
+var uuid = require('../node_modules/node-uuid/uuid');
 
 var testMysql = function(param, res) {
 	var conn = mysql.createConnection({
@@ -198,7 +199,7 @@ exports.UserInfoRegister = UserInfoRegister;
 //---------------------------------------------------------------------------------------------
 
 var UserLogin = function(params, res) {
-
+	console.log(uuid.v4());
 };
 exports.UserLogin = UserLogin;
 

@@ -4,7 +4,7 @@
         .module('app')
         .controller('QueryPatientController', QueryPatientController);
 
-    QueryPatientController.$inject = ['$scope', '$http', '$state','NgTableParams'];
+    QueryPatientController.$inject = ['$scope', '$http', '$state', 'NgTableParams'];
 
     function QueryPatientController($scope, $http, $state, NgTableParams) { //ngTableParams => NgTableParams
         var tableData = []
@@ -12,13 +12,34 @@
         $scope.selectedRow = null;
         $scope.setClickedRow = function(index) {
             $scope.selectedRow = index;
-        }
+        };
 
         $scope.editOneCheck = function() {
             $state.go('app.orderCreate');
-        }
-        $scope.deleterow=function(index){
-             confirm("确认删除该记录吗？"+index);
+        };       
+
+        $scope.deleterow = function(index) {
+            if (confirm("确认删除该记录吗？" + index)) {
+                $http({
+                    url: 'DeleteOneCheckActor',
+                    method: 'POST',
+                    data: {
+                        CheckUID: $scope.tableParams.data[index].uid
+                    },
+                    headers: {
+                        'Content-Type': 'application/json;charset=UTF-8'
+                    },
+                })
+                    .then(function(response) {
+                        if (response.success) {
+
+                        } else {
+
+                        }
+                    });
+            }
+            $scope.tableParams.data.splice(index,1);
+
         }
         //Table configuration
         $scope.tableParams = new NgTableParams({

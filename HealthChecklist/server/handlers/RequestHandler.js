@@ -48,6 +48,7 @@ var QueryPatients = function(action, req, res) {
 	for (var i=0; i<1000; i++) {
 		var patient = {};
 		patient.name = 'ZhangSan_' + i;
+		patient.uid = patient.name;
 		patient.gender = 'Male';
 		patient.age = '1980-01-01';
 		patient.checktime = '2016-01-01';
@@ -106,6 +107,7 @@ exports.GetOneCheck = GetOneCheck;
 
 var DeleteOneCheck = function(action, req, res) {
 	var params = JSON.stringify(req.body);
+	console.log(params);
 };
 exports.DeleteOneCheck = DeleteOneCheck;
 
