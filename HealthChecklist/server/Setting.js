@@ -13,5 +13,5 @@ module.exports = {
     //default log home
     LOG_HOME: 'C:/NodeServer',
     //default log level
-    LOG_LEVEL: 'info',
+    LOG_LEVEL: 'info'
 };

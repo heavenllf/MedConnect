@@ -24,7 +24,6 @@ var GeneralHandler = function(req, res){
 	  '.js':   "text/javascript",
       '.pdf':   "application/pdf"
 	};
-
 	//path.exists(filename, function(exists) {
 	fs.exists(filename, function(exists) {
 		if(!exists) {
@@ -35,7 +34,6 @@ var GeneralHandler = function(req, res){
 		}
 
 		if (fs.statSync(filename).isDirectory()) filename += '/index.html';
-
 		fs.readFile(filename, "binary", function(err, file) {
 			if(err) {
 			res.writeHead(500, {"Content-Type": "text/plain"});

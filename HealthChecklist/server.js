@@ -51,12 +51,19 @@ var Log = Logger.getLogger();
 (function() {
     var listen = function () {
         var port = Setting.PORT;
-        
+        //app.use(express.cookieParser("vital"));//sessionID secret code
+        //app.use(express.session());
         app.use(function (req, res, next) {
             for (var i in req.headers) {
                 req.headers[i] = querystring.unescape(req.headers[i]);
                 req.headers[i] = req.headers[i].replace(/\+/g, "");
             }
+            /*
+            console.log("req"+req.originalUrl);
+            var url = req.originalUrl;  //login check
+            if(url != "/login" && !req.session.user){
+               return res.redirect("/login");
+            } */
             next();
         });
         app.use(bodyParser());
@@ -65,7 +72,7 @@ var Log = Logger.getLogger();
         require('./server/Router.js')(app);
         var server = http.createServer(app);
         server.on('listening', function () {
-            console.log("test at [http://localhost:" + port + "/views/index.html]");
+            console.log("listen at "+"http://localhost:" + port);
         });
         server.on('request', function (request, response) {
 
