@@ -193,6 +193,33 @@ exports.DeletePatientInfo = DeletePatientInfo;
 //---------------------------------------------------------------------------------------------
 
 var UserInfoRegister = function(params, res) {
+	var conn = GetConnection();
+	var sqlQuery = 'select * from systemusertbl where USER_NAME = ' + params.Username;
+	conn.query(sqlQuery, function(err, rows, fields) {
+		if (err) throw err;
+		if(rows.length > 0) {
+		// res.writeHead(200, {
+		// 	"Content-Type": "text/html;charset=UTF-8"
+		// });
+		// res.write(JSON.stringify({patients:resultSet}));
+		// res.end(function(err){});
+		// conn.end();
+			return;
+		}
+	});
+
+	var sqlInsert = 'insert into systemusertbl(USER_UID, USER_NAME, E_MAIL, TYPE) values(?, ?, ?, ?, ?) ';
+	var param = [uuid.v4(), params.Username, params.checkcontent,params.checktime];
+	conn.query(sqlInsert, param, function(err, result) {
+		if (err) throw err;
+		
+		// res.writeHead(200, {
+		// 	"Content-Type": "text/html;charset=UTF-8"
+		// });
+		// res.write(JSON.stringify({result:result}));
+		// res.end(function(err){});
+		// conn.end();
+	});
 
 };
 exports.UserInfoRegister = UserInfoRegister;
