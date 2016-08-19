@@ -101,8 +101,8 @@ exports.UpdateOneCheck = UpdateOneCheck;
 //-------------------------------------------------------------------
 
 var GetOneCheck = function(action, req, res) {
-	var params = JSON.stringify(req.query);
-	console.log('GetOneCheck' + params);
+	var params = req.query;
+	console.log('GetOneCheck' + JSON.stringify(params));
 	MysqlAccessor.GetOneCheck(params,res);
 };
 exports.GetOneCheck = GetOneCheck;
@@ -119,23 +119,17 @@ exports.DeleteOneCheck = DeleteOneCheck;
 //-------------------------------------------------------------------
 
 var UserRegister = function(action, req, res) {
-	var params = JSON.stringify(req.body);
+	var params = req.body;
 	MysqlAccessor.UserInfoRegister(params,res);
-	console.log('UserRegister: ' + params);
+	console.log('UserRegister: ' + JSON.stringify(params));
 };
 exports.UserRegister = UserRegister;
 
 //-------------------------------------------------------------------
 
 var UserLogin = function(action, req, res) {
-	var params = JSON.stringify(req.body);
+	var params = req.body;
 	MysqlAccessor.UserLogin(params,res);
-	res.success = true;
-	res.writeHead(200, {
-		"Content-Type": "text/html;charset=UTF-8"
-	});
-	res.write(JSON.stringify({success:true}));
-	res.end();
-	console.log('UserLogin: ' + params);
+	console.log('UserLogin: ' + JSON.stringify(params));
 };
 exports.UserLogin = UserLogin;

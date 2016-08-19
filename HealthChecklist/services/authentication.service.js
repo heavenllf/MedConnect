@@ -17,7 +17,7 @@
 
         function Login(username, password, callback) {
             
-            var param = {UserName:username, PassWord:password};
+            var param = {Username:username, Password:password};
             $http({
                 url: 'LoginActor',
                 method: 'POST',
