@@ -1,0 +1,72 @@
+﻿@model MedicalTechnology.ServicePlatform.Website.Models.ServiceOrderSucceedViewModel
+
+@{
+    ViewBag.Title = "ServiceOrderSucceed";
+    Layout = "~/Views/Shared/_PageLayout.cshtml";
+}
+<script type="text/javascript" src="~/Scripts/Order.js"></script>
+<script type="text/javascript" src="~/Scripts/Print.js"></script>
+@Styles.Render("~/Content/main/css")
+<link rel="stylesheet" type="text/css" href="~/Content/User.css">
+<div class="usercontent">
+    <div class="divtitle divtitle-common">
+        <p class="titleinfo serverlist">服务申请</p><span class="orderCreateStep">3/3</span><div class="divcontrolsw"><img src="~/Content/images/素材01 (18).png" /></div>
+    </div>
+    <div class="divServiceCommon">
+        <div class="tableServiceCommon" style="margin-top:20px;width:70%;">
+            <div></div>
+            <div class="Order_Message Order_SuccessMessage">
+                <p>@TempData["message"]</p>
+            </div>
+            <table id="succeedorder" class="tableServiceCommon">
+                <tr>
+                    <td class="name">
+                        @Html.DisplayNameFor(model => model.ServiceNo):
+                    </td>
+
+                    <td class="info">
+                        @Html.DisplayFor(model => model.ServiceNo)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name">
+                        @Html.DisplayNameFor(model => model.ServiceName):
+                    </td>
+
+                    <td class="info">
+                        @Html.DisplayFor(model => model.ServiceName)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name">
+                        @Html.DisplayNameFor(model => model.ServiceTypeName):
+                    </td>
+
+                    <td class="info">
+                        @Html.DisplayFor(model => model.ServiceTypeName)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name">
+                        @Html.DisplayNameFor(model => model.ServiceTypeDesc):
+                    </td>
+
+                    <td class="info">
+                        @Html.DisplayFor(model => model.ServiceTypeDesc)
+                    </td>
+                </tr>
+            </table>
+            <div class="tableServiceCommon">
+                <div class="divCommonSubmit">
+                    <a href="#" id="aprint" style="height:28px;" class="btn btn-primary btn-load-action-op">打印</a>
+                    @Html.ActionLink("返回", "ServiceOrderCreate1Step", null, new { @class = "btn btn-primary btn-action-op" })
+                </div>
+                @Html.Action("_PrintPartial", "Print", new { OrderNo = Model.ServiceNo })
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

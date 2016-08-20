@@ -1,0 +1,37 @@
+﻿@model MedicalTechnology.ServicePlatform.Website.Models.OrderListViewModel
+
+@{
+    ViewBag.Title = "未分配服务列表";
+    Layout = "~/Views/Shared/_PageLayout.cshtml";
+}
+<script type="text/javascript" src="~/Scripts/OrderQueryCondition.js"></script>
+<script type="text/javascript" src="~/Scripts/Order.js"></script>
+<script type="text/javascript" src="~/Scripts/Print.js"></script>
+<script type="text/javascript" src="~/Scripts/download.js"></script>
+@Styles.Render("~/Content/main/css")
+<div class="divserviceorderlist">
+    @Html.Partial("_OrderQueryConditionPartial", Model.OrderQueryCondition)
+    <div id="divOrderList">
+        @Html.Partial("_OrderListPartial", Model)
+    </div>
+    <div>
+        <div class="divtitle divtitle-serverlist">
+            <p class="titleinfo serverlist" name="serviceoppos">流程处理</p><a id="ancharOperation" class="divcontrolsw" href="#serviceoppos"><img src="~/Content/images/素材01 (18).png" /></a>
+        </div>
+        <div id="divOrderWFOperation">
+            @Html.Action("_OrderOperationPartial", "ServiceOrderList", new { groupID = 0 })
+        </div>
+    </div>
+    <div>
+        <div class="divtitle divtitle-serverlist" name="detailpos">
+            <p class="titleinfo serverlist">详细信息</p><a id="acloseDetail" title="查看服务详细信息" class="easyui-tooltip divcontrolsw" href="#detailpos"><img src="~/Content/images/素材01 (18).png" class="btn-action-op" /></a>
+        </div>
+
+        <div id="collapsible-panels" style="clear:both;">
+            <div id="DetailPanels">
+                @Html.Partial("_OrderDetailPartial", Model.OrderModel)
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,123 @@
+﻿@model MedicalTechnology.ServicePlatform.Website.Models.ContactsViewModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_PageLayout.cshtml";
+}
+<link rel="stylesheet" type="text/css" href="~/Content/User.css">
+@Styles.Render("~/Content/main/css")
+
+<div class="usercontent">
+    <div class="divtitle divtitle-common">
+        <p class="titleinfo serverlist">新建联系人</p><div class="divcontrolsw"><img src="~/Content/images/素材01 (18).png" /></div>
+    </div>
+    <div class="divServiceCommon">
+        <div class="divServerInnerDivCommon">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="myform-horizontal">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="myform-group">
+                        <div class="mygroupcol">
+                            @Html.LabelFor(model => model.ContactPerson.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+                        </div>
+                        <div class="mygroupcol">
+                            @Html.EditorFor(model => model.ContactPerson.UserName, new { htmlAttributes = new { @class = "form-control inputedit" } })
+                        </div>
+                        @Html.ValidationMessageFor(model => model.ContactPerson.UserName, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="myform-group">
+                        <div class="mygroupcol">
+                            @Html.LabelFor(model => model.ContactPerson.IsMale, htmlAttributes: new { @class = "control-label col-md-2" })
+                        </div>
+                        <div class="mygroupcol">
+                            <span>男:</span>
+                            @Html.RadioButtonFor(model => model.ContactPerson.IsMale, true, new { id = "male", @style = "width:auto;background:none;border:none" })
+                            <span>女:</span>
+                            @Html.RadioButtonFor(model => model.ContactPerson.IsMale, false, new { id = "female", @style = "width:auto;background:none;border:none" })
+                        </div>
+                        <div class="mygroupcol">
+                            @Html.ValidationMessageFor(model => model.ContactPerson.IsMale, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="myform-group">
+                        <div class="mygroupcol">
+                            @Html.LabelFor(model => model.ContactPerson.Organization.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                        </div>
+                        <div class="mygroupcol">
+                            @*@Html.EditorFor(model => model.ContactPerson.Organization.Name, new { htmlAttributes = new { @class = "form-control inputedit" } })*@
+                            @Html.DropDownListFor(model => model.SelectedOrgID, new SelectList(Model.organizations, "ID", "Name"))
+                            @* @Html.ValidationMessageFor(model => model.SelectedOrgID <= 0, "医院不能为空，请选择医院", new { @class = "text-danger" })*@
+                        </div>
+                    </div>
+                    <div class="myform-group">
+                        <div class="mygroupcol">
+                            @Html.LabelFor(model => model.ContactPerson.Department.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                        </div>
+                        <div class="mygroupcol">
+                            @Html.DropDownListFor(model => model.SelectedDepartmentID, new SelectList(Model.departments, "ID", "Name"))
+                            @*@Html.EditorFor(model => model.ContactPerson.Department.Name, new { htmlAttributes = new { @class = "form-control inputedit" } })*@
+                            @* @Html.ValidationMessageFor(model => model.SelectedDepartmentID <=0, "科室不能为空，请选择科室", new { @class = "text-danger" })*@
+                        </div>
+                    </div>
+                    <div class="myform-group">
+                        <div class="mygroupcol">
+                            @Html.LabelFor(model => model.ContactPerson.Cellphone, htmlAttributes: new { @class = "control-label col-md-2" })
+                        </div>
+                        <div class="mygroupcol">
+                            @Html.EditorFor(model => model.ContactPerson.Cellphone, new { htmlAttributes = new { @class = "form-control inputedit" } })
+                            @Html.ValidationMessageFor(model => model.ContactPerson.Cellphone, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="myform-group">
+                        <div class="mygroupcol">
+                            @Html.LabelFor(model => model.ContactPerson.Officephone, htmlAttributes: new { @class = "control-label col-md-2" })
+                        </div>
+                        <div class="mygroupcol">
+                            @Html.EditorFor(model => model.ContactPerson.Officephone, new { htmlAttributes = new { @class = "form-control inputedit" } })
+                            @Html.ValidationMessageFor(model => model.ContactPerson.Officephone, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="myform-group">
+                        <div class="mygroupcol">
+                            @Html.LabelFor(model => model.ContactPerson.eEmail, htmlAttributes: new { @class = "control-label col-md-2" })
+                        </div>
+                        <div class="mygroupcol">
+                            @Html.EditorFor(model => model.ContactPerson.eEmail, new { htmlAttributes = new { @class = "form-control inputedit" } })
+                            @Html.ValidationMessageFor(model => model.ContactPerson.eEmail, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="myform-group">
+                        <div class="mygroupcol">
+                            @Html.LabelFor(model => model.ContactPerson.Fax, htmlAttributes: new { @class = "control-label col-md-2" })
+                        </div>
+                        <div class="mygroupcol">
+                            @Html.EditorFor(model => model.ContactPerson.Fax, new { htmlAttributes = new { @class = "form-control inputedit" } })
+                            @Html.ValidationMessageFor(model => model.ContactPerson.Fax, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="myform-group">
+                        <div class="mygroupcol">
+                            @Html.LabelFor(model => model.ContactPerson.Remark, htmlAttributes: new { @class = "control-label col-md-2" })
+                        </div>
+                        <div class="mygroupcol">
+                            @Html.EditorFor(model => model.ContactPerson.Remark, new { htmlAttributes = new { @class = "form-control inputedit" } })
+                            @Html.ValidationMessageFor(model => model.ContactPerson.Remark, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="divCommonSubmit">
+                        <input type="submit" value="保存" class="btn btn-primary btn-submit-op" />
+                        @Html.ActionLink("返回", "ContactsList", null, new { @class = "btn btn-primary btn-action-op" })
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
+

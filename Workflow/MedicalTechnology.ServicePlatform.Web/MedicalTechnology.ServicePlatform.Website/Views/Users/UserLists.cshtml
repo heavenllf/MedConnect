@@ -1,0 +1,19 @@
+﻿@model MedicalTechnology.ServicePlatform.Website.Models.UserListViewModel
+
+@{
+    ViewBag.Title = "用户列表";
+    Layout = "~/Views/Shared/_PageLayout.cshtml";
+}
+@Styles.Render("~/Content/main/css")
+<link rel="stylesheet" type="text/css" href="~/Content/User.css">
+<script type="text/javascript" src="~/Scripts/Users.js"></script>
+<script src="~/Scripts/common/Common.js"></script>
+<div class="usercontent">
+    @Html.Partial("_UserQueryConditionPartial", Model.UserConditionModel)
+    <div id="divUserList">
+        @Html.Partial("PartialUserList", Model)
+    </div>
+    <div id="divNewUser">
+        @Html.Partial("_UserCreatePartial", Model.Usermodel);;
+    </div>
+</div>

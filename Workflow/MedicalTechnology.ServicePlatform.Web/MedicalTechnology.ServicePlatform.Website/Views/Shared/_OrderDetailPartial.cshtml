@@ -1,0 +1,237 @@
+﻿@using MedicalTechnology.ServicePlatform.Domain.Entities
+@model MedicalTechnology.ServicePlatform.Website.Models.OrderViewModel
+<div name="divDetailPos">
+    <div class="divtabledetail">
+        <table class="detailtable">
+            <tr>
+                <td class="name">@Html.DisplayNameFor(model => model.Order.OrderNO):</td>
+                <td class="info">
+                    @Html.DisplayFor(model => model.Order.OrderNO)
+                </td>
+                <td class="name">@Html.DisplayNameFor(model => model.Order.Name):</td>
+                <td>
+                    @Html.DisplayFor(model => model.Order.Name)
+                </td>
+            </tr>
+            <tr>
+                <td class="name">@Html.DisplayNameFor(model => model.RequestUserName):</td>
+                <td class="info">
+                    @Html.DisplayFor(model => model.Order.RequestUser.UserName)
+                </td>
+                <td class="name">@Html.DisplayNameFor(model => model.ProcessUserName):</td>
+                <td class="info">
+                    @Html.DisplayFor(model => model.Order.ProcessUser.UserName)
+                </td>
+            </tr>
+            <tr>
+                <td class="name">@Html.DisplayNameFor(model => model.Order.Patient.PatientID):</td>
+                <td class="info">
+                    @Html.DisplayFor(model => model.Order.Patient.PatientID)
+                </td>
+                <td class="name">@Html.DisplayNameFor(model => model.Order.Patient.PatientName):</td>
+                <td>
+                    @Html.DisplayFor(model => model.Order.Patient.PatientName)
+                </td>
+            </tr>
+            <tr>
+                <td class="name">@Html.DisplayNameFor(model => model.Order.Patient.Sex):</td>
+                <td class="info">
+                    @Html.DisplayFor(model => model.Order.Patient.SexDesc)
+                </td>
+                <td class="name">@Html.DisplayNameFor(model => model.Order.Patient.Telephone):</td>
+                <td>
+                    @Html.DisplayFor(model => model.Order.Patient.Telephone)
+                </td>
+            </tr>
+            <tr>
+                <td class="name">@Html.DisplayNameFor(model => model.Order.Patient.ClinicNo):</td>
+                <td class="info">
+                    @Html.DisplayFor(model => model.Order.Patient.ClinicNo)
+                </td>
+                <td class="name">@Html.DisplayNameFor(model => model.Order.Patient.BedNo):</td>
+                <td>
+                    @Html.DisplayFor(model => model.Order.Patient.BedNo)
+                </td>
+            </tr>
+            <tr>
+                <td class="name">@Html.DisplayNameFor(model => model.Order.Patient.BornDate):</td>
+                <td class="info">
+                    @Html.DisplayFor(model => model.Order.Patient.BornDateFormat)
+                </td>
+                <td class="name">@Html.DisplayNameFor(model => model.Order.Patient.Marriage):</td>
+                <td>
+                    @Html.DisplayFor(model => model.MarriageDesc)
+                </td>
+            </tr>
+            <tr>
+                <td class="name">@Html.DisplayNameFor(model => model.Order.Patient.Anamneses):</td>
+                <td colspan="3">
+                    <div>
+                        @Html.DisplayFor(model => model.Order.Patient.Anamneses)
+                    </div>
+
+                </td>
+            </tr>
+            <tr>
+                <td class="name">@Html.DisplayNameFor(model => model.Order.Patient.AllergicHis):</td>
+                <td colspan="3">
+                    <div>
+                        @Html.DisplayFor(model => model.Order.Patient.AllergicHis)
+                    </div>
+
+                </td>
+            </tr>
+            <tr>
+                <td class="name">@Html.DisplayNameFor(model => model.Order.Patient.Workplace):</td>
+                <td colspan="3">
+                    <div>
+                        @Html.DisplayFor(model => model.Order.Patient.Workplace)
+                    </div>
+
+                </td>
+            </tr>
+            <tr>
+                <td class="name">@Html.DisplayNameFor(model => model.Order.Patient.Vocation):</td>
+                <td colspan="3">
+                    <div>
+                        @Html.DisplayFor(model => model.Order.Patient.Vocation)
+                    </div>
+
+                </td>
+            </tr>
+            <tr>
+                <td class="name">@Html.DisplayNameFor(model => model.Order.Patient.Address):</td>
+                <td colspan="3">
+                    <div>
+                        @Html.DisplayFor(model => model.Order.Patient.Address)
+                    </div>
+
+                </td>
+            </tr>
+            <tr>
+                <td class="name">@Html.DisplayNameFor(model => model.Order.Patient.GuardianName):</td>
+                <td colspan="3">
+                    <div>
+                        @Html.DisplayFor(model => model.Order.Patient.GuardianName)
+                    </div>
+
+                </td>
+            </tr>
+            <tr>
+                <td class="name">@Html.DisplayNameFor(model => model.Order.Patient.GuardianRelation):</td>
+                <td colspan="3">
+                    <div>
+                        @Html.DisplayFor(model => model.Order.Patient.GuardianRelation)
+                    </div>
+
+                </td>
+            </tr>
+            <tr>
+                <td class="name">@Html.DisplayNameFor(model => model.Order.Patient.GuardianTelephone):</td>
+                <td colspan="3">
+                    <div>
+                        @Html.DisplayFor(model => model.Order.Patient.GuardianTelephone)
+                    </div>
+
+                </td>
+            </tr>
+            <tr>
+                <td class="name">@Html.DisplayNameFor(model => model.Order.state.StateDesc):</td>
+                <td class="info">
+                    @Html.DisplayFor(model => model.Order.state.StateDesc)
+                </td>
+                <td class="name">@Html.DisplayNameFor(model => model.Order.FinishTimeRequired):</td>
+                <td>
+                    @if(Model.Order.ID > 0)
+                    {
+                     @Html.DisplayFor(model => model.Order.FinishTimeRequiredDetail)
+                    }                   
+                </td>
+            </tr>
+            <tr>
+                <td class="name">@Html.DisplayNameFor(model => model.Order.RequestUser.Organization.Name):</td>
+                <td class="info">
+                    @Html.DisplayFor(model => model.Order.RequestUser.Organization.Name)
+                </td>
+                <td class="name">@Html.DisplayNameFor(model => model.Order.RequestUser.Department.Name):</td>
+                <td>
+                    @Html.DisplayFor(model => model.Order.RequestUser.Department.Name)
+                </td>
+            </tr>
+            <tr>
+                <td class="name">@Html.DisplayNameFor(model => model.Order.ExpressInfo):</td>
+                <td class="info">
+                    @Html.DisplayFor(model => model.Order.ExpressInfo)
+                </td>
+                <td class="name">@Html.DisplayNameFor(model => model.Order.ExpressNote):</td>
+                <td>
+                    @Html.DisplayFor(model => model.Order.ExpressNote)
+                </td>
+            </tr>
+            <tr>
+                <td class="name">@Html.DisplayNameFor(model => model.Order.DueTime):</td>
+                <td colspan="3">
+                    @if (Model.Order.ID > 0)
+                    { 
+                        <div style="color:red;font-weight:bold;">
+                            @Html.DisplayFor(model => model.Order.DueTime)
+                        </div>
+                    }
+
+                </td>
+            </tr>
+            <tr>
+                <td class="name">@Html.DisplayNameFor(model => model.Order.DesignRequire):</td>
+                <td colspan="3">
+                    <div style="height:300px;overflow: auto;">
+                        @Html.DisplayForMultiLabel(model => model.Order.DesignRequire)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="name">@Html.DisplayNameFor(model => model.Order.Note):</td>
+                <td colspan="3">
+                    @Html.DisplayFor(model => model.Order.Note)
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    @if (Model.Order.ID > 0)
+                    {
+                        @Html.Action("_OrderNotifySettingPartial", "OrderNotifySetting", new { IsEdit = false, OrderID = Model.Order.ID })
+                    }                   
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    @if (Model.Order.ID > 0)
+                    {
+                        @Html.Action("_QueryUploadAllFilePartial", "UploadFile", new { OrderID = Model.Order.ID, OrderNo = Model.Order.OrderNO })
+                    }
+                </td>
+            </tr>
+            @*<tr>
+                    <td>打印</td>
+                    <td colspan="3">
+                        @Html.Action("_PrintPartial", "Print")
+                    </td>
+                </tr>*@
+        </table>
+    </div>
+    @if (Model.IsEdit)
+    {
+        <p class="conditioneditbutton">
+            @Html.ActionLink("编辑", "OrderUpdate", "ServiceOrderUpdate", new { id = Model.Order.ID,returnUrl=Model.returnUrl }, new { @class = "btn btn-primary btn-action-op" })
+        </p>
+    }
+    @if ((Model.Order.state != null) && (Model.Order.state.StateID == (int)emWFStatue.Completed))
+    {
+        <div class="divtitle divtitle-serverlist" name="evaluatepos">
+            <p class="titleinfo serverlist">用户评价</p><a id="anchorevaluate" class="divcontrolsw" href="#evaluatepos"><img src="~/Content/images/素材01 (18).png" /></a>
+        </div>
+        <div id="divevaluate">
+            @Html.Action("_EvaluatePartial", "Evaluate")
+            <input type="hidden" name="evaluateorderid" value="@Model.Order.ID" />
+        </div>
+    }
+</div>

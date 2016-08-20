@@ -1,0 +1,82 @@
+﻿@model MedicalTechnology.ServicePlatform.Website.Models.ServiceTypeViewModel
+
+@{
+    Layout = "~/Views/Shared/_PageLayout.cshtml";
+}
+<link rel="stylesheet" type="text/css" href="~/Content/User.css">
+<script src="~/Scripts/SketchMap.js"></script>
+@Styles.Render("~/Content/main/css")
+
+<div class="usercontent">
+    <div class="divtitle divtitle-common">
+        <p class="titleinfo serverlist">服务类型</p><div class="divcontrolsw"><img src="~/Content/images/素材01 (18).png" /></div>
+    </div>
+    <div class="divServiceCommon">
+        @using (Html.BeginForm("STCreate", "ServiceType", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <div class="divServerInnerDivCommon" style="text-align: left; ">
+                <div class="myform-horizontal">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="myform-group">
+                        <div class="mygroupcol">
+                            @Html.LabelFor(model => model.ServerType.Name, htmlAttributes: new { @class = "mylabel" })
+                        </div>
+                        <div class="mygroupcol">
+                            @Html.EditorFor(model => model.ServerType.Name, new { htmlAttributes = new { @class = "form-control inputedit" } })
+                        </div>
+                        <div class="mygroupcol">
+                            @Html.ValidationMessageFor(model => model.ServerType.Name, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="myform-group">
+                        <div class="mygroupcol">
+                            @Html.LabelFor(model => model.ServerType.Desc, htmlAttributes: new { @class = "mylabel" })
+                        </div>
+                        <div class="mygroupcol">
+                            @Html.EditorFor(model => model.ServerType.Desc, new { htmlAttributes = new { @class = "form-control inputedit" } })
+                        </div>
+                        <div class="mygroupcol">
+                            @Html.ValidationMessageFor(model => model.ServerType.Desc, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="myform-group">
+                        <div class="mygroupcol">
+                            @Html.LabelFor(model => model.ServerType.price, htmlAttributes: new { @class = "mylabel" })
+                        </div>
+                        <div class="mygroupcol">
+                            @Html.EditorFor(model => model.ServerType.price, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                        <div class="mygroupcol">
+                            @Html.ValidationMessageFor(model => model.ServerType.price, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="myform-group">
+                        <div class="mygroupcol">
+                            @Html.LabelFor(model => model.WorkflowName, htmlAttributes: new { @class = "mylabel" })
+                        </div>
+                        <div class="mygroupcol">
+                            @Html.DropDownListFor(model => model.SelectedWFID, Model.WorkFlowGroups, new { style="width:100px"})
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="divServerInnerDivCommon" style="text-align: center;width:90% ">
+                <div>
+                    @Html.Action("SketchMapIndex", "SketchMap", new { ServiceTypeID = 0 })
+                </div>
+                <div class="divCommonSubmit">
+                    <input type="submit" value="保存" class="btn btn-primary btn-submit-op" />
+                    @Html.ActionLink("返回", "STIndex", null, new { @class = "btn btn-primary btn-action-op" })
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

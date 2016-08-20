@@ -1,0 +1,128 @@
+﻿@using MedicalTechnology.ServicePlatform.Website.WebHtmlHelpers
+@model MedicalTechnology.ServicePlatform.Website.Models.OrderListViewModel
+<div>
+    <div class="divtitle divtitle-serverlist">
+        <p name="serviceinfopos" class="titleinfo serverlist">服务信息</p><a id="divserverlistop" class="divcontrolsw" href="#serviceinfopos"><img src="~/Content/images/素材01 (18).png" /></a>
+    </div>
+    <div id="divserverlistinfo">
+        <table class="divlisttable">
+            <thead>
+                <tr>
+                    <th style="width:50px;">
+                        @*@Html.CheckBox("itemselAll", false)*@
+                        选择
+                    </th>
+                    <th style="width:200px;min-width:150px;">
+                        @Html.DisplayNameFor(model => model.OrderModel.Order.Name)
+                    </th>
+                    @*<th>
+                            @Html.DisplayNameFor(model => model.OrderModel.Order.FinishTimeRequired)
+                        </th>*@
+                    <th>
+                        @Html.DisplayNameFor(model => model.OrderModel.Order.StartTimeActual)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.OrderModel.Order.EndTimeActual)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.OrderModel.Order.state.StateDesc)
+                    </th>
+                    @*<th>
+                            @Html.DisplayNameFor(model => model.OrderModel.Order.IsPrint)
+                        </th>*@
+                    <th>
+                        @Html.DisplayNameFor(model => model.OrderModel.RequestUserName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.OrderModel.ProcessUserName)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    var itemindex = 0;
+                    foreach (var item in Model.Orders)
+                    {
+                        itemindex++;
+                        var alt = itemindex % 2 == 0 ? "alt" : "";
+                        <tr class=@alt>
+                            <td>
+                                @if (item.ID > 0)
+                                {
+                                    @Html.CheckBox("itemsel", false)
+                                    @Html.Hidden("OrderID", item.ID)
+                                    @Html.Hidden("OrderState", item.state.StateID)
+                                    @Html.Hidden("OrderNo",item.OrderNO)
+                                    @Html.Hidden("GroupID", item.PrintType.Group.ID)
+                                }
+                            </td>
+                            <td>
+                                @if (item.ID > 0)
+                                {
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                }
+                            </td>
+                            @*<td>
+                                    @if (item.ID > 0)
+                                    {
+                                        @Html.DisplayFor(modelItem => item.FinishTimeRequiredShort)
+                                    }
+                                </td>*@
+                            <td>
+                                @if (item.ID > 0)
+                                {
+                                    @Html.DisplayFor(modelItem => item.StartTimeActualShort)
+                                }
+                            </td>
+                            <td>
+                                @if (item.ID > 0)
+                                {
+                                    @Html.DisplayFor(modelItem => item.FinishTimeActualShort)}
+                            </td>
+                            <td>
+                                @if (item.ID > 0)
+                                {
+                                    @Html.DisplayFor(modelItem => item.state.StateDesc)}
+                            </td>
+                            @*<td>
+                                    @if (item.ID > 0) {
+                                    @Html.DisplayFor(modelItem => item.IsPrint)}
+                                </td>*@
+                            <td>
+                                @if (item.ID > 0)
+                                {
+                                    @Html.DisplayFor(modelItem => item.RequestUser.UserName)}
+                            </td>
+                            <td>
+                                @if (item.ID > 0)
+                                {
+                                    @Html.DisplayFor(modelItem => item.ProcessUser.UserName)}
+                            </td>
+                            @*@if (Model.Setting.IsShowDetialLink)
+                            {
+                                <td>
+                                    @if (item.ID > 0)
+                                    {
+                                        @Html.ActionLink("编辑", "OrderUpdate", "ServiceOrderUpdate", new { id = item.ID }, new { }) <span>|</span>
+                                        <a href="#divDetailPos" class="easyui-tooltip linkDetail" title="点击该按钮查询服务细节" urlpara="@Url.Action("OrderDetails","Orders",new{id=item.ID})">详细信息</a>
+                                    }
+                                </td>
+                            }*@
+
+                        </tr>
+                    }
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="10">
+                        @Html.PageLinks(Model.PagingInfo, x => Url.Action(Model.OrderQueryCondition.QueryActionName, new { page = x }),
+                                 Url.Content("~/Content/images/素材01 (27).png"), Url.Content("~/Content/images/素材01 (28).png"))
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+        <input id="detailUrl" type="hidden" value="@Url.Action("OrderDetails", "Orders", new {returnUrl=@Model.OrderModel.returnUrl })" />
+        <input id="CleardetailUrl" type="hidden" value="@Url.Action("ClearOrderDetails", "Orders")" />
+    </div>
+</div>

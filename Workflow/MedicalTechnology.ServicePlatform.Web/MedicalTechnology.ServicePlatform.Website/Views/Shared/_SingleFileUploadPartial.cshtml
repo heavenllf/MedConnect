@@ -1,0 +1,17 @@
+﻿@model MedicalTechnology.ServicePlatform.Website.Models.SingleFileUploadViewModel
+<div id="openSingleUploadDiv" class="easyui-dialog" title="上传文件" closed="true" style="width:500px;height:200px;padding:10px;top:300px;overflow:hidden">
+    <div id="silverlightControlHostSingle">
+        <object id="SingleFileUploader" data="data:application/x-silverlight-2," type="application/x-silverlight-2"
+                width="500" height="180">
+            <param name="source" value="~/ClientBin/mpost.SilverlightSingleFileUpload.xap" />
+            <param name="onerror" value="onSilverlightSingleError" />
+            <param name="initParams" value="UploadHandlerName=@Url.Action("ProcessFileUpload", "UploadFile"),MaxFileSizeKB=1000000000,MaxUploads=2,FileFilter=,ChunkSize=4194304,CustomParams=@Model.OrderNo;@Model.UploadFileType,DefaultColor=White" />
+            <param name="background" value="white" />
+            <param name="onload" value="SinglepluginLoaded" />
+            <param name="minRuntimeVersion" value="5.0.61118.0" />
+            <param name="autoUpgrade" value="true" />
+        </object>
+        <iframe style='visibility: hidden; height: 0; width: 0; border: 0px'></iframe>
+        <div id="ErrorDiv" style="display:none;">上传失败，请联系管理员.</div>
+    </div>
+</div>

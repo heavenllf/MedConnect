@@ -1,0 +1,31 @@
+﻿@using MedicalTechnology.ServicePlatform.Domain.Entities;
+@model MedicalTechnology.ServicePlatform.Website.Models.SchemeDesignOrderViewModel
+@{
+    var divID = "div" + @Model.WFtranscation.Name + @Model.WFtranscation.ID;
+}
+<div id=@divID class="orderOperation" name="divOperation">
+    <div id="divDeginScheme" style="width:100%;height:100%;">
+        <table style="width:80%">
+            <tr class="opertrinfo">
+                <td colspan="5">
+                    <h4>工程师设计方案并提交医生</h4>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    @Html.Action("CreateReportUpload", "UploadFile")
+                </td>
+                
+            </tr>
+            <tr>
+                <td colspan="5" style="text-align:center;">
+                    <input type="button" id="btnSchemeDesignAdd" value="提交" class="btn btn-primary" />
+                </td>
+            </tr>
+        </table>
+        <input type="hidden" id="hidOrderID" value="" />
+        @Html.Hidden("SchemeDesignUrl", @Url.Action("DesignOrder", "Orders"))
+        @Html.Hidden("DelUploadFileUrl", @Url.Action("Delete", "UploadFile"))
+        @Html.Hidden("SendOrderIDUrl", @Url.Action("GetOrderID", "UploadFile"))
+    </div>
+</div>

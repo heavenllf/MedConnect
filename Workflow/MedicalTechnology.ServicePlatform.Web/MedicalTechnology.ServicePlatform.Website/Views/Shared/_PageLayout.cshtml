@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/themes")
+    @Scripts.Render("~/bundles/easyui")
+    @*@Scripts.Render("~/bundles/jqueryUI")*@
+    @Scripts.Render("~/bundles/modernizr")
+    <script type="text/javascript" src="~/Scripts/body.js"></script>
+</head>
+<body class="CommonRightBody">
+    <input id="btnimgloading" type="hidden" urladdr="@Url.Content("~/Content/images/btnsubmitting.gif")" />
+    <div>
+        @RenderBody()
+    </div>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

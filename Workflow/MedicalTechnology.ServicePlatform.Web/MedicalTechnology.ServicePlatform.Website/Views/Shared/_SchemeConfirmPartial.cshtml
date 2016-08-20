@@ -1,0 +1,44 @@
+﻿@model MedicalTechnology.ServicePlatform.Website.Models.DesignConfirmViewModel
+@{
+    var divID = "div" + @Model.WFtranscation.Name + @Model.WFtranscation.ID;
+}
+<div id=@divID class="orderOperation" name="divOperation">
+    <div id="divDeginConfirm">
+        <table style="width: 90%;">
+            <tr class=" opertrinfo">
+            <td colspan="3">
+                <h4>医生确认工程师的设计方案</h4>
+            </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    手术方案报告
+                </td>
+            </tr>
+            <tr>
+                <td style="vertical-align: top" colspan="3">
+                    @Html.Action("ConfirmReport", "UploadFile")
+                </td>
+            </tr>
+            <tr>
+                <td style="vertical-align: top" colspan="3">
+                    <label for="txtComment" id="labelComment">批注</label>
+                </td>
+            </tr>
+            <tr style="vertical-align:bottom;">
+                <td>
+                    <textarea id="txtComment" rows="3" cols="50" style="line-height: 2; height: 150px;"></textarea>
+                </td>
+                <td>
+                    <input type="button" id="btnAgreeDesign" value="同意设计方案" class="btn btn-primary" />
+                </td>
+                <td>
+                    <input type="button" id="btnReDesignScheme" value="重新制作设计方案" class="btn btn-primary" />
+                </td>
+            </tr>
+        </table>
+        @Html.Hidden("AgreeDesignUrl", @Url.Action("DesignConfirmOrder", "Orders"))
+        @Html.Hidden("ReDesignUrl", @Url.Action("ReDesignConfirmOrder", "Orders"))
+        <input type="hidden" id="hidConfirmDesignOrderID" value="" />
+    </div>
+</div>

@@ -1,0 +1,34 @@
+﻿@model MedicalTechnology.ServicePlatform.Website.Models.SketchMapThumbnailViewModel
+<div class="divtitle divtitle-common">
+    <p class="titleinfo serverlist">示意图图片</p><div class="divcontrolsw"><img src="~/Content/images/素材01 (18).png" /></div>
+</div>
+<div style="text-align:left">
+    <ul class="thumbnail-list">
+        @{
+            foreach (var item in Model.ThumbnailImages)
+            {
+                <li>
+                    <div class="thumbnail-wrapper">
+                        @{
+                            var url = Model.FileWebServiceUrl;
+                            url += "/api/SketchMap/GetThumbnailImage?filename=" + item.FileName;
+                            var bigimgurl = Model.FileWebServiceUrl;
+                            bigimgurl += "/api/SketchMap/GetImage?filename=" + item.FileName;
+                            <a href="javascript:void(0)"><img src="@url" alt="@item.Desc" class="thumbnail-selector" data-img="@bigimgurl"></a>
+                        }
+                    </div>
+                    <div class="thumbnail-info">
+                        <span class="descInfo" title="@item.Desc">@item.Desc</span>
+                    </div>
+                </li>
+            }
+
+        }
+
+    </ul>
+
+</div>
+
+<div id="imageDialog" title="Image Preview" style="width:500px;height:500px;display:none;">
+    <img id="bigImage" src="" style="width:100%;height:100%" />
+</div>

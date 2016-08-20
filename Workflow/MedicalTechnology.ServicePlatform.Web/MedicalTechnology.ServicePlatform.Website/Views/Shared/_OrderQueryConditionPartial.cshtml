@@ -1,0 +1,77 @@
+﻿@model MedicalTechnology.ServicePlatform.Website.Models.OrderQueryViewModel
+
+<div>
+    <div class="divtitle">
+        <p class="titleinfo">搜索</p><a id="divqueryop" class="divcontrolsw" href="#"><img src="~/Content/images/素材01 (18).png" /></a>
+    </div>
+    <div id="divqueryconditions">
+        <table id="tbquery">
+            <tr>
+                <td class="name">@Html.DisplayNameFor(model => model.OrderName):</td>
+                <td class="info">
+                    @Html.TextBoxFor(model => model.OrderName, new { id = "QOrderName" })
+                </td>
+                <td class="name">@Html.DisplayNameFor(model => model.OrderNo):</td>
+                <td class="info">
+                    @Html.TextBoxFor(model => model.OrderNo, new { id = "QOrderNo" })
+                </td>
+            </tr>
+            <tr>
+                <td class="name">@Html.DisplayNameFor(model => model.Techintion):</td>
+                <td class="info">
+                    @Html.TextBoxFor(model => model.Techintion, new { id = "QTechintion" })
+                </td>
+                <td class="name">@Html.DisplayNameFor(model => model.User):</td>
+                <td class="info">
+                    @Html.TextBoxFor(model => model.User, new { id = "QUser" })
+                </td>
+            </tr>
+            <tr>
+                <td class="name">@Html.DisplayNameFor(model => model.Hospital):</td>
+                <td class="info">
+                    @Html.TextBoxFor(model => model.Hospital, new { id = "QHospital" })
+                </td>
+                <td class="name">@Html.DisplayNameFor(model => model.Department):</td>
+                <td class="info">
+                    @Html.TextBoxFor(model => model.Department, new { id = "QDepartment" })
+                </td>
+            </tr>
+            <tr>
+                <td class="name">@Html.DisplayNameFor(model => model.PatientName):</td>
+                <td class="info">
+                    @Html.TextBoxFor(model => model.PatientName, new { id = "QPatientName" })
+                </td>
+                <td class="name">@Html.DisplayNameFor(model => model.ClinicNo):</td>
+                <td class="info">
+                    @Html.TextBoxFor(model => model.ClinicNo, new { id = "QClinicNo" })
+                </td>
+            </tr>
+            <tr>
+                <td class="name">@Html.DisplayNameFor(model => model.SubmitTimeBegin):</td>
+                <td class="info">
+                    @Html.TextBoxFor(model => model.SubmitTimeBegin, new { id = "QSubmitTimeBegin", @class = "easyui-datetimebox",  style = "width:150px;height:30px" })
+                </td>
+                <td class="name">@Html.DisplayNameFor(model => model.SubmitTimeEnd):</td>
+                <td class="info">
+                    @Html.TextBoxFor(model => model.SubmitTimeEnd, new { id = "QSubmitTimeEnd", @class = "easyui-datetimebox", style = "width:150px;height:30px" })
+                </td>
+            </tr>
+            <tr>
+                <td class="name">@Html.DisplayNameFor(model => model.FinishTimeBegin):</td>
+                <td class="info">
+                    @Html.TextBoxFor(model => model.FinishTimeBegin, new { id = "QFinishTimeBegin", @class = "easyui-datetimebox",  style = "width:150px;height:30px" })
+                </td>
+                <td class="name">@Html.DisplayNameFor(model => model.FinishTimeEnd):</td>
+                <td class="info">
+                    @Html.TextBoxFor(model => model.FinishTimeEnd, new { id = "QFinishTimeEnd", @class = "easyui-datetimebox",  style = "width:150px;height:30px" })
+                </td>
+            </tr>
+            @Html.Hidden("QueryUrl", @Url.Action(Model.QueryActionName, "ServiceOrderList"))
+            @Html.Hidden("WorkflowState", string.Join(",", Model.States))
+        </table>
+        <div class="conditioneditbutton">
+            <input type="button" id="QbtnExportar" value="搜索" class="btn btn-primary btn-group-vertical btn-action-op">
+            @*<input type="button" value="保存" class="btn btn-primary btn-group-vertical conditionbtnspace">*@
+        </div>
+    </div>
+</div>

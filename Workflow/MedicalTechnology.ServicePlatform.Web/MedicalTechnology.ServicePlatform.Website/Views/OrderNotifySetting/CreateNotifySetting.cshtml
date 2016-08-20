@@ -1,0 +1,37 @@
+﻿@model MedicalTechnology.ServicePlatform.Website.Models.NotifySettingViewModel
+<div id="divnewsetting">
+    <table>
+        <tr>
+            @*<span>触发事件:</span>*@
+            <td class="tableHead">
+                @Html.DropDownListFor(m => m.config.EventID, new SelectList(Model.EventLists, "ID", "Desc", Model.config.EventID),
+             new { id = "ddlEvent", style = "height:25px;" })
+            </td>
+            @*<span>联系人:</span>*@
+            <td class="tableHead tableinfo">
+                <input id="ccusers" class="easyui-combobox" title="你好" name="userscombox"
+                       data-options="valueField:'id',
+                   textField:'text',
+                   multiple:true,
+                   url:$('input[name=UserListUrl]').val(),
+                   onSelect:function(){
+                  $('#divAddnotifyErro').hide();
+           }"
+                       style="width:200px;height:25px;line-height:120%">
+                @Html.Hidden("UserListUrl", @Url.Action("getMultiUserList", "OrderNotifySetting"))
+            </td>
+            <td class="tableHead">
+                @Html.CheckBoxFor(model => model.config.IsEmail, new { id = "chkEmail", @class = "commoncheckbox" })
+            </td>
+            <td class="tableHead">
+                @Html.CheckBoxFor(model => model.config.IsSMS, new { id = "chkSMS", @class = "commoncheckbox" })
+            </td>
+                @Html.Hidden("HidIsEdit", Model.IsEdit)
+            <td>
+                <a href="#scollPos" name="newconfig" id="addconfig" class="easyui-tooltip" title="提交服务通知配置"><img src="~/Content/images/add.png" /></a>
+            </td>
+
+</tr>
+    </table>
+</div>
+<div class="text-danger" id="divAddnotifyErro"></div>

@@ -1,0 +1,40 @@
+﻿@using System.Web.Script.Serialization
+@model MedicalTechnology.ServicePlatform.Website.Models.OrderOperationViewModel
+<div id="divOperationTools">
+    @{
+        if (Model.groupID > 0)
+        {
+            <div id="divServiceOperation">
+                <div class="divserviceflow">
+                    @foreach (var item in Model.Workflows)
+                    {
+                        <p class="btn btn-group-vertical">&#10141</p>
+                            var btnID = "btn" + item.transcation.Name + item.transcation.ID;
+                            var array = @Html.Raw(new JavaScriptSerializer().Serialize(item.WFstates.ToArray()));
+                            var Available = item.IsAvailible == true ? 1 : 0;
+                        <input type="button" id=@btnID value=@item.transcation.Desc name="btnOperation" wfavailable=@Available wfstates=@array class="btn btn-group-vertical" />
+                    }
+                    @if (Model.bCancleAvailiable)
+                    {
+                       <input type="button" id="btnWFCancel" value="取消" class="btn btn-primary btn-group-vertical" style="margin: 10px 0px 10px 10px;width: 60px;" />
+                    }
+                    else
+                    {
+                       <input type="button" id="btnWFCancel" value="取消" disabled="disabled" class="btn btn-group-vertical" style="margin: 10px 0px 10px 10px;width: 60px;" />
+                    }
+                </div>
+                <div id="divOperationDetail">
+                    @Html.Partial("_AssignOrderPartial", Model.AssignOrder)
+                    @Html.Partial("_ProcessOrderPartial", Model.PreprocessOrder)
+                    @Html.Partial("_SchemeDesignPartial", Model.DesignOrder)
+                    @Html.Partial("_SchemeConfirmPartial", Model.DesignConfirmOrder)
+                    @Html.Partial("_3DPrintPartial", Model.Print3DOrder)
+                    @Html.Partial("_CompleteOrderPartial", Model.CompeteOrder)
+                    @Html.Partial("_CancelOrderPartial", Model.CancelOrder)
+                </div>
+            </div>
+        }
+    }
+    @Html.Hidden("LoadOrderFileUrl", @Url.Action("LoadOrderUploadFiles", "UploadFile"))
+    @Html.Hidden("LoadWFToolsUrl", @Url.Action("_OrderOperationPartial", "ServiceOrderList"))    
+</div>

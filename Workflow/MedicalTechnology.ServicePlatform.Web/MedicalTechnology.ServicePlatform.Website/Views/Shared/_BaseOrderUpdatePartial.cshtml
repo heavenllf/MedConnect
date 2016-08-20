@@ -1,0 +1,252 @@
+﻿@using MedicalTechnology.ServicePlatform.Domain.Entities
+@model MedicalTechnology.ServicePlatform.Website.Models.OrderViewModel
+
+<div class="divupdateService" id="divOrderServiceCreate">
+    <table class="tableupdateService">
+        <tr><td colspan="4"><h2 class="OrderSubHeader">服务基本信息:</h2></td></tr>
+        <tr>
+            <td class="tablabel">
+                @Html.LabelFor(model => model.Order.OrderNO, htmlAttributes: new { id = "labelOrderNo", @class = "" })
+            </td>
+            <td colspan="3">
+                <div>
+                    @Html.DisplayFor(model => model.Order.OrderNO)
+                    @Html.HiddenFor(model => model.Order.OrderNO)
+                    @Html.HiddenFor(model => model.Order.ID)
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="tablabel">
+                @Html.LabelFor(model => model.Order.Name, htmlAttributes: new { @class = "" })
+            </td>
+            <td colspan="3">
+                <div>
+                    @Html.EditorFor(model => model.Order.Name, new { htmlAttributes = new { @class = "mytextbox" } })<span style="color:red">*</span>
+                    @Html.ValidationMessageFor(model => model.Order.Name, "", new { @class = "text-danger" })
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="tablabel">
+                @Html.LabelFor(model => model.Order.Patient.PatientID, htmlAttributes: new { @class = "" })
+            </td>
+            <td>
+                <div>
+                    @Html.EditorFor(model => model.Order.Patient.PatientID, new { htmlAttributes = new { @class = "mytextbox" } })
+                </div>
+            </td>
+            <td class="tablabel">
+                @Html.LabelFor(model => model.Order.Patient.PatientName, htmlAttributes: new { @class = "" })
+            </td>
+            <td>
+                <div>
+                    @Html.EditorFor(model => model.Order.Patient.PatientName, new { htmlAttributes = new { @class = "mytextbox" } })
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="tablabel">
+                @Html.LabelFor(model => model.Order.Patient.Sex, htmlAttributes: new { @class = "" })
+            </td>
+            <td>
+                <div>
+                    <span>男:</span>
+                    @Html.RadioButtonFor(model => model.Order.Patient.Sex, (int)emUsrSex.male, new { id = "male", @style = "width:auto;background:none;border:none;height:inherit", Checked="checked" })
+                    <span>女:</span>
+                    @Html.RadioButtonFor(model => model.Order.Patient.Sex, (int)emUsrSex.famale, new { id = "female", @style = "width:auto;background:none;border:none;height:inherit" })
+                </div>
+                <div >
+                    @Html.ValidationMessageFor(model => model.Order.Patient.Sex, "", new { @class = "text-danger" })
+                </div>
+            </td>
+            <td class="tablabel">
+                @Html.LabelFor(model => model.Order.Patient.Telephone, htmlAttributes: new { @class = "" })
+            </td>
+            <td>
+                <div>
+                    @Html.EditorFor(model => model.Order.Patient.Telephone, new { htmlAttributes = new { @class = "mytextbox" } })
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="tablabel">
+                @Html.LabelFor(model => model.Order.Patient.ClinicNo, htmlAttributes: new { @class = "" })
+            </td>
+            <td>
+                <div>
+                    @Html.EditorFor(model => model.Order.Patient.ClinicNo, new { htmlAttributes = new { @class = "mytextbox" } })
+                </div>
+            </td>
+            <td class="tablabel">
+                @Html.LabelFor(model => model.Order.Patient.BedNo, htmlAttributes: new { @class = "" })
+            </td>
+            <td>
+                <div>
+                    @Html.EditorFor(model => model.Order.Patient.BedNo, new { htmlAttributes = new { @class = "mytextbox" } })
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="tablabel">
+                @Html.LabelFor(model => model.Order.Patient.BornDate, htmlAttributes: new { @class = "" })
+            </td>
+            <td>
+                <div>
+                    <div>
+                        @Html.EditorFor(model => model.Order.Patient.BornDate, new { htmlAttributes = new { @class = "easyui-datebox", data_options = "formatter:dateboxformatter,parser:dateboxparser", style = "width:200px;height:30px;" } })
+                        @Html.ValidationMessageFor(model => model.Order.Patient.BornDate, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </td>
+            <td class="tablabel">
+                @Html.LabelFor(model => model.Order.Patient.Marriage, htmlAttributes: new { @class = "" })
+            </td>
+            <td>
+                <div class="smalltextarea">
+                    @Html.DropDownListFor(model => model.Order.Patient.Marriage, Model.Marriages, new {style="width:100px;" })
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="tablabel">
+                @Html.LabelFor(model => model.Order.Patient.Anamneses, htmlAttributes: new { @class = "" })
+            </td>
+            <td colspan="3">
+                <div class="smalltextarea">
+                    @Html.TextAreaFor(model => model.Order.Patient.Anamneses, new { htmlAttributes = new { @class = "mytextbox" } })
+                    @Html.ValidationMessageFor(model => model.Order.Patient.Anamneses, "", new { @class = "text-danger" })
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="tablabel">
+                @Html.LabelFor(model => model.Order.Patient.AllergicHis, htmlAttributes: new { @class = "" })
+            </td>
+            <td colspan="3">
+                <div class="smalltextarea">
+                    @Html.TextAreaFor(model => model.Order.Patient.AllergicHis, new { htmlAttributes = new { @class = "mytextbox" } })
+                    @Html.ValidationMessageFor(model => model.Order.Patient.AllergicHis, "", new { @class = "text-danger" })
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="tablabel">
+                @Html.LabelFor(model => model.Order.Patient.Workplace, htmlAttributes: new { @class = "" })
+            </td>
+            <td colspan="3">
+                <div class="smalltextarea">
+                    @Html.TextAreaFor(model => model.Order.Patient.Workplace, new { htmlAttributes = new { @class = "mytextbox" } })
+                    @Html.ValidationMessageFor(model => model.Order.Patient.Workplace, "", new { @class = "text-danger" })
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="tablabel">
+                @Html.LabelFor(model => model.Order.Patient.Vocation, htmlAttributes: new { @class = "" })
+            </td>
+            <td colspan="3">
+                <div class="smalltextarea">
+                    @Html.TextAreaFor(model => model.Order.Patient.Vocation, new { htmlAttributes = new { @class = "mytextbox" } })
+                    @Html.ValidationMessageFor(model => model.Order.Patient.Vocation, "", new { @class = "text-danger" })
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="tablabel">
+                @Html.LabelFor(model => model.Order.Patient.Address, htmlAttributes: new { @class = "" })
+            </td>
+            <td colspan="3">
+                <div class="smalltextarea">
+                    @Html.TextAreaFor(model => model.Order.Patient.Address, new { htmlAttributes = new { @class = "mytextbox" } })
+                    @Html.ValidationMessageFor(model => model.Order.Patient.Address, "", new { @class = "text-danger" })
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="tablabel">
+                @Html.LabelFor(model => model.Order.Patient.GuardianName, htmlAttributes: new { @class = "" })
+            </td>
+            <td colspan="3">
+                <div class="smalltextarea">
+                    @Html.TextAreaFor(model => model.Order.Patient.GuardianName, new { htmlAttributes = new { @class = "mytextbox" } })
+                    @Html.ValidationMessageFor(model => model.Order.Patient.GuardianName, "", new { @class = "text-danger" })
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="tablabel">
+                @Html.LabelFor(model => model.Order.Patient.GuardianRelation, htmlAttributes: new { @class = "" })
+            </td>
+            <td colspan="3">
+                <div class="smalltextarea">
+                    @Html.TextAreaFor(model => model.Order.Patient.GuardianRelation, new { htmlAttributes = new { @class = "mytextbox" } })
+                    @Html.ValidationMessageFor(model => model.Order.Patient.GuardianRelation, "", new { @class = "text-danger" })
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="tablabel">
+                @Html.LabelFor(model => model.Order.Patient.GuardianTelephone, htmlAttributes: new { @class = "" })
+            </td>
+            <td colspan="3">
+                <div class="smalltextarea">
+                    @Html.TextAreaFor(model => model.Order.Patient.GuardianTelephone, new { htmlAttributes = new { @class = "mytextbox" } })
+                    @Html.ValidationMessageFor(model => model.Order.Patient.GuardianTelephone, "", new { @class = "text-danger" })
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="tablabel">
+                @Html.LabelFor(model => model.Order.FinishTimeRequired, htmlAttributes: new { @class = "" })
+            </td>
+            <td>
+                <div>
+                    @Html.EditorFor(model => model.Order.FinishTimeRequired, new { htmlAttributes = new { @class = "easyui-datebox", data_options = "formatter:dateboxformatter,parser:dateboxparser", style = "width:200px;height:30px;" } })
+                    @Html.ValidationMessageFor(model => model.Order.FinishTimeRequired, "", new { @class = "text-danger" })
+                </div>
+            </td>
+            @{
+                if (Model.Order.state != null && Model.Order.state.StateDesc.Length > 0)
+                {
+                    <td class="tablabel">@Html.LabelFor(model => model.Order.state.StateDesc)</td>
+                }
+                if (Model.IsCanEditState)//编辑状态
+                {
+                    <td>
+                        @Html.DropDownListFor(m => m.SelectedStateID, Model.WorkFlowStates, new { style = "width:100px;" })
+                    </td>
+                }
+                else
+                {
+                    <td class="info">
+                        @Html.HiddenFor(x => x.SelectedStateID)
+                        @Html.DisplayFor(x => x.Order.state.StateDesc)
+                    </td>
+                }
+            }
+        </tr>
+        <tr>
+            <td class="tablabel">
+                @Html.LabelFor(model => model.Order.DesignRequire, htmlAttributes: new { @class = "" })
+            </td>
+            <td colspan="3">
+                <div>
+                    @Html.TextAreaFor(model => model.Order.DesignRequire, new { htmlAttributes = new { @class = "mytextbox" } })<span style="color:red">*</span>
+                    @Html.ValidationMessageFor(model => model.Order.DesignRequire, "", new { @class = "text-danger" })
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="tablabel">
+                @Html.LabelFor(model => model.Order.Note, htmlAttributes: new { @class = "", name = "scollPos" })
+            </td>
+            <td colspan="3">
+                <div>
+                    @Html.EditorFor(model => model.Order.Note, new { htmlAttributes = new { @class = "mytextbox", style = "width:550px;min-width:550px;height:30px;" } })
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>

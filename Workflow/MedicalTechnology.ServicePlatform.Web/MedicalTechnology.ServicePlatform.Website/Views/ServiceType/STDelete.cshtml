@@ -1,0 +1,75 @@
+﻿@model MedicalTechnology.ServicePlatform.Website.Models.ServiceTypeViewModel
+
+@{
+    Layout = "~/Views/Shared/_PageLayout.cshtml";
+}
+
+@Styles.Render("~/Content/main/css")
+<div>
+    <div class="divtitle divtitle-common">
+        <p class="titleinfo serverlist">服务类型</p><div class="divcontrolsw"><img src="~/Content/images/素材01 (18).png" /></div>
+    </div>
+    <div class="divServiceCommon">
+        <h4>你确定要删除该信息吗?</h4>
+        <table class="tableServiceCommon" style="width:400px;">
+            <tr>
+                <td class="name">
+                    @Html.DisplayNameFor(model => model.ServerType.Name):
+                </td>
+
+                <td class="info">
+                    @Html.DisplayFor(model => model.ServerType.Name)
+                </td>
+            </tr>
+            <tr>
+                <td class="name">
+                    @Html.DisplayNameFor(model => model.ServerType.Desc):
+                </td>
+
+                <td class="info">
+                    @Html.DisplayFor(model => model.ServerType.Desc)
+                </td>
+            </tr>
+            <tr>
+                <td class="name">
+                    @Html.DisplayNameFor(model => model.ServerType.price):
+                </td>
+
+                <td class="info">
+                    @Html.DisplayFor(model => model.ServerType.price)
+                </td>
+            </tr>
+            <tr>
+                <td class="name">
+                    @Html.DisplayNameFor(model => model.WorkflowName):
+                </td>
+
+                <td class="info">
+                    @Html.DisplayFor(model => model.ServerType.Group.Name)
+                </td>
+            </tr>
+        </table>
+        <div>
+            @Html.Action("SketchMapIndex", "SketchMap", new { ServiceTypeID = @Model.ServerType.ID, isEdit = 0 })
+        </div>
+        <div class="tableServiceCommon">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="divCommonSubmit">
+                    <input type="submit" value="删除" class="btn btn-primary btn-action-op" /> |
+                    @Html.ActionLink("返回", "STIndex", null, new { @class = "btn btn-primary btn-action-op" })
+                </div>
+                if (TempData["STmessage"] != null && TempData["STmessage"].ToString().Length > 0)
+                {
+                    <div class="Submit_ErrorMessage">
+                        @TempData["STmessage"]
+                    </div>
+                }
+            }
+        </div>
+    </div>
+
+</div>
+

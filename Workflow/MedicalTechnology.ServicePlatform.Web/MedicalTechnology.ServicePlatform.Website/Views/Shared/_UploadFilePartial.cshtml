@@ -1,0 +1,22 @@
+﻿@model MedicalTechnology.ServicePlatform.Website.Models.UploadFileViewModel
+<div style="text-align:right;">
+    <div id="@Model.divIDName"  class="divloadfiles">
+        @Html.Partial("_PartialUploadfileList", Model.FileListModel)
+    </div>
+    <input type="hidden" id="@Model.UploadOrderIDName" value="@Model.OrderID" data-uploadfiletype="@Model.UploadFileType"
+           data-filetypename="@Model.UploadFileTypeName" data-isedit="@Model.FileListModel.IsEdit.ToString()" class="fileorderid" />
+    @Html.Hidden(@Model.RefreshlistUrl, @Url.Action("_PartialUploadfileList", "UploadFile"), htmlAttributes: new {@class="refreshlisturladdr" })
+    @if (Model.FileListModel.IsEdit)
+    {
+        <a href="javascript:void(0);" id="@Model.uploadBtn" class="btn btn-primary CommonBtnWidth btn-load-action-op"><img src="~/Content/images/素材01 (8).png" /></a>
+        <input type="hidden" name="nameOrderNo" value="@Model.orderNo"  />
+        <input type="hidden" name="nameFileAbsoluteDir" value="@Model.FileStoreAbsoluteDir" />
+    }
+    @if (Model.FileListModel.IsEdit)
+    {
+        <div id="@Model.uploadDialog" class="easyui-dialog" title="上传文件" closed="true" style="width:500px;height:400px;padding:10px;top:300px;">
+            <iframe scrolling="no" id='@Model.uploadIframe' data-filesdivid="@Model.divIDName" frameborder="0" src="" style="width:100%;height:95%;"></iframe>
+            <input type="hidden" id="hidUploadOrderFile" value='@Url.Action("UploadOrderOptionFile", "UploadFile")' />
+        </div>
+    }
+</div>

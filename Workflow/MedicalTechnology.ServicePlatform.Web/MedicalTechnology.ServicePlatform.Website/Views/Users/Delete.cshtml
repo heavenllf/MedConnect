@@ -1,0 +1,127 @@
+﻿@model  MedicalTechnology.ServicePlatform.Website.Models.UserViewModel
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_PageLayout.cshtml";
+}
+@Styles.Render("~/Content/main/css")
+<div>
+    <div class="divtitle divtitle-common">
+        <p class="titleinfo serverlist">一般信息</p><div class="divcontrolsw"><img src="~/Content/images/素材01 (18).png" /></div>
+    </div>
+    <div class="divServiceCommon">
+        <h4>你确定要删除该信息吗?</h4>
+        <table class="tableServiceCommon" style="width:400px;">
+            <tr>
+                <td class="name">
+                    @Html.DisplayNameFor(model => model.User.UserName):
+                </td>
+
+                <td class="info">
+                    @Html.DisplayFor(model => model.User.UserName)
+                </td>
+            </tr>
+            <tr>
+                <td class="name">
+                    @Html.DisplayNameFor(model => model.User.SexDesc):
+                </td>
+
+                <td class="info">
+                    @Html.DisplayFor(model => model.User.SexDesc)
+                </td>
+            </tr>
+            <tr>
+                <td class="name">
+                    @Html.DisplayNameFor(model => model.User.Organization.Name):
+                </td>
+
+                <td class="info">
+                    @Html.DisplayFor(model => model.User.Organization.Name)
+                </td>
+            </tr>
+            <tr>
+                <td class="name">
+                    @Html.DisplayNameFor(model => model.User.Department.Name):
+                </td>
+
+                <td class="info">
+                    @Html.DisplayFor(model => model.User.Department.Name)
+                </td>
+            </tr>
+            <tr>
+                <td class="name">
+                    @Html.DisplayNameFor(model => model.User.Cellphone):
+                </td>
+
+                <td class="info">
+                    @Html.DisplayFor(model => model.User.Cellphone)
+                </td>
+            </tr>
+            <tr>
+                <td class="name">
+                    @Html.DisplayNameFor(model => model.User.Officephone):
+                </td>
+
+                <td class="info">
+                    @Html.DisplayFor(model => model.User.Officephone)
+                </td>
+            </tr>
+            <tr>
+                <td class="name">
+                    @Html.DisplayNameFor(model => model.User.eEmail):
+                </td>
+
+                <td class="info">
+                    @Html.DisplayFor(model => model.User.eEmail)
+                </td>
+            </tr>
+            <tr>
+                <td class="name">
+                    @Html.DisplayNameFor(model => model.User.Fax):
+                </td>
+
+                <td class="info">
+                    @Html.DisplayFor(model => model.User.Fax)
+                </td>
+            </tr>
+            <tr>
+                <td class="name">
+                    @Html.DisplayNameFor(model => model.User.Remark):
+                </td>
+
+                <td class="info">
+                    @Html.DisplayFor(model => model.User.Remark)
+                </td>
+            </tr>
+            <tr>
+                <td class="name">
+                    @Html.DisplayNameFor(model => model.User.UserRole.Name):
+                </td>
+
+                <td class="info">
+                    @Html.DisplayFor(model => model.User.UserRole.Name)
+                </td>
+            </tr>
+        </table>
+        <div class="tableServiceCommon">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="divCommonSubmit">
+                    <input type="submit" value="删除" class="btn btn-primary btn-action-op" />
+                    @Html.ActionLink("返回", "UserLists", null, new { @class = "btn btn-primary btn-action-op" })
+                </div>
+
+                if (TempData["USERmessage"] != null && TempData["USERmessage"].ToString().Length > 0)
+                {
+                    <div class="Submit_ErrorMessage">
+                        @TempData["USERmessage"]
+                    </div>
+                }
+            }
+        </div>
+    </div>
+
+
+</div>

@@ -1,0 +1,71 @@
+﻿@model MedicalTechnology.ServicePlatform.Website.Models.ServiceTypeListViewModel
+
+@{
+    Layout = "~/Views/Shared/_PageLayout.cshtml";
+}
+@Styles.Render("~/Content/main/css")
+<link rel="stylesheet" type="text/css" href="~/Content/User.css">
+<script src="~/Scripts/ServiceType.js"></script>
+<div class="usercontent">
+    <div id="divUserList">
+        <div class="divtitle divtitle-common">
+            <p class="titleinfo serverlist">服务类型</p><div class="divcontrolsw"><img src="~/Content/images/素材01 (18).png" /></div>
+        </div>
+        <div id="divserverlistinfo">
+            <div style="text-align:left;">
+                @Html.ActionLink("新增", "STCreate", "ServiceType", new { }, new { target = "view_frame", @class = "btn btn-primary btn-action-op" })
+            </div>
+            <table class="divlisttable">
+                <thead>
+                    <tr>
+                        <th style="width:200px;min-width:200px;">
+                            @Html.DisplayNameFor(model => model.ServerType.Name)
+                        </th>
+                        <th style="width:200px;min-width:200px;">
+                            @Html.DisplayNameFor(model => model.ServerType.Desc)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ServerType.price)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        var itemindex = 0;
+                        foreach (var item in Model.ServerTypes)
+                        {
+                            itemindex++;
+                            var alt = itemindex % 2 == 0 ? "alt" : "";
+                            <tr class=@alt>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Desc)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.price)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("编辑", "STEdit", new { id = item.ID, returnUrl=Model.ReturnUrl }) |
+                                    @Html.ActionLink("详细信息", "STDetails", new { id = item.ID }) |
+                                    @Html.ActionLink("删除", "STDelete", new { id = item.ID })
+                                </td>
+                            </tr>
+                        }
+                    }
+
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="10">
+                            @Html.PageLinks(Model.PagingInfo, x => Url.Action("STIndex", new { page = x }),
+                                 Url.Content("~/Content/images/素材01 (27).png"), Url.Content("~/Content/images/素材01 (28).png"))
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>

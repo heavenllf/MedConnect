@@ -1,0 +1,65 @@
+﻿@model MedicalTechnology.ServicePlatform.Website.Models.ServiceTypeViewModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_PageLayout.cshtml";
+}
+@Styles.Render("~/Content/main/css")
+<link rel="stylesheet" href="~/Content/SketchMap.css" type="text/css" />
+<script src="~/Scripts/SketchMap.js" type="text/javascript"></script>
+<div>
+    <div class="divtitle divtitle-common">
+        <p class="titleinfo serverlist">服务类型</p><div class="divcontrolsw"><img src="~/Content/images/素材01 (18).png" /></div>
+    </div>
+    <div class="divServiceCommon">
+        <table class="tableServiceCommon" style="width:400px;">
+            <tr>
+                <td class="name">
+                    @Html.DisplayNameFor(model => model.ServerType.Name):
+                </td>
+
+                <td class="info">
+                    @Html.DisplayFor(model => model.ServerType.Name)
+                </td>
+            </tr>
+            <tr>
+                <td class="name">
+                    @Html.DisplayNameFor(model => model.ServerType.Desc):
+                </td>
+
+                <td class="info">
+                    @Html.DisplayFor(model => model.ServerType.Desc)
+                </td>
+            </tr>
+            <tr>
+                <td class="name">
+                    @Html.DisplayNameFor(model => model.ServerType.price):
+                </td>
+
+                <td class="info">
+                    @Html.DisplayFor(model => model.ServerType.price)
+                </td>
+            </tr>
+            <tr>
+                <td class="name">
+                    @Html.DisplayNameFor(model => model.WorkflowName):
+                </td>
+
+                <td class="info">
+                    @Html.DisplayFor(model => model.ServerType.Group.Name)
+                </td>
+            </tr>
+        </table>
+        <div>
+            @Html.Action("SketchMapIndex", "SketchMap", new { ServiceTypeID = @Model.ServerType.ID, isEdit=0 })
+            @Html.Action("_SketchMapDisplayPartial", "SketchMap", new { ServiceTypeID = @Model.ServerType.ID})
+        </div>
+        <div class="tableServiceCommon">
+            <div class="divCommonSubmit">
+                @Html.ActionLink("编辑", "STEdit", new { id = Model.ServerType.ID, returnUrl=Model.ReturnUrl }, new { @class = "btn btn-primary btn-action-op" })
+                @Html.ActionLink("返回", "STIndex", null, new { @class = "btn btn-primary btn-action-op" })
+            </div>
+        </div>
+    </div>
+</div>
+

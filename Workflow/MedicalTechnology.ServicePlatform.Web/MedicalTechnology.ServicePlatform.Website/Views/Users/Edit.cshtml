@@ -1,0 +1,162 @@
+﻿@using MedicalTechnology.ServicePlatform.Website.Models;
+@model  MedicalTechnology.ServicePlatform.Website.Models.UserViewModel
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_PageLayout.cshtml";
+}
+@Styles.Render("~/Content/main/css")
+<div>
+    <div class="divtitle divtitle-common">
+        <p class="titleinfo serverlist">一般信息</p><div class="divcontrolsw"><img src="~/Content/images/素材01 (18).png" /></div>
+    </div>
+    <div class="divServiceCommon">
+        <div class="divServerInnerDivCommon">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="myform-horizontal">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.User.UserID)
+                    @Html.HiddenFor(model => model.User.ID)
+                    <div class="myform-group">
+                        <div class="mygroupcol">
+                            @Html.LabelFor(model => model.User.UserName, htmlAttributes: new { @class = "mylabel" })
+                        </div>
+                        <div class="mygroupcol">
+                            @Html.EditorFor(model => model.User.UserName, new { htmlAttributes = new { @class = "form-control inputedit" } })
+                        </div>
+                        <div class="mygroupcol">
+                            @Html.ValidationMessageFor(model => model.User.UserName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="myform-group">
+                        <div class="mygroupcol">
+                            @Html.LabelFor(model => model.User.IsMale, htmlAttributes: new { @class = "mylabel" })
+                        </div>
+
+                        <div class="mygroupcol">
+                            <span>男:</span>
+                            @Html.RadioButtonFor(model => model.User.IsMale, true, new { id = "male", @style = "width:auto;background:none;border:none" })
+                            <span>女:</span>
+                            @Html.RadioButtonFor(model => model.User.IsMale, false, new { id = "female", @style = "width:auto;background:none;border:none" })
+                        </div>
+                        <div class="mygroupcol">
+                            @Html.ValidationMessageFor(model => model.User.IsMale, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="myform-group">
+                        <div class="mygroupcol">
+                            @Html.LabelFor(model => model.User.Organization.Name, htmlAttributes: new { @class = "mylabel" })
+                        </div>
+                        <div class="mygroupcol">
+                            @Html.DropDownListFor(model => model.SelectedOrgID, new SelectList(Model.organizations, "ID", "Name"))
+                        </div>
+                    </div>
+                    <div class="myform-group">
+                        <div class="mygroupcol">
+                            @Html.LabelFor(model => model.User.Department.Name, htmlAttributes: new { @class = "mylabel" })
+                        </div>
+                        <div class="mygroupcol">
+                            @Html.DropDownListFor(model => model.SelectedDepartmentID, new SelectList(Model.departments, "ID", "Name"))
+                        </div>
+                    </div>
+                    <div class="myform-group">
+                        <div class="mygroupcol">
+                            @Html.LabelFor(model => model.User.Cellphone, htmlAttributes: new { @class = "mylabel" })
+                        </div>
+                        <div class="mygroupcol">
+                            @Html.EditorFor(model => model.User.Cellphone, new { htmlAttributes = new { @class = "form-control inputedit" } })
+                        </div>
+                        <div class="mygroupcol">
+                            @Html.ValidationMessageFor(model => model.User.Cellphone, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="myform-group">
+                        <div class="mygroupcol">
+                            @Html.LabelFor(model => model.User.Officephone, htmlAttributes: new { @class = "mylabel" })
+                        </div>
+                        <div class="mygroupcol">
+                            @Html.EditorFor(model => model.User.Officephone, new { htmlAttributes = new { @class = "form-control inputedit" } })
+                        </div>
+                        <div class="mygroupcol">
+                            @Html.ValidationMessageFor(model => model.User.Officephone, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="myform-group">
+                        <div class="mygroupcol">
+                            @Html.LabelFor(model => model.User.eEmail, htmlAttributes: new { @class = "mylabel" })
+                        </div>
+                        <div class="mygroupcol">
+                            @Html.EditorFor(model => model.User.eEmail, new { htmlAttributes = new { @class = "form-control inputedit" } })
+                        </div>
+                        <div class="mygroupcol">
+                            @Html.ValidationMessageFor(model => model.User.eEmail, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="myform-group">
+                        <div class="mygroupcol">
+                            @Html.LabelFor(model => model.User.Fax, htmlAttributes: new { @class = "mylabel" })
+                        </div>
+                        <div class="mygroupcol">
+                            @Html.EditorFor(model => model.User.Fax, new { htmlAttributes = new { @class = "form-control inputedit" } })
+                        </div>
+                        <div class="mygroupcol">
+                            @Html.ValidationMessageFor(model => model.User.Fax, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="myform-group">
+                        <div class="mygroupcol">
+                            @Html.LabelFor(model => model.User.Remark, htmlAttributes: new { @class = "mylabel" })
+                        </div>
+                        <div class="mygroupcol">
+                            @Html.EditorFor(model => model.User.Remark, new { htmlAttributes = new { @class = "form-control inputedit" } })
+                        </div>
+                        <div class="mygroupcol">
+                            @Html.ValidationMessageFor(model => model.User.Remark, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    @if (Model.ViewType != (int)emUserViewType.PersonView)
+                    {
+                        <div class="myform-group">
+                            <div class="mygroupcol">
+                                @Html.LabelFor(model => model.User.UserRole.Name, htmlAttributes: new { @class = "mylabel" })
+                            </div>
+                            <div class="mygroupcol">
+                                @Html.DropDownListFor(model => model.SelectedRoleID, new SelectList(Model.Roles, "ID", "Name"))
+                            </div>
+                        </div>
+                    }
+                    <div style="visibility:hidden;">
+                        @Html.LabelFor(model => model.User.Password, htmlAttributes: new { @class = "mylabel" })
+                        <div class="mygroupcol">
+                            @Html.EditorFor(model => model.User.Password, new { htmlAttributes = new { @class = "form-control inputedit" } })
+                            @Html.ValidationMessageFor(model => model.User.Password, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="divCommonSubmit">
+                        <input type="submit" value="保存" class="btn btn-primary btn-submit-op" />
+                        @if (Model.ViewType == (int)emUserViewType.DetailView)
+                        {
+                            @Html.ActionLink("返回", "Details", new { UserID = Model.User.UserID }, new { @class = "btn btn-primary btn-action-op" })
+                        }
+                        else if (Model.ViewType == (int)emUserViewType.PersonView)
+                        {
+                            @Html.ActionLink("返回", "PersionInfo", new { UserID = Model.User.UserID }, new { @class = "btn btn-primary btn-action-op" })
+                        }
+                        else if (Model.ViewType == (int)emUserViewType.ListView)
+                        {
+                            @Html.ActionLink("返回", "UserLists", null, new { @class = "btn btn-primary btn-action-op" })
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+</div>

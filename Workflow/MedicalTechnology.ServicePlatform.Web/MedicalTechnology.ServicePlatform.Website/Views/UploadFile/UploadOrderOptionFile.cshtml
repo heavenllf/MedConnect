@@ -1,0 +1,52 @@
+﻿@model MedicalTechnology.ServicePlatform.Website.Models.OrderOptionUploadFileViewModel
+
+@{
+    Layout = null;
+}
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>上传文件</title>
+    <script src="@Model.FileServiceUrl/Scripts/jquery-2.1.3.min.js"></script>
+    <script src="~/Scripts/uploadfile-form.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/Content/Site.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/UploadFileForm.css" />
+</head>
+<body>
+    <div style="text-align:center;overflow-y: auto">
+        <div id="uploadfilemessage">
+            <div id="message" style="color:red;"></div>
+        </div>
+        <div id="uploadfileform">
+            <form name="FormDataFileUpload">
+                <ol style="list-style:none">
+                    <li class="form">
+                        <label for="select_directory">文件描述:</label>
+                        <input type="text" id="select_directory" name="directoryname" style="width:200px" />
+                    <li />
+                    <li class="form">
+                        <label for="select_file">选择文件: </label>
+                        <input type="file" id="select_file" name="files[]" multiple style="width:200px" />
+                    </li>
+                    <li class="form">
+                        <input type="button" id="cancel_workers" value="取消上载" style="float:right;margin-left: 10px" />
+                        <input type="submit" id="upload_file" value="上载" style="float:right" />
+                    </li>
+                </ol>
+            </form>
+        </div>
+        <div id="uploadfileprogress">
+            <div>
+                <ol id="uploadfileslist"></ol>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" id="iddomainUrl" value="@Model.FileServiceUrl" />
+    <input type="hidden" id="idworkeruploadchunkurl" value="@Url.Content("~/Scripts/workeruploadchunk.js")"/>
+    <input type="hidden" id="idworkerprocessurl" value="@Url.Content("~/Scripts/workerprocessfile.js")" />
+    <input type="hidden" id="idworkermd5url" value="@Url.Content("~/Scripts/spark-md5.js")" />
+    <input type="hidden" id="idkeepalive" value="@Url.Action("KeepSessionAlive", "UploadFile")" />
+</body>
+</html>
+

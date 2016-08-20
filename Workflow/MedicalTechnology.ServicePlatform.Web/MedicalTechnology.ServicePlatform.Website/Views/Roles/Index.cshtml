@@ -1,0 +1,43 @@
+﻿@model MedicalTechnology.ServicePlatform.Website.Models.RoleListViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_PageLayout.cshtml";
+}
+<link rel="stylesheet" type="text/css" href="~/Content/User.css">
+<div class="usercontent">
+    <h2>查询</h2>
+
+    <p>
+        @Html.ActionLink("新增", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Role.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Role.Desc)
+            </th>
+            <th>操作</th>
+        </tr>
+
+        @foreach (var item in Model.Roles)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(Item => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(Item => item.Desc)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                    @Html.ActionLink("详细信息", "Details", new { id = item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

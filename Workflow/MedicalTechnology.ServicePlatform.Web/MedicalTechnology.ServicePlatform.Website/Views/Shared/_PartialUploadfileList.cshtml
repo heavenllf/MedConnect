@@ -1,0 +1,86 @@
+﻿@model MedicalTechnology.ServicePlatform.Website.Models.UploadFileListViewModel
+<div class="Uploadfileliststyle">
+    <table style="width:100%">
+        <tr>
+            <th style="width:20px;">序号</th>
+            <th class="tableHead tableinfo" style="width:250px;">
+                @Html.DisplayNameFor(model => model.UploadFile.FileName)
+            </th>
+            @*<th class="tableHead tableinfo">
+                    @Html.DisplayNameFor(model => model.UploadFile.Date)
+                </th>*@
+            <th class="tableHead" style="width:150px;">
+                @Html.DisplayNameFor(model => model.UploadFile.Desc)
+            </th>
+            <th>@Html.DisplayNameFor(model => model.UploadFile.FileTypeName)</th>
+            <th>操作</th>
+        </tr>
+        <tbody class="orderOptions">
+            @{
+                var itemindex = 0;
+                foreach (var item in Model.UploadFiles)
+                {
+                    var trid = "trUploadFiles" + itemindex;
+                    var filename = "UploadFiles[" + itemindex + "].FileName";
+                    var id = "UploadFiles_" + itemindex + "__name";
+                    var descname = "UploadFiles[" + itemindex + "].Desc";
+                    var directoryname = "UploadFiles[" + itemindex + "].DirectoryName";
+                    var pathname = "UploadFiles[" + itemindex + "].Path";
+                    var filetypename = "UploadFiles[" + itemindex + "].iFileType";
+                    <tr id="@trid">
+                        <td>
+                            @(itemindex+1)
+                        </td>
+                        <td style="display:none"><input name="UploadFiles.Index" type="hidden" value="@itemindex" /></td>
+                        <td style="display:none"><input type="hidden" name="@filename" id="@id" value="@item.FileName" /> </td>
+                        <td style="display:none"><input type="hidden" name="@descname" id="@id" value="@item.Desc" /> </td>
+                        <td style="display:none"><input type="hidden" name="@directoryname" id="@id" value="@item.DirectoryName" /> </td>
+                        <td style="display:none"><input type="hidden" name="@pathname" id="@id" value="@item.Path" /> </td>
+                        <td style="display:none"><input type="hidden" name="@filetypename" id="@id" value="@item.iFileType" /> </td>
+                        <td class="tableinfo">
+                            @Html.DisplayFor(modelItem => item.FileName)
+                        </td>
+                        @*<td class="tableinfo">
+                                @Html.DisplayFor(modelItem => item.Date)
+                            </td>*@
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Desc)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FileTypeName)
+                        </td>
+                        <td>
+                            @if (Model.IsEdit)
+                            {
+                                <a href="javascript:void(0)" id="deletefile" name="deletefile" data-filetype="@item.FileTypeIntValue" onclick="removeFileRow('@itemindex');">
+                                    <img src="~/Content/images/素材01 (7).png" />
+                                </a>
+                            }
+                            @if (Model.IsCanDownload)
+                            {
+
+                                var downloadpram = "?FullFileName=";
+                                   downloadpram += item.FullFileName;
+                                <a name="FileDownload" style="zoom:0.5" data-fileid="@item.ID" data-downloadparm="@downloadpram" data-filetype="@item.FileTypeIntValue"
+                                   class="btn btn-primary" onclick="downloadattachedfile(this)"><img src="~/Content/images/素材01 (9).png" /></a>
+                            }
+
+                        </td>
+                    </tr>
+                    itemindex++;
+                }
+            }
+        </tbody>
+    </table>
+    <input type="hidden" id="download-checkurl" value="@Url.Action("CheckFileOrderAttahced", "DownloadFile")" />
+    @{
+        var url = Model.FileWebServiceUrl;
+        url += "/api/OrderOptionFileUpload/DownloadFile";
+    }
+    <input type="hidden" name="download-fileurl" value="@url" />
+    @{ 
+        var iEditstate = Model.IsEdit == true ? "1" : "0";
+    }
+    <input type="hidden" id="bEditStatus" value="@iEditstate" />
+    <input type="hidden" id="deletefileimgurl" value="@Url.Content("~/Content/images/素材01 (7).png")" />
+</div>

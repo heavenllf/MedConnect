@@ -1,0 +1,86 @@
+﻿@using MedicalTechnology.ServicePlatform.Website.Models
+@model MedicalTechnology.ServicePlatform.Website.Models.UserListViewModel
+<div class="divtitle divtitle-common">
+    <p class="titleinfo serverlist">用户信息</p><div class="divcontrolsw"><img src="~/Content/images/素材01 (18).png" /></div>
+</div>
+<div id="divserverlistinfo">
+    <div style="text-align:left;">
+        @*@Html.ActionLink("新增", "Create", "Users", new { }, new { target = "view_frame" })*@
+        <a id="anchorNewUser" href="#divCreateUser">新增</a>
+    </div>
+    <table class="divlisttable">
+        <thead>
+            <tr>
+                <th style="width:100px;min-width:100px;">
+                    @Html.DisplayNameFor(model => model.Usermodel.User.UserID)
+                </th>
+                <th style="width:100px;min-width:100px;">
+                    @Html.DisplayNameFor(model => model.Usermodel.User.UserName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Usermodel.User.SexDesc)
+                </th>
+                <th style="width:100px;min-width:100px;">
+                    @Html.DisplayNameFor(model => model.Usermodel.User.Organization.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Usermodel.User.Cellphone)
+                </th>
+                @*<th>
+                    @Html.DisplayNameFor(model => model.Usermodel.User.Officephone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Usermodel.User.eEmail)
+                </th>*@
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                var itemindex = 0;
+                foreach (var item in Model.Users)
+                {
+                    itemindex++;
+                    var alt = itemindex % 2 == 0 ? "alt" : "";
+                    <tr class=@alt>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UserID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UserName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SexDesc)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Organization.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Cellphone)
+                        </td>
+                        @*<td>
+                            @Html.DisplayFor(modelItem => item.Officephone)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.eEmail)
+                        </td>*@
+                        <td>
+                            @Html.ActionLink("编辑", "Edit", new { UserID = item.UserID, ViewType=(int)emUserViewType.ListView }) |
+                            @Html.ActionLink("详情", "Details", new { UserID = item.UserID }) |
+                            @Html.ActionLink("删除", "Delete", new { UserID = item.UserID })
+                        </td>
+                    </tr>
+                }
+            }
+
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="10">
+                    @Html.PageLinks(Model.PagingInfo, x => Url.Action("PartialUserList", new { page = x }),
+                                 Url.Content("~/Content/images/素材01 (27).png"), Url.Content("~/Content/images/素材01 (28).png"))
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

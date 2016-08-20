@@ -1,0 +1,151 @@
+﻿@model MedicalTechnology.ServicePlatform.Website.Models.PrintViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<script></script>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/core.css" rel="stylesheet" media="screen" type="text/css" />
+    <link href="~/Content/core.css" rel="stylesheet" media="print" type="text/css" />
+    <script type="text/javascript" src="~/Scripts/jquery/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.PrintArea.js_4.js"></script>
+    <script type="text/javascript" src="~/Scripts/core.js"></script>
+    <script type="text/javascript" src="~/Scripts/PrintContext.js"></script>
+    <link type="text/css" rel="stylesheet" media="print" href="~/Content/print.css" />
+    <link type="text/css" rel="stylesheet" media="screen" href="~/Content/print.css" />
+    <meta name="description" content="jQuery Print Area" />
+    <meta name="keywords" content="jQuery Print Area" />
+    <meta http-equiv="imagetoolbar" content="no" />
+    <title>打印</title>
+</head>
+<body class="pagebody">
+    <div>
+        <div id="content" class="printable">
+            <div class="printhead">
+                <p>百特康技术服务单</p>
+            </div>
+            <div class="printbody">
+                <span>
+                    @Html.DisplayNameFor(model => model.Order.OrderNO):
+                    @Html.DisplayFor(model => model.Order.OrderNO)
+                </span>
+                <div style="clear:right;">
+                    <p class="pagebody_Titlename">客户名称：</p>
+                    <table>
+                        <tr>
+                            <td class="pagebody_Subtitilename">
+                                @Html.DisplayNameFor(model => model.Order.Patient.PatientName)
+                            </td>
+                            <td colspan="3">
+                                @Html.DisplayFor(model => model.Order.Patient.PatientName)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="pagebody_Subtitilename">
+                                院校/公司
+                            </td>
+                            <td colspan="3" style="word-break: break-all;">
+                                @Html.DisplayFor(model => model.Order.Patient.Workplace)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.DisplayNameFor(model => model.Order.Patient.Telephone)
+                            </td>
+                            <td style="min-width: 100px;">
+                                @Html.DisplayFor(model => model.Order.Patient.Telephone)
+                            </td>
+                            <td style="width:50px;">传真</td>
+                            <td style="min-width: 50px;"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <p class="pagebody_Titlename">服务提供方：</p>
+                    <table>
+                        <tr>
+                            <td class="pagebody_Subtitilename">
+                                公司名称
+                            </td>
+                            <td colspan="3">                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                联系人
+                            </td>
+                            <td colspan="3">                              
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                电话号码
+                            </td>
+                            <td style="min-width: 100px;"></td>
+                            <td>传真</td>
+                            <td style="min-width: 50px;"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <p class="pagebody_Titlename">服务内容：</p>
+                    <table>
+                        <tr>
+                            <td class="pagebody_Subtitilename">
+                                【@Html.DisplayNameFor(model => model.Order.Name)】
+                            </td>
+                            <td colspan="3">
+                                @Html.DisplayFor(model => model.Order.Name)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="vertical-align:top;">【@Html.DisplayNameFor(model => model.Order.DesignRequire)】</td>
+                            <td colspan="3"><div style="min-height:150px;word-break: break-all;">@Html.DisplayForMultiLabel(model => model.Order.DesignRequire)</div></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.DisplayNameFor(model => model.Order.StartTimeActual)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.Order.StartTimeActualDetail)
+                            </td>
+                            <td>
+                                @Html.DisplayNameFor(model => model.Order.EndTimeActual)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.Order.FinishTimeActualDetail)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>@Html.DisplayNameFor(model => model.Order.PrintType.price)</td>
+                            <td>@Html.DisplayFor(model => model.Order.PrintType.price)</td>
+                            <td colspan="2"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="printfooter">
+                <table>
+                    <tr>
+                        <td style="height:100px;vertical-align:top;" 
+                            colspan="2">
+                            客户签章
+                        </td>
+                        <td style="height:100px;vertical-align:top;" colspan="2">服务提供方签章</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">日期</td>
+                        <td colspan="2">日期</td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <a href="#" class="print" rel="content">打印订单</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+﻿@model MedicalTechnology.ServicePlatform.Website.Models.AssignOrderViewModel
+@{
+    var divID = "div" + @Model.WFtranscation.Name+@Model.WFtranscation.ID;
+}
+<div id=@divID name="divOperation" class="orderOperation">
+    <table>
+        <tr class="opertrinfo">
+            <td colspan="3">
+                <h4>分配服务给设计工程师</h4>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                设计工程师
+            </td>
+            <td>
+                @Html.DropDownListFor(x => x.UserLists,
+                new SelectList(Model.UserLists, "UserID", "UserName", Model.SelUserID),
+                new { id = "ddlUserList" })
+            </td>
+            <td>
+                <input type="button" id="btnAssign" value="提交" class="btn btn-primary btn-action-op" />
+                @Html.Hidden("AssignUrl", @Url.Action("AssignOrder", "Orders"))
+            </td>
+        </tr>
+    </table>
+
+</div>

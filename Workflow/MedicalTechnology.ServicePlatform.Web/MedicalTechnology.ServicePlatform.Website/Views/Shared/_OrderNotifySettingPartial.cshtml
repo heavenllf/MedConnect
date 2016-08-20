@@ -1,0 +1,79 @@
+﻿@model MedicalTechnology.ServicePlatform.Website.Models.NotifySettingViewModel
+ <div id="divconfiglist">
+    <table>
+        <tr>
+            @*<th>
+                @Html.DisplayNameFor(model => model.config.ID)
+            </th>*@
+            <th class="tableHead">
+                @Html.DisplayNameFor(model => model.config.EventID)
+            </th>
+            <th class="tableHead tableinfo">
+                @Html.DisplayNameFor(model => model.config.Users)
+            </th>
+            <th class="tableHead">
+                @Html.DisplayNameFor(model => model.config.IsEmail)
+            </th>
+            <th class="tableHead">
+                @Html.DisplayNameFor(model => model.config.IsSMS)
+            </th>
+            @if (Model.IsEdit)
+            {
+                <th>
+                    操作
+                </th>
+            }
+
+        </tr>
+        <tbody class="notifytr">
+            @{
+                var itemindex = 0;
+                foreach (var item in Model.Configs)
+                {
+                    var trid = "trNotifies" + itemindex;
+                    var eventIDname = "Configs[" + itemindex + "].EventID";
+                    var eventIDid = "Configs_" + itemindex + "__name";
+                    var Usersname = "Configs[" + itemindex + "].Users";
+                    var Usersid = "Configs_" + itemindex + "__name";
+                    var IsEmailname = "Configs[" + itemindex + "].IsEmail";
+                    var IsEmailid = "Configs_" + itemindex + "__name";
+                    var IsSMSname = "Configs[" + itemindex + "].IsSMS";
+                    var IsSMSid = "Configs_" + itemindex + "__name";
+                    <tr id="@trid" >
+                        <td style=" display:none"><input name="Configs.Index" type="hidden" value="@itemindex" /></td>
+                        <td style="display:none"><input type="hidden" name="@eventIDname" id="@eventIDid" value="@item.EventID" /> </td>
+                        <td style="display:none"><input type="hidden" name="@Usersname" id="@Usersid" value="@item.Users" /> </td>
+                        <td style="display:none"><input type="hidden" name="@IsEmailname" id="@IsEmailid" value="@(item.IsEmail.ToString())" /> </td>
+                        <td style="display:none"><input type="hidden" name="@IsSMSname" id="@IsSMSid" value="@(item.IsSMS.ToString())" /> </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EventName)
+                        </td>
+                        <td class="tableinfo">
+                            @Html.DisplayFor(modelItem => item.UserNames)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IsEmail)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IsSMS)
+                        </td>
+                        <td>
+                            @if (Model.IsEdit)
+                            {
+                                <a href="javascript:void(0)" id="deleteconfig" name="deleteConfig" onclick="removeNotifyRow('@itemindex');">
+                                    <img src="~/Content/images/素材01 (7).png" />
+                                </a>
+                            }
+                        </td>
+                    </tr>
+                            itemindex++;
+                }
+            }
+        </tbody>
+    </table>
+     @{
+         var iEditstate = Model.IsEdit == true ? "1" : "0";
+     }
+     <input type="hidden" id="bNotifyEditStatus" value="@iEditstate" />
+     <input type="hidden" id="deleteimgurl" value="@Url.Content("~/Content/images/素材01 (7).png")" />
+</div>

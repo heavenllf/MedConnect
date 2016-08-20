@@ -1,0 +1,8 @@
+﻿@model MedicalTechnology.ServicePlatform.Website.Models.PrintOperationViewModel
+<div id="divprintop" style="width:300px;">
+    @Html.Hidden("printUrl", @Url.Action("Print", "Print", new {OrderNO=Model.OrderNo}))
+    @*<a href="#divprintop" id="aprint">打印</a>*@
+    <div id="openPrintDiv" class="easyui-dialog" closed="true" modal="true" title="打印订单" style="width:600px;height:600px;overflow-y:hidden;">
+        <iframe scrolling="auto" id='openPrintIframe' frameborder="0" src="" style="width:100%;height:95%;"></iframe>
+    </div>
+</div>

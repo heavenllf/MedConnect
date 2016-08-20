@@ -1,0 +1,18 @@
+﻿@model MedicalTechnology.ServicePlatform.Website.Models.CancelOrderViewModel
+<div id="divCancelOrder" class="orderOperation">
+    <div id="divPint3D">
+        <table>
+            <tr class="opertrinfo">
+                <td colspan="3">
+                    <h4>取消服务</h4>
+                </td>
+            </tr>
+            <tr class="opertrbtn">
+                <td>
+                    <input type="button" id="btnCancel" value="提交" class="btn btn-primary btn-action-op" />
+                    @Html.Hidden("CancelUrl", @Url.Action("CancelOrder", "Orders"))
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

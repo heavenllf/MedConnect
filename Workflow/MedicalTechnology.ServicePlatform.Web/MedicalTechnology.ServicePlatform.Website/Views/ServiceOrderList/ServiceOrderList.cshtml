@@ -1,0 +1,47 @@
+﻿@model MedicalTechnology.ServicePlatform.Website.Models.OrderListViewModel
+
+@{
+    ViewBag.Title = "服务列表";
+    Layout = "~/Views/Shared/_OrderPageLayout.cshtml";
+}
+<script type="text/javascript" src="~/Scripts/OrderQueryCondition.js"></script>
+<script type="text/javascript" src="~/Scripts/Order.js"></script>
+<script type="text/javascript" src="~/Scripts/UploadFile.js"></script>
+<script type="text/javascript" src="~/Scripts/download.js"></script>
+<script type="text/javascript" src="~/Scripts/Print.js"></script>
+<script type="text/javascript" src="~/Scripts/Conference.js"></script>
+@Styles.Render("~/Content/main/css")
+<div class="divserviceorderlist">
+    @Html.Partial("_OrderQueryConditionPartial", Model.OrderQueryCondition)
+    <div id="divOrderList">
+        @Html.Partial("_OrderListPartial", Model)
+    </div>
+    <div>
+        <div class="divtitle divtitle-serverlist" name="detailpos">
+            <p class="titleinfo serverlist">详细信息</p><a id="acloseDetail" title="查看服务详细信息" class="easyui-tooltip divcontrolsw btn-action-op" href="#detailpos"><img src="~/Content/images/素材01 (18).png" /></a>
+        </div>
+        <div id="collapsible-panels" style="clear:both;">
+            <div id="DetailPanels">
+                @Html.Partial("_OrderDetailPartial", Model.OrderModel)
+            </div>
+        </div>
+        <div class="divtitle divtitle-serverlist">
+            <p class="titleinfo serverlist" name="serviceoppos">流程处理</p><a id="ancharOperation" title="操作服务工作流" class="easyui-tooltip divcontrolsw btn-action-op" href="#serviceoppos"><img src="~/Content/images/素材01 (18).png" /></a>
+        </div>     
+        <div id="divOrderWFOperation">
+            @Html.Action("_OrderOperationPartial", "ServiceOrderList", new { groupID = 0 })         
+        </div>
+        <div id="divConferenceTitle" class="divtitle divtitle-serverlist" name="remotepos">
+            <p class="titleinfo serverlist">远程会议</p><a id="anchorconference" class="divcontrolsw" href="#remotepos"><img src="~/Content/images/素材01 (18).png" /></a>
+        </div>
+        <div id="divconferenceContext">
+            @Html.Partial("_ConferencePartial", Model.OrderModel.ConferenceModel)
+        </div>
+        <div class="divtitle divtitle-serverlist" name="recoderpos">
+            <p class="titleinfo serverlist">修改记录</p><a id="anchorerecorder" class="divcontrolsw" href="#recoderpos"><img src="~/Content/images/素材01 (18).png" /></a>
+        </div>
+        <div id="divrecorder">
+             @Html.Action("_OrderMotifyRecorderPartial", "MofifyRecord")
+        </div>
+    </div>
+</div>

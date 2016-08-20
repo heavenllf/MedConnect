@@ -1,0 +1,39 @@
+﻿@using System.Configuration;
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - @ConfigurationManager.AppSettings["SysName"] </title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/main/css")
+    @Styles.Render("~/Content/themes")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/easyui")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/main")
+</head>
+<body>
+    <div id="header">
+        @Html.Partial("_HeadPartial")
+    </div>
+    <div id="mainwrap">
+        <div id="content">
+            <div class="ContentLeft">
+                @Html.Partial("_MenuPartial")
+            </div>
+            <div class="ContentRight">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+    <input id="btnimgloading" type="hidden" urladdr="@Url.Content("~/Content/images/btnsubmitting.gif")" />
+    @*<div id="footer">
+        @Html.Partial("_FooterPartial")
+    </div>*@
+    @RenderSection("scripts", required: false)
+</body>
+</html>

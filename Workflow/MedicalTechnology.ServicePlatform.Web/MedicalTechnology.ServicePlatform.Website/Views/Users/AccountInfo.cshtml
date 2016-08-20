@@ -1,0 +1,86 @@
+﻿@model MedicalTechnology.ServicePlatform.Website.Models.AcountInfoViewModel
+
+@{
+    ViewBag.Title = "AccountInfo";
+    Layout = "~/Views/Shared/_PageLayout.cshtml";
+}
+@Styles.Render("~/Content/main/css")
+<div style="height:400px;">
+    <div class="divtitle divtitle-common">
+        <p class="titleinfo serverlist">账户信息</p><div class="divcontrolsw"><img src="~/Content/images/素材01 (18).png" /></div>
+    </div>
+    <div class="divServiceCommon" style="padding-top:100px;">
+        <div class="divServerInnerDivCommon">
+            @if (TempData["message"] != null && TempData["message"].ToString().Length > 0)
+            {
+                if (TempData["messagetype"] == "1")
+                {
+                    <div class="Order_Message Order_SuccessMessage">
+                        @TempData["message"]
+                    </div>
+                }
+                else
+                {
+                    <div class="Order_Message Order_ErrorMessage">
+                        @TempData["message"]
+                    </div>
+                }
+            }
+            @using (Html.BeginForm("AccountInfo", "Users", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <div class="myform-horizontal">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.UserID)
+                    <div class="myform-group">
+                        <div class="mygroupcol">
+                            @Html.LabelFor(model => model.UserID, htmlAttributes: new { @class = "mylabel", style="word-spacing:24px" })
+                        </div>
+                        <div class="mygroupcol">
+                            @Html.DisplayFor(model => model.UserID, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                    </div>
+                    <div class="myform-group">
+                        <div class="mygroupcol">
+                            @Html.LabelFor(model => model.OldPassword, htmlAttributes: new { @class = "mylabel" })
+                        </div>
+                        <div class="mygroupcol">
+                            @Html.EditorFor(model => model.OldPassword, new { htmlAttributes = new { @class = "form-control inputedit" } })
+                        </div>
+                        <div class="mygroupcol">
+                            @Html.ValidationMessageFor(model => model.OldPassword, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="myform-group">
+                        <div class="mygroupcol">
+                            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "mylabel" })
+                        </div>
+                        <div class="mygroupcol">
+                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control inputedit" } })
+                        </div>
+                        <div class="mygroupcol">
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="myform-group">
+                        <div class="mygroupcol">
+                            @Html.LabelFor(model => model.PasswordConfirm, htmlAttributes: new { @class = "mylabel" })
+                        </div>
+                        <div class="mygroupcol">
+                            @Html.EditorFor(model => model.PasswordConfirm, new { htmlAttributes = new { @class = "form-control inputedit" } })
+                        </div>
+                        <div class="mygroupcol">
+                            @Html.ValidationMessageFor(model => model.PasswordConfirm, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="divCommonSubmit">
+                        <input type="submit" value="保存" class="btn btn-primary btn-submit-op" />
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+</div>

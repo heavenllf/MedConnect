@@ -1,0 +1,25 @@
+﻿@model MedicalTechnology.ServicePlatform.Website.Models.EvaluateListViewModel
+<span style="background-color:#F7F6F3; width:100%;">留言记录：</span>
+<table class="table" border="0" style="border:0px;">
+    @{
+        var index=0;
+        foreach (var item in Model.Messages)
+        {
+            <tr>
+                <td style="word-break: break-all;font-size:14px;padding-left:40px;" colspan="2">
+                    @Html.DisplayFor(modelItem => item.Content)
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align:left;border-top: 0px;border-bottom: 1px solid #dddddd;">[@Html.DisplayFor(modelItem => item.LevelDesc)] </td>
+                <td style="font-size:12px; font-style:italic;text-align: right;border-top: 0px;border-bottom: 1px solid #dddddd;">
+                    @Html.DisplayFor(modelItem => item.UserInfo.UserName) 发表于:
+                    @Html.DisplayFor(modelItem => item.DateStringFormat)
+                </td>
+            </tr>
+            index++;
+        }
+    }
+
+
+</table>

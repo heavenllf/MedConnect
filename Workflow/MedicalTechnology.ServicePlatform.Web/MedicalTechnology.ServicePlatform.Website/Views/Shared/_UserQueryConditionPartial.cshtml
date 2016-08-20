@@ -1,0 +1,42 @@
+﻿@model MedicalTechnology.ServicePlatform.Website.Models.UserConditionViewModel
+
+<div class="divtitle divtitle-common">
+    <p class="titleinfo serverlist">搜索</p><div class="divcontrolsw"><img src="~/Content/images/素材01 (18).png" /></div>
+</div>
+<div class="divServiceCommon">
+    <table class="tableServiceCommon">
+        <tr>
+            <td class="name">@Html.DisplayNameFor(model => model.UserID)</td>
+            <td class="info infowidth" style="min-width:60px;">
+                @Html.TextBoxFor(model => model.UserID, new { id = "QUserID" })
+            </td>
+            <td class="name" style="min-width:60px;">@Html.DisplayNameFor(model => model.UserName)</td>
+            <td class="info infowidth">
+                @Html.TextBoxFor(model => model.UserName, new { id = "QUserName" })
+            </td>
+            @*<td>@Html.DisplayNameFor(model => model.Phone)</td>
+            <td>
+                @Html.TextBoxFor(model => model.Phone, new { id = "QPhone" })
+            </td>*@
+
+            @Html.Hidden("QueryUrl", @Url.Action("PartialUserList", "Users"))
+        </tr>
+        <tr>
+            <td class="name">@Html.DisplayNameFor(model => model.Sex)</td>
+            <td colspan="3" class="info infowidth">
+                <div class="col-md-10">
+                    <span>男:</span>
+                    @Html.RadioButtonFor(model => model.IsMale, 1, new { @style = "width:auto;background:none;border:none" })
+                    <span>女:</span>
+                    @Html.RadioButtonFor(model => model.IsMale, 2, new { @style = "width:auto;background:none;border:none" })
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" style="text-align:right;">
+                <button id="btnReset" class="btn btn-primary">重置</button>
+                <button id="QbtnUserExportar" class="btn btn-primary btn-action-op">搜索</button>
+            </td>
+        </tr>
+    </table>
+</div>

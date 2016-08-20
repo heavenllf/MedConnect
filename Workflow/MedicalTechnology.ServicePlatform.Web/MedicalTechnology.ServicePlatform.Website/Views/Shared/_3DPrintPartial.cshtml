@@ -1,0 +1,44 @@
+﻿@model MedicalTechnology.ServicePlatform.Website.Models.Print3DOrderViewModel
+@{
+    var divID = "div" + @Model.WFtranscation.Name + @Model.WFtranscation.ID;
+}
+<div id=@divID name="divOperation" class="orderOperation">
+    <div id="divPint3D">
+        <table>
+            <tr class="opertrinfo">
+                    <td colspan="2">
+                        <h4>工程师根据设计方案进行3D打印，完成打印后提交结果</h4>
+                    </td>
+                </tr>
+            <tr class="opertrinfo">
+                <td class="infolabel">
+                    @Html.LabelFor(model => model.ExpressInfo)
+                </td>
+                <td>
+                    <div class="divExpressInfo">
+                        @Html.EditorFor(model => model.ExpressInfo, new { htmlAttributes = new { @class = "inputExpressInfo mytextbox", id = "txtExpressInfo" } })
+                        @Html.ValidationMessageFor(model => model.ExpressInfo, "", new { @class = "text-danger" })
+                    </div>
+                </td>
+            </tr>
+            <tr class="opertrinfo">
+                <td class="infolabel">
+                    @Html.LabelFor(model => model.ExpressNote)
+                </td>
+                <td>
+                    <div>
+                        <textarea id="txtExpressNote" rows="3" cols="50" class="txtareaExpressNote"></textarea>
+                    </div>
+                </td>
+            </tr>
+            <tr class="opertrbtn">
+                <td colspan="2">
+                    <div class="divSubmitExpress">
+                        <input type="button" id="btn3Dprint" value="提交" class="btn btn-primary btn-action-op" />
+                        @Html.Hidden("Print3DUrl", @Url.Action("Print3DOrder", "Orders"))
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+﻿@model MedicalTechnology.ServicePlatform.Website.Models.RoleViewModel
+
+@{
+    ViewBag.Title = "详细信息";
+    Layout = "~/Views/Shared/_PageLayout.cshtml";
+}
+
+<h2>详细</h2>
+<link rel="stylesheet" type="text/css" href="~/Content/User.css">
+<div>
+    <h4>角色</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Role.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Role.ID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Role.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Role.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Role.Desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Role.Desc)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("编辑", "Edit", new { id = Model.Role.ID }) |
+    @Html.ActionLink("返回列表", "Index")
+</p>

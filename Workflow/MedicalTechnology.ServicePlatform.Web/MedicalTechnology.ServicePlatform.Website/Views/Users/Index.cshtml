@@ -1,0 +1,67 @@
+﻿@model MedicalTechnology.ServicePlatform.Website.Models.UserListViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_PageLayout.cshtml";
+}
+<link rel="stylesheet" type="text/css" href="~/Content/User.css">
+<div class="usercontent">
+    <h2>查询</h2>
+
+    <p>
+        @Html.ActionLink("新增", "Create", "Users", new { }, new { target = "view_frame" })
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.User.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User.Sex)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User.Password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User.Cellphone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User.Officephone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User.eEmail)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.Users)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sex)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Password)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cellphone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Officephone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.eEmail)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.UserID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.UserID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.UserID })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

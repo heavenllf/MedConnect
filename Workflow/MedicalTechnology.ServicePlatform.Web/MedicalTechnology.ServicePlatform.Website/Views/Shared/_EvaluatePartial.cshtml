@@ -1,0 +1,28 @@
+﻿@model MedicalTechnology.ServicePlatform.Website.Models.EvaluateViewModel
+<input type="hidden" value="@Url.Action("_EvaluateListPartail", "Evaluate")" name="evaluatelisturl"  />
+<input type="hidden" value="@Url.Action("AddEvaluateMsg", "Evaluate")" name="evaluateaddurl" />
+<div id="idevaluatelist" style="padding: 0px 20px 0px 20px;"></div>
+<div class="orderOperation">
+    <table>
+        <tr style="border-bottom: 0px;">
+            <td style="min-width:65px;">批注：</td>
+            <td>
+                <textarea id="txtComment" rows="3" cols="50" style="line-height: 2; height: 150px;"></textarea>
+            </td>
+        </tr>
+        <tr style="border-bottom: 0px;">
+            <td></td>
+            <td>
+                <div style="float:left">
+                    <input type="radio" name="elevel" value="1" checked />满意
+                    <input type="radio" name="elevel" value="2" />一般
+                    <input type="radio" name="elevel" value="3" />不满意
+                </div>
+                <div style="float:right">
+                    <input type="button" value="评价" id="idevaluate" class="btn btn-primary btn-action-op" />
+                </div>
+            </td>
+        </tr>
+
+    </table>
+</div>

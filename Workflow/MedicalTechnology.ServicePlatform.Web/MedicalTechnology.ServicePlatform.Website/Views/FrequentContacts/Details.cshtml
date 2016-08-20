@@ -1,0 +1,104 @@
+﻿@model MedicalTechnology.ServicePlatform.Website.Models.ContactsViewModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_PageLayout.cshtml";
+}
+
+@Styles.Render("~/Content/main/css")
+<div style="height:450px;">
+    <div class="divtitle divtitle-common">
+        <p class="titleinfo serverlist">联系人信息</p><div class="divcontrolsw"><img src="~/Content/images/素材01 (18).png" /></div>
+    </div>
+    <div class="divServiceCommon">
+        <table class="tableServiceCommon" style="width:400px;">
+            <tr>
+                <td class="name">
+                    @Html.DisplayNameFor(model => model.ContactPerson.UserName):
+                </td>
+
+                <td class="info">
+                    @Html.DisplayFor(model => model.ContactPerson.UserName)
+                </td>
+            </tr>
+            <tr>
+                <td class="name">
+                    @Html.DisplayNameFor(model => model.ContactPerson.SexDesc):
+                </td>
+
+                <td class="info">
+                    @Html.DisplayFor(model => model.ContactPerson.SexDesc)
+                </td>
+            </tr>
+            <tr>
+                <td class="name">
+                    @Html.DisplayNameFor(model => model.ContactPerson.Organization.Name):
+                </td>
+
+                <td class="info">
+                    @Html.DisplayFor(model => model.ContactPerson.Organization.Name)
+                </td>
+            </tr>
+            <tr>
+                <td class="name">
+                    @Html.DisplayNameFor(model => model.ContactPerson.Department.Name):
+                </td>
+
+                <td class="info">
+                    @Html.DisplayFor(model => model.ContactPerson.Department.Name)
+                </td>
+            </tr>
+            <tr>
+                <td class="name">
+                    @Html.DisplayNameFor(model => model.ContactPerson.Cellphone):
+                </td>
+
+                <td class="info">
+                    @Html.DisplayFor(model => model.ContactPerson.Cellphone)
+                </td>
+            </tr>
+            <tr>
+                <td class="name">
+                    @Html.DisplayNameFor(model => model.ContactPerson.Officephone):
+                </td>
+
+                <td class="info">
+                    @Html.DisplayFor(model => model.ContactPerson.Officephone)
+                </td>
+            </tr>
+            <tr>
+                <td class="name">
+                    @Html.DisplayNameFor(model => model.ContactPerson.eEmail):
+                </td>
+
+                <td class="info">
+                    @Html.DisplayFor(model => model.ContactPerson.eEmail)
+                </td>
+            </tr>
+            <tr>
+                <td class="name">
+                    @Html.DisplayNameFor(model => model.ContactPerson.Fax):
+                </td>
+
+                <td class="info">
+                    @Html.DisplayFor(model => model.ContactPerson.Fax)
+                </td>
+            </tr>
+            <tr>
+                <td class="name">
+                    @Html.DisplayNameFor(model => model.ContactPerson.Remark):
+                </td>
+
+                <td class="info">
+                    @Html.DisplayFor(model => model.ContactPerson.Remark)
+                </td>
+            </tr>
+        </table>
+        <div class="tableServiceCommon">
+            <div class="divCommonSubmit">
+                @Html.ActionLink("编辑", "Edit", new { ID = Model.ContactPerson.ID }, new { @class = "btn btn-primary btn-action-op" })
+                @Html.ActionLink("返回", "ContactsList", null, new { @class = "btn btn-primary btn-action-op" })
+            </div>
+        </div>
+    </div>
+</div>

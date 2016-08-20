@@ -1,0 +1,23 @@
+﻿@model MedicalTechnology.ServicePlatform.Website.Models.ConferenceViewModel
+    <div class="orderOperation">
+        <table>
+            <tr>
+                <td style="min-width:100px;text-align:right;width:110px;">在线交谈：</td>
+                <td>
+                    <a href="#remotepos" id="aOpenConference" class="divcontrolsw btn-load-action-op"><img width="40" height="40" src="~/Content/images/qq.jpg" /></a> 
+                </td>
+                <td style="min-width:100px;text-align:right;width:110px;">远程控制：</td>
+                <td style="display:inline-flex;">
+                    <input type="text" id="contactID" value="347303538" />
+                    <a href="#remotepos" id="aOpenRemoteControl" class="divcontrolsw btn-load-action-op"><img width="40" height="40" src="~/Content/images/Remote.jpg" /></a>
+                </td>
+            </tr>
+        </table>
+    </div>
+<div id="divConference" class="easyui-dialog" title="在线交谈" closed="true" style="width:500px;height:400px;padding:10px;top:300px;">
+    <iframe scrolling="no" id='openConferenceIframe' frameborder="0" src="" style="width:100%;height:100%;"></iframe>
+</div>
+<div id="divRemote" class="easyui-dialog" title="远程控制" closed="true" style="width:500px;height:400px;padding:10px;top:300px;">
+    <iframe scrolling="no" id='openRemoteIframe' frameborder="0" src="" style="width:100%;height:100%;">
+    </iframe>
+</div>

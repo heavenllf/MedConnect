@@ -1,0 +1,41 @@
+﻿@model MedicalTechnology.ServicePlatform.Website.Models.OrderMotifyRecordViewModel
+
+<div id="divrecordlistinfo" class="divlistinfo">
+    <table class="divlisttable">
+        <thead>
+            <tr>
+                <th style="width:100px;min-width:100px;">
+                    @Html.DisplayNameFor(model => model.Recorder.RecordDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Recorder.Context)
+                </th>
+                <th style="width:100px;min-width:100px;">
+                    @Html.DisplayNameFor(model => model.Recorder.RecordUser.UserName)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                var itemindex = 0;
+                foreach (var item in Model.Records)
+                {
+                    itemindex++;
+                    var alt = itemindex % 2 == 0 ? "alt" : "";
+                    <tr class=@alt>
+                        <td>
+                            @Html.DisplayFor(modelitem => item.DateStringFormat)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelitem => item.Context)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelitem => item.RecordUser.UserName)
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+<input id="recordUrl" type="hidden" value="@Url.Action("LoadRecordList", "MofifyRecord")" />

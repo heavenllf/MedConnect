@@ -1,0 +1,31 @@
+﻿@using System.Configuration;
+@model MedicalTechnology.ServicePlatform.Website.Models.ViewModelBase
+@{
+    var CurrentUser = HttpContext.Current.User.Identity.Name;    
+}
+<div class="header-inner">
+    <table style="width:100%;">
+        <tr>
+            <td rowspan="2" style="width:20px;"></td>
+            <td class="top_left">
+                <div>
+                    <img height="60" src="~/Content/images/素材01 (14).png" alt="医疗技术" />
+                </div>
+            <td class="top_right">
+                <table  style="width:100%;">
+                    <tr style="height:40px;"></tr>                   
+                    <tr>
+                        <td >
+                            <div class="top_rihgt_info">
+                                <span>欢迎"@Model.RoleName"：</span>
+                                @Model.UserName|
+                                <span>@DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss")</span>|
+                                <a href="@Url.Action("LogOut", "Account")"><img alt="注销" src="~/Content/images/素材01 (15).png" /></a>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>

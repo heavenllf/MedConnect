@@ -1,0 +1,21 @@
+﻿@model MedicalTechnology.ServicePlatform.Website.Models.CompeteOrderViewModel
+@{
+    var divID = "div" + @Model.WFtranscation.Name + @Model.WFtranscation.ID;
+}
+<div id=@divID name="divOperation" class="orderOperation">
+    <div id="divComplet">
+        <table>
+            <tr class="opertrinfo">
+                <td>
+                    <h4>医生确认服务已经完成</h4>
+                </td>
+            </tr>
+            <tr class="opertrbtn">
+                <td>
+                    <input type="button" id="btnComplete" value="3D打印签收" class="btn btn-primary btn-action-op" />
+                    @Html.Hidden("CompleteUrl", @Url.Action("CompleteOrder", "Orders"))
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

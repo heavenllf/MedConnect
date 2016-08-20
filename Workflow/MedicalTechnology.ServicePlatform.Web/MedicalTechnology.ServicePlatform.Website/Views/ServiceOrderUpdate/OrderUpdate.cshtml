@@ -1,0 +1,87 @@
+﻿@model MedicalTechnology.ServicePlatform.Website.Models.OrderViewModel
+
+@{
+    ViewBag.Title = "OrderUpdate";
+    Layout = "~/Views/Shared/_PageLayout.cshtml";
+}
+<script type="text/javascript" src="~/Scripts/Order.js"></script>
+<script type="text/javascript" src="~/Scripts/UploadFile.js"></script>
+<script type="text/javascript" src="~/Scripts/Print.js"></script>
+<script type="text/javascript" src="~/Scripts/OrderNotifySetting.js"></script>
+@Styles.Render("~/Content/main/css")
+<div class="divtitle divtitle-common">
+    <p class="titleinfo serverlist">服务修改</p><div class="divcontrolsw"><img src="~/Content/images/素材01 (18).png" /></div>
+</div>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <div name="divServiceOrder" class="divupdateService">
+            @Html.ValidationSummary(true, "修改失败，请修改错误并重试", new { @class = "text-danger" })
+            @if (TempData["message"] != null && TempData["message"].ToString().Length > 0)
+            {
+                if (TempData["messagetype"] == "1")
+                {
+                    <div class="Order_Message Order_SuccessMessage">
+                        <p style="float:left;">@TempData["message"]</p>
+                        @*<a href="#divServiceOrder" id="aprint" style="height:28px;" class="btn btn-primary">打印</a>*@
+                    </div>
+                }
+                else
+                {
+                    <div class="Order_Message Order_ErrorMessage">
+                        @TempData["message"]
+                    </div>
+                }
+            }
+        </div>
+        <div class="divOrderSubmit" style="padding-top: 0px">
+            <a class="btn btn-primary btn-submit-op" href="@Model.returnUrl">返回列表</a>
+        </div>
+        @Html.Partial("_BaseOrderUpdatePartial", Model)
+        <div id="divserviceoption" class="divupdateService">
+            <table class="tableupdateService">
+                <tr><td colspan="2"><h2 class="OrderSubHeader">服务消息通知:</h2></td></tr>
+                <tr>
+                    <td colspan="2">
+                        @Html.Action("_OrderNotifySettingPartial", "OrderNotifySetting", new { IsEdit = @Model.IsEdit, OrderID = @Model.Order.ID })
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        @if (Model.IsEdit)
+                        {
+                            <div style="text-align:center;">
+                                @Html.Action("CreateNotifySetting", "OrderNotifySetting", new { IsEdit = Model.IsEdit })
+                            </div>
+                        }
+                    </td>
+                </tr>
+                <tr><td colspan="2"><h2 class="OrderSubHeader">服务附件文档:</h2></td></tr>
+                <tr>
+                    <td colspan="4">
+                        @Html.Action("_UpdateUploadRequestFilePartial", "UploadFile", new { OrderID = Model.Order.ID, OrderNo = Model.Order.OrderNO })
+                    </td>
+                </tr>
+                <tr><td colspan="2"><h2 class="OrderSubHeader">服务类型:</h2></td></tr>
+                <tr>
+                    <td class="tablabel">服务类型</td>
+                    <td>
+                        @Html.Action("_ServiceTypeByIDPartial", "Print", new { TypeID=Model.Order.PrintType.ID })
+                        @Html.HiddenFor(x => x.Order.PrintType.Name)
+                        @Html.HiddenFor(x => x.Order.PrintType.Desc)
+                        @Html.HiddenFor(x => x.Order.PrintType.price)
+                        @Html.HiddenFor(x => x.Order.PrintType.ID)
+                        @Html.HiddenFor(x => x.Order.PrintType.Group.ID)
+                        @Html.HiddenFor(x => x.Order.PrintType.Group.Name)
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="divOrderSubmit">
+        <a class="btn btn-primary btn-submit-op" href="@Model.returnUrl" >返回列表</a>
+        <input type="submit" value="提交" class="btn btn-primary btn-submit-op" id="btnorderupdatesubmitt" onclick="$(window.parent).scrollTop(0);" />
+    </div>
+}

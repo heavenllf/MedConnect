@@ -1,0 +1,14 @@
+﻿@using MedicalTechnology.ServicePlatform.Website.Models
+@model PermissionViewModel
+<div style="margin: 5px">
+        @foreach(var item in Model.AppFunctions)
+        {
+                <H3>
+                    @Html.DisplayFor(Item =>item.ModuleName)@Html.CheckBoxFor(Item => item.IsChecked)
+                </H3>
+                foreach(var item1 in item.Operations)
+                {
+                    @Html.DisplayFor(Item => item1.OperationName)@Html.CheckBoxFor(Item => item1.IsChecked)
+                }
+        }
+</div>

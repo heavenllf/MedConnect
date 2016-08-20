@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedicalTechnology.ServicePlatform.Website", "MedicalTechnology.ServicePlatform.Website\MedicalTechnology.ServicePlatform.Website.csproj", "{4FA77969-821E-4DE3-995D-3F29129A365D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedicalTechnology.ServicePlatform.Website.Tests", "MedicalTechnology.ServicePlatform.Website.Tests\MedicalTechnology.ServicePlatform.Website.Tests.csproj", "{7C615E16-797C-4C91-811F-B76F02A405C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedicalTechnology.ServicePlatform.Domain.Entities", "..\MedicalTechnology.ServicePlatform.Common\MedicalTechnology.ServicePlatform.Domain.Entities\MedicalTechnology.ServicePlatform.Domain.Entities.csproj", "{11EEA8E5-2221-4C29-BA07-E9040301FC3A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedicalTechnology.ServicePlatform.Domain", "MedicalTechnology.ServicePlatform.Domain\MedicalTechnology.ServicePlatform.Domain.csproj", "{FE67FC9D-F4C2-40B6-B694-9790674A3DD1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedicalTechnology.ServicePlatform.Utilities", "..\MedicalTechnology.ServicePlatform.Common\MedicalTechnology.ServicePlatform.Utilities\MedicalTechnology.ServicePlatform.Utilities.csproj", "{9D66455E-6DB7-4712-A664-6B0F3C03FB42}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedicalTechnology.ServicePlatform.DBContext", "..\MedicalTechnology.ServicePlatform.Data\MedicalTechnology.ServicePlatform.DBContext\MedicalTechnology.ServicePlatform.DBContext.csproj", "{C730DA76-0FFF-48CB-A89A-30669113FACC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedicalTechnology.ServicePlatform.Data.Operator", "..\MedicalTechnology.ServicePlatform.Data\MedicalTechnology.ServicePlatform.Data.Operator\MedicalTechnology.ServicePlatform.Data.Operator.csproj", "{C162BC2B-CA46-4094-93A1-69B61DE33761}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTSP.Domain.WorkflowClient", "MedicalTechnology.ServicePlatform.Domain\MTSP.Domain.WorkflowClient\MTSP.Domain.WorkflowClient.csproj", "{95647103-714C-46ED-B22E-3DDF1B39B219}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4FA77969-821E-4DE3-995D-3F29129A365D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FA77969-821E-4DE3-995D-3F29129A365D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FA77969-821E-4DE3-995D-3F29129A365D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FA77969-821E-4DE3-995D-3F29129A365D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C615E16-797C-4C91-811F-B76F02A405C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C615E16-797C-4C91-811F-B76F02A405C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C615E16-797C-4C91-811F-B76F02A405C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C615E16-797C-4C91-811F-B76F02A405C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11EEA8E5-2221-4C29-BA07-E9040301FC3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11EEA8E5-2221-4C29-BA07-E9040301FC3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11EEA8E5-2221-4C29-BA07-E9040301FC3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11EEA8E5-2221-4C29-BA07-E9040301FC3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE67FC9D-F4C2-40B6-B694-9790674A3DD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE67FC9D-F4C2-40B6-B694-9790674A3DD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE67FC9D-F4C2-40B6-B694-9790674A3DD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE67FC9D-F4C2-40B6-B694-9790674A3DD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D66455E-6DB7-4712-A664-6B0F3C03FB42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D66455E-6DB7-4712-A664-6B0F3C03FB42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D66455E-6DB7-4712-A664-6B0F3C03FB42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D66455E-6DB7-4712-A664-6B0F3C03FB42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C730DA76-0FFF-48CB-A89A-30669113FACC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C730DA76-0FFF-48CB-A89A-30669113FACC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C730DA76-0FFF-48CB-A89A-30669113FACC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C730DA76-0FFF-48CB-A89A-30669113FACC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C162BC2B-CA46-4094-93A1-69B61DE33761}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C162BC2B-CA46-4094-93A1-69B61DE33761}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C162BC2B-CA46-4094-93A1-69B61DE33761}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C162BC2B-CA46-4094-93A1-69B61DE33761}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95647103-714C-46ED-B22E-3DDF1B39B219}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95647103-714C-46ED-B22E-3DDF1B39B219}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95647103-714C-46ED-B22E-3DDF1B39B219}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95647103-714C-46ED-B22E-3DDF1B39B219}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,45 @@
+﻿@model MedicalTechnology.ServicePlatform.Website.Models.ViewModelBase
+@using System.Configuration;
+@{
+    var CurrentUser = HttpContext.Current.User.Identity.Name;
+}
+<div id="menuAccordion" class="easyui-accordion MenuAccordion" data-options="border:false">
+    <div id="menupersion" title="个人信息" data-options="iconCls:'icon-person',selected:true,collapsed:false,collapsible:false">
+        <div id="divusertree" class="easyui-panel">
+            <ul class="easyui-tree">
+                <li id="persionInfo"><a onclick="openUrl('个人信息','@Url.Action("PersionInfo", "Users", new { UserID = @CurrentUser })','default')" title="个人信息" href="#"><span>个人信息</span></a></li>
+                <li><a onclick="openUrl('常用联系人','@Url.Action("ContactsList", "FrequentContacts")','default')" title="常用联系人" href="#"><span>常用联系人</span></a></li>
+                <li><a onclick="openUrl('账户信息','@Url.Action("AccountInfo", "Users", new { UserID = @CurrentUser })','default')" title="账户信息" href="#"><span>账户信息</span></a></li>
+            </ul>
+        </div>
+    </div>
+    @foreach (var item in Model.MenuInfos)
+    {
+        <div title=@item.Title id=@item.DomID data-options=@item.DataOptions>
+            <div class="easyui-panel">
+                <ul class="easyui-tree">
+                    @foreach (var subitem in item.SubMenus)
+                    {
+                        <li id=@subitem.DomID><a onclick="openUrl('@subitem.Title','@subitem.Url','default')" title=@subitem.Title href="#"><span>@subitem.Title</span></a></li>
+                    }
+                </ul>
+            </div>
+        </div>
+    }
+    <div title="帮助" data-options="iconCls:'icon-serviceHelp',collapsed:false,collapsible:false">
+        <div class="easyui-panel">
+            <ul class="easyui-tree">
+                <li><a onclick="openUrl('服务流程','@Url.Action("ServiceWorkflowHelp", "Help")','default')" title="服务流程" href="#"><span>服务流程</span></a>
+                <li>
+                    <span>术前信息收集</span>
+                    <ul>
+                        <li><a onclick="openUrl('扫描仪使用','@Url.Action("ServiceWorkflowHelp", "Help")','default')" title="扫描仪使用" href="#"><span>扫描仪使用</span></a>
+                        <li><a onclick="openUrl('陀螺仪使用','@Url.Action("ServiceWorkflowHelp", "Help")','default')" title="陀螺仪使用" href="#"><span>陀螺仪使用</span></a>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <input type="hidden" id="currentMenu" value="@Model.MenuTitle" />
+    <input type="hidden" id="currentSubmenu" value="@Model.SubMenuTitle" />
+</div>

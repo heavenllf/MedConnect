@@ -1,0 +1,20 @@
+﻿@model MedicalTechnology.ServicePlatform.Website.Models.PreprocessOrderViewModel
+@{
+    var divID = "div" + @Model.WFtranscation.Name + @Model.WFtranscation.ID;
+}
+<div id=@divID class="orderOperation" name="divOperation">
+    <div id="divPreprocess" align="center">
+        <table>
+            <tr class="opertrinfo">
+                <td>
+                    <h4>设计工程师预处理分配的服务</h4>
+                </td>
+            </tr>
+            <tr class="opertrbtn">
+                <td><input type="button" id="btnProccess" value="预处理" class="btn btn-primary btn-action-op" /></td>
+                @Html.Hidden("PreprocessUrl", @Url.Action("PreprocessOrder", "Orders"))
+            </tr>
+
+        </table>
+    </div>
+</div>
