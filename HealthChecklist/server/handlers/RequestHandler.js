@@ -73,19 +73,21 @@ exports.QueryPatients = QueryPatients;
 //-------------------------------------------------------------------
 
 var CreateOneCheck = function(action, req, res) {
-	var checkContent = JSON.stringify(req.body);
-	console.log(checkContent);
-	req.body.applyInfo.order_username;
-	req.body.applyInfo.order_phone;
-	req.body.applyInfo.order_birthday;
-	req.body.applyInfo.male;
-	req.body.applyInfo.female;
-	// var param = {};
-	// param.checkuid = '0001';
-	// param.patientuid = '0001';
-	// param.checkcontent = '{"bla":"bla" }';
-	// param.checktime = '2016-01-01';
-	// MysqlAccessor.CreateOneCheck(param,res);
+	var checkContent = req.body;
+	console.log(JSON.stringify(checkContent));
+	var params = {};
+	params.user = req.body.applyInfo.order_username;
+	params.phone = req.body.applyInfo.order_phone;
+	params.birthday = req.body.applyInfo.order_birthday;
+	params.doctorUID = req.body.doctorUID;
+	params.content = checkContent;
+	if(req.body.applyInfo.male) {
+		params.gender = 'M';
+	} else {
+		params.gender = 'F';
+	}
+
+	// MysqlAccessor.CreateOneCheck(params,res);
 };
 exports.CreateOneCheck = CreateOneCheck;
 

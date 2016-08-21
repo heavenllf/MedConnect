@@ -93,18 +93,62 @@ exports.QueryCheckList = QueryCheckList;
 
 var CreateOneCheck = function(params, res) {
 	var conn = GetConnection();
-	params.checkuid = uuid.v4();
-	var sql = 'insert into clinicalevaluatetbl(EVALUATION_UID, PATIENT_UID, EVALUATION, EVALUATION_TIME) values(?, ?, ?, ?) ';
-	var param = [params.checkuid, params.patientuid, params.checkcontent, params.checktime];
-	conn.query(sql, param, function(err, result) {
-		if (err) throw err;
 
-		// res.writeHead(200, {
-		// 	"Content-Type": "text/html;charset=UTF-8"
-		// });
-		// res.write(JSON.stringify({result:result}));
-		// res.end(function(err){});
-		// conn.end();
+	var sqlQueryPatient = 'select PATIENT_UID  from patienttbl  where REAL_NAME = ?  and GENDER = ? ';
+	var param = [params.user, params.gender];
+	var result = {};
+	var conn = GetConnection();
+	conn.query(sqlQueryPatient, param, function(err, rows, fields) {
+		if (err) throw err;
+		if (rows.length > 0) {
+			console.log('have patient ');
+			var patientUID = rows[0].PATIENT_UID;
+			var createTime = new Date().Format("yyyy-MM-dd hh:mm:ss");
+			var sqlInsertEvaluation = 'insert into clinicalevaluatetbl(EVALUATION_UID, PATIENT_UID, EVALUATION, EVALUATION_TIME) values(?, ?, ?, ?) ';
+			var param = [uuid.v4(), patientUID, JSON.stringify(params.content), createTime];
+			conn.query(sqlInsertEvaluation, param, function(err, result) {
+				if (err) throw err;
+
+				res.writeHead(200, {
+					"Content-Type": "text/html;charset=UTF-8"
+				});
+				res.write(JSON.stringify({
+					success: true
+				}));
+				res.end(function(err) {});
+				conn.end();
+			});
+		} else {
+			var patientUID = uuid.v4();
+			var sqlInsertPatient = 'insert into patienttbl(PATIENT_UID, REAL_NAME,  GENDER) values(?, ?, ?) ';
+			var param = [patientUID, params.user,  params.gender];
+			console.log('no patient ');
+			conn.query(sqlInsertPatient, param, function(err, result) {
+				if (err) throw err;
+
+				var sqlRelation = 'insert into patientdoctorrelationtbl(DOCTOR_UID, PATIENT_UID, RELATION_TYPE) values(?, ?, ?) ';
+				var param = [params.doctorUID, patientUID, 'C'];
+				conn.query(sqlRelation, param, function(err, result) {
+					if (err) throw err;
+
+					var sqlInsertEvaluation = 'insert into clinicalevaluatetbl(EVALUATION_UID, PATIENT_UID, EVALUATION, EVALUATION_TIME) values(?, ?, ?, ?) ';
+					var createTime = new Date().Format("yyyy-MM-dd hh:mm:ss");
+					var param = [uuid.v4(), patientUID, JSON.stringify(params.content), createTime];
+					conn.query(sqlInsertEvaluation, param, function(err, result) {
+						if (err) throw err;
+
+						res.writeHead(200, {
+							"Content-Type": "text/html;charset=UTF-8"
+						});
+						res.write(JSON.stringify({
+							success: true
+						}));
+						res.end(function(err) {});
+						conn.end();
+					});
+				});
+			});
+		}
 	});
 
 };
@@ -138,10 +182,10 @@ var GetOneCheck = function(params, res) {
 	var conn = GetConnection();
 	conn.query(sql, param, function(err, rows, fields) {
 		if (err) throw err;
-		if(rows.length > 0) {
+		if (rows.length > 0) {
 			result['checkcontent'] = rows[0].EVALUATION;
 		}
-		
+
 		res.writeHead(200, {
 			"Content-Type": "text/html;charset=UTF-8"
 		});
@@ -161,13 +205,14 @@ var DeleteOneCheck = function(params, res) {
 	var param = [params.checkuid];
 	conn.query(sql, param, function(err, result) {
 		if (err) throw err;
-
-		// res.writeHead(200, {
-		// 	"Content-Type": "text/html;charset=UTF-8"
-		// });
-		// res.write(JSON.stringify({result:result}));
-		// res.end(function(err){});
-		// conn.end();
+		res.writeHead(200, {
+			"Content-Type": "text/html;charset=UTF-8"
+		});
+		res.write(JSON.stringify({
+			success: true
+		}));
+		res.end(function(err) {});
+		conn.end();
 	});
 };
 exports.DeleteOneCheck = DeleteOneCheck;
@@ -201,26 +246,39 @@ var UserInfoRegister = function(params, res) {
 	conn.query(sqlQuery, function(err, rows, fields) {
 		if (err) throw err;
 		if (rows.length > 0) {
-			// res.writeHead(200, {
-			// 	"Content-Type": "text/html;charset=UTF-8"
-			// });
-			// res.write(JSON.stringify({patients:resultSet}));
-			// res.end(function(err){});
-			// conn.end();
+			res.writeHead(200, {
+				"Content-Type": "text/html;charset=UTF-8"
+			});
+			res.write(JSON.stringify({
+				success: false
+			}));
+			res.end(function(err) {});
+			conn.end();
 			return;
 		} else {
-			var sqlInsert = 'insert into systemusertbl(USER_UID, USER_NAME, PASSWORD, PHONE_NUMBER, E_MAIL, TYPE, PATIENT_UID, DOCTOR_UID) values(?, ?, ?, ?, ?, ?, ?, ?) ';
-			var param = [uuid.v4(), params.Username, params.Password, '', params.Email, 'p', '', ''];
-			conn.query(sqlInsert, param, function(err, result) {
+			var sqlInsertDoctor = 'insert into doctortbl(DOCTOR_UID, REAL_NAME, E_MAIL) values(?, ?, ?) ';
+			var doctorUID = uuid.v4();
+			var param = [doctorUID, params.Username, params.Email];
+			conn.query(sqlInsertDoctor, param, function(err, result) {
 				if (err) throw err;
 
-				// res.writeHead(200, {
-				// 	"Content-Type": "text/html;charset=UTF-8"
-				// });
-				// res.write(JSON.stringify({result:result}));
-				// res.end(function(err){});
-				// conn.end();
+				var sqlInsert = 'insert into systemusertbl(USER_UID, USER_NAME, PASSWORD, PHONE_NUMBER, E_MAIL, TYPE, PATIENT_UID, DOCTOR_UID) values(?, ?, ?, ?, ?, ?, ?, ?) ';
+				var param = [uuid.v4(), params.Username, params.Password, '', params.Email, 'p', '', doctorUID];
+				conn.query(sqlInsert, param, function(err, result) {
+					if (err) throw err;
+
+					res.writeHead(200, {
+						"Content-Type": "text/html;charset=UTF-8"
+					});
+					res.write(JSON.stringify({
+						success: true
+					}));
+					res.end(function(err) {});
+					conn.end();
+				});
 			});
+
+
 		}
 	});
 };
@@ -228,9 +286,11 @@ exports.UserInfoRegister = UserInfoRegister;
 
 //---------------------------------------------------------------------------------------------
 
+
 var UserLogin = function(params, res) {
+	console.log(new Date().Format("yyyy-MM-dd hh:mm:ss"));
 	var conn = GetConnection();
-	var sql = 'select USER_NAME,PASSWORD from systemusertbl where USER_NAME = "' + params.Username + '" ';
+	var sql = 'select USER_NAME,PASSWORD,USER_UID,DOCTOR_UID from systemusertbl where USER_NAME = "' + params.Username + '" ';
 	conn.query(sql, function(err, rows, fields) {
 		if (err) throw err;
 		res.writeHead(200, {
@@ -240,7 +300,9 @@ var UserLogin = function(params, res) {
 			if (params.Password === rows[0].PASSWORD) {
 
 				res.write(JSON.stringify({
-					success: true
+					success: true,
+					userUID: rows[0].USER_UID,
+					doctorUID: rows[0].DOCTOR_UID
 				}));
 				console.log('UserLogin: success!');
 			} else {

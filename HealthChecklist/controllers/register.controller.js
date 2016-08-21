@@ -23,7 +23,7 @@
                 },
             })
             .then(function(response) {
-                if (response.success) {
+                if (response.data.success) {
                     FlashService.Success('用户注册成功！', true);
                     $location.path('/login');
                 } else {

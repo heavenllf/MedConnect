@@ -12,9 +12,9 @@
         .module('app')
         .factory('OrderCreateService', OrderCreateService);
 
-    OrderCreateService.$inject = ['$http'];
+    OrderCreateService.$inject = ['$http','$rootScope'];
 
-    function OrderCreateService($http) {
+    function OrderCreateService($http,$rootScope) {
         var service = {
             dataCache: {checkUID: null},
             sendCheckDataToServer: function() {
@@ -24,7 +24,7 @@
                 } else {
                     action = 'CreateOneCheckActor';
                 }
-
+                me.dataCache.doctorUID = $rootScope.userInfo.doctorUID;
                 $http({
                     url: action,
                     method: 'POST',

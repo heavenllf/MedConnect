@@ -12,11 +12,11 @@
         service.Login = Login;
         service.SetCredentials = SetCredentials;
         service.ClearCredentials = ClearCredentials;
+        $rootScope.userInfo = {};
 
         return service;
 
         function Login(username, password, callback) {
-            
             var param = {Username:username, Password:password};
             $http({
                 url: 'LoginActor',
@@ -27,6 +27,7 @@
                 },
             })
                 .then(function(response) {
+                    $rootScope.userInfo.doctorUID = response.data.doctorUID;
                     callback(response.data);
                 });
 
