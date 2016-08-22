@@ -41,32 +41,33 @@ exports.VerifyCodeRequestHandler = VerifyCodeRequestHandler;
 //-------------------------------------------------------------------
 
 var QueryPatients = function(action, req, res) {
-	var params = JSON.stringify(req.query);
+	var params = req.query;
 
 	//test code start
-	var patientList = [];
-	for (var i=0; i<1000; i++) {
-		var patient = {};
-		patient.name = 'ZhangSan_' + i;
-		patient.uid = patient.name;
-		patient.gender = 'Male';
-		patient.age = '1980-01-01';
-		patient.checktime = '2016-01-01';
-		patient.comment = 'good_' + i;
-		patientList.push(patient);
+	// var patientList = [];
+	// for (var i=0; i<1000; i++) {
+	// 	var patient = {};
+	// 	patient.name = 'ZhangSan_' + i;
+	// 	patient.uid = patient.name;
+	// 	patient.gender = 'Male';
+	// 	patient.age = '1980-01-01';
+	// 	patient.checktime = '2016-01-01';
+	// 	patient.comment = 'good_' + i;
+	// 	patientList.push(patient);
 
-	}
-	var result = {};
-	result.patients = patientList;
+	// }
+	// var result = {};
+	// result.patients = patientList;
 
-	res.writeHead(200, {
-		"Content-Type": "text/html;charset=UTF-8"
-	});
-	res.write(JSON.stringify(result));
-	res.end();
+	// res.writeHead(200, {
+	// 	"Content-Type": "text/html;charset=UTF-8"
+	// });
+	// res.write(JSON.stringify(result));
+	// res.end();
 	//test code end
 
-	// MysqlAccessor.QueryCheckList(params,res);
+	console.log(JSON.stringify(params));
+	MysqlAccessor.QueryCheckList(params,res);
 };
 exports.QueryPatients = QueryPatients;
 
@@ -87,15 +88,18 @@ var CreateOneCheck = function(action, req, res) {
 		params.gender = 'F';
 	}
 
-	// MysqlAccessor.CreateOneCheck(params,res);
+	MysqlAccessor.CreateOneCheck(params,res);
 };
 exports.CreateOneCheck = CreateOneCheck;
 
 //-------------------------------------------------------------------
 
 var UpdateOneCheck = function(action, req, res) {
-	var params = JSON.stringify(req.body);
-	console.log('UpdateOneCheck' + params);
+	var params = {};
+	params.checkUID = req.body.checkUID;
+	params.checkContent = req.body;
+
+	console.log('UpdateOneCheck' + JSON.stringify(params));
 	MysqlAccessor.UpdateOneCheck(params,res);
 };
 exports.UpdateOneCheck = UpdateOneCheck;
@@ -112,8 +116,8 @@ exports.GetOneCheck = GetOneCheck;
 //-------------------------------------------------------------------
 
 var DeleteOneCheck = function(action, req, res) {
-	var params = JSON.stringify(req.body);
-	console.log('DeleteOneCheck' + params);
+	var params = req.body;
+	console.log('DeleteOneCheck' + JSON.stringify(params));
 	MysqlAccessor.DeleteOneCheck(params,res);
 };
 exports.DeleteOneCheck = DeleteOneCheck;

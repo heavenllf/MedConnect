@@ -4,9 +4,9 @@
         .module('app')
         .controller('QueryPatientController', QueryPatientController);
 
-    QueryPatientController.$inject = ['$scope', '$http', '$state', 'NgTableParams', 'OrderCreateService'];
+    QueryPatientController.$inject = ['$rootScope', '$scope', '$http', '$state', 'NgTableParams', 'OrderCreateService'];
 
-    function QueryPatientController($scope, $http, $state, NgTableParams,OrderCreateService) { //ngTableParams => NgTableParams
+    function QueryPatientController($rootScope, $scope, $http, $state, NgTableParams,OrderCreateService) { //ngTableParams => NgTableParams
         var tableData = []
 
         $scope.selectedRow = null;
@@ -16,7 +16,7 @@
 
         $scope.editOneCheck = function(index) {
             // $state.go('app.orderCreate');
-            var checkUID = $scope.tableParams.data[index].uid;
+            var checkUID = $scope.tableParams.data[index].checkuid;
             OrderCreateService.getCheckDataFromServer(checkUID);
         };       
 
@@ -26,7 +26,7 @@
                     url: 'DeleteOneCheckActor',
                     method: 'POST',
                     data: {
-                        CheckUID: $scope.tableParams.data[index].uid
+                        checkUID: $scope.tableParams.data[index].checkuid
                     },
                     headers: {
                         'Content-Type': 'application/json;charset=UTF-8'
@@ -55,17 +55,17 @@
                 var startTime = $scope.startTime;
                 var endTime = $scope.endTime;
                 var patientName = $scope.patientName;
-                var isNameQuery = $scope.nameQuery;
+                var doctorUID = $rootScope.userInfo.doctorUID;
 
                 $http({
                     url: 'QueryPatientsActor',
                     method: 'GET',
                     params: {
-                        'Age': age,
-                        'StartTime': startTime,
-                        'EndTime': endTime,
-                        'PatientName': patientName,
-                        'IsNameQuery': isNameQuery
+                        age: age,
+                        startTime: startTime,
+                        endTime: endTime,
+                        patientName: patientName,
+                        doctorUID: doctorUID,
                     }
                 }).then(function(response) {
                     tableData = response.data.patients;

@@ -6,9 +6,9 @@
                     <label for="dtp_input1" class="col-md-4 control-label">检查开始日期</label>
                     <div class="col-md-4" >
                         <div class="input-group date form_date " data-date="" data-date-format="yyyy-mm-dd" data-link-field="dtp_input1" data-link-format="yyyy-mm-dd" >
-                            <input class="form-control" size="16" type="text" value="" readonly ng-model="startTime" ng-disabled="nameQuery">
-                            <span class="input-group-addon" ng-hide="nameQuery"><span class="glyphicon glyphicon-remove" ></span></span>
-                            <span class="input-group-addon" ng-hide="nameQuery"><span class="glyphicon glyphicon-calendar"></span></span>
+                            <input class="form-control" size="16" type="text" value="" readonly ng-model="startTime" >
+                            <span class="input-group-addon" ><span class="glyphicon glyphicon-remove" ></span></span>
+                            <span class="input-group-addon" ><span class="glyphicon glyphicon-calendar"></span></span>
                         </div>
                         <input type="hidden" id="dtp_input1" value="" />
                     </div>
@@ -17,10 +17,10 @@
                     <!-- <input type="hidden" id="dtp_input1" value="" /><br/> -->
                     <label for="dtp_input2" class="col-md-4 control-label">结束日期</label>
                     <div class="col-md-4">
-                        <div class="input-group date form_date" data-date="" data-date-format="yyyy-mm-dd" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd" ng-disabled="nameQuery">
+                        <div class="input-group date form_date" data-date="" data-date-format="yyyy-mm-dd" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd" >
                             <input class="form-control" size="16" type="text" value="" readonly ng-model="endTime">
-                            <span class="input-group-addon" ng-hide="nameQuery"><span class="glyphicon glyphicon-remove"></span></span>
-                            <span class="input-group-addon" ng-hide="nameQuery"><span class="glyphicon glyphicon-calendar"></span></span>
+                            <span class="input-group-addon" ><span class="glyphicon glyphicon-remove"></span></span>
+                            <span class="input-group-addon" ><span class="glyphicon glyphicon-calendar"></span></span>
                         </div>
                         <input type="hidden" id="dtp_input2" value="" />
                     </div>
@@ -42,6 +42,7 @@
                             <option>21～30岁</option>
                             <option>31～40岁</option>
                             <option>41～50岁</option>
+                            <option>51～60岁</option>
                             <option>61～70岁</option>
                             <option>71～  </option>
                         </select>

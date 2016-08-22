@@ -1,29 +1,29 @@
 var mysql = require('mysql');
 var uuid = require('../node_modules/node-uuid/uuid');
 
-var testMysql = function(param, res) {
-	var conn = mysql.createConnection({
-		host: 'localhost',
-		user: 'sa',
-		password: '123456',
-		database: 'zhenghe_db',
-		port: 3306
-	});
-	conn.connect();
-	var result = {};
-	conn.query('SELECT REAL_NAME,PHONE_NUMBER FROM PATIENTTBL', function(err, rows, fields) {
-		if (err) throw err;
-		result['patient_name'] = rows[0].REAL_NAME;
-		result['phone_number'] = rows[0].PHONE_NUMBER;
-		// res.writeHead(200, {
-		// 	"Content-Type": "text/html;charset=UTF-8"
-		// });
-		// res.write(JSON.stringify(result));
-		// res.end();
-		// conn.end();
-	});
-};
-exports.testMysql = testMysql;
+// var testMysql = function(param, res) {
+// 	var conn = mysql.createConnection({
+// 		host: 'localhost',
+// 		user: 'sa',
+// 		password: '123456',
+// 		database: 'zhenghe_db',
+// 		port: 3306
+// 	});
+// 	conn.connect();
+// 	var result = {};
+// 	conn.query('SELECT REAL_NAME,PHONE_NUMBER FROM PATIENTTBL', function(err, rows, fields) {
+// 		if (err) throw err;
+// 		result['patient_name'] = rows[0].REAL_NAME;
+// 		result['phone_number'] = rows[0].PHONE_NUMBER;
+// 		// res.writeHead(200, {
+// 		// 	"Content-Type": "text/html;charset=UTF-8"
+// 		// });
+// 		// res.write(JSON.stringify(result));
+// 		// res.end();
+// 		// conn.end();
+// 	});
+// };
+// exports.testMysql = testMysql;
 
 //---------------------------------------------------------------------------------------------
 
@@ -43,24 +43,62 @@ var GetConnection = function() {
 //---------------------------------------------------------------------------------------------
 
 var QueryCheckList = function(params, res) {
+	var mixAge = 0,
+		maxAge = 1000;
+	if (params.Age === '0～10岁') {
+		mixAge = 0;
+		maxAge = 10;
+	} else if (params.Age === '11～20岁') {
+		mixAge = 11;
+		maxAge = 20;
+	} else if (params.Age === '21～30岁') {
+		mixAge = 21;
+		maxAge = 30;
+	} else if (params.Age === '31～40岁') {
+		mixAge = 31;
+		maxAge = 40;
+	} else if (params.Age === '41～50岁') {
+		mixAge = 41;
+		maxAge = 50;
+	} else if (params.Age === '51～60岁') {
+		mixAge = 51;
+		maxAge = 60;
+	} else if (params.Age === '61～70岁') {
+		mixAge = 61;
+		maxAge = 70;
+	} else if (params.Age === '71～  ') {
+		mixAge = 71;
+	} else {
+
+	}
 
 	var sql = '';
-	if (params.IsNameQuery) {
-		sql = 'select p.REAL_NAME, p.GENDER, p.AGE, p.PATIENT_UID, c.EVALUATION_TIME, c.EVALUATION_UID from ' +
-			' clinicalevaluatetbl as c, patienttbl as p where c.PATIENT_UID = p.PATIENT_UID and ' +
-			' p.REAL_NAME like "%' + params.patientName + "%";
-	} else {
-		if (params.Age === '') {
-
-		} else if (params.Age === '') {
+	if (params.patientName) {
+		if (params.startTime && params.endTime) {
 
 		} else {
-
+			sql = 'select p.REAL_NAME, p.GENDER, p.AGE, p.PATIENT_UID, c.EVALUATION_TIME, c.EVALUATION_UID from ' +
+				' clinicalevaluatetbl as c, patienttbl as p, doctortbl as d, patientdoctorrelationtbl as dp where ' +
+				' d.DOCTOR_UID = "' + params.doctorUID + '" '
+				' and d.DOCTOR_UID = dp.DOCTOR_UID and dp.PATIENT_UID = p.PATIENT_UID and c.PATIENT_UID = p.PATIENT_UID and ' +
+				' p.REAL_NAME like "%' + params.patientName + "%";
 		}
 
-		sql = 'select p.REAL_NAME, p.GENDER, p.AGE, p.PATIENT_UID, c.EVALUATION_TIME, c.EVALUATION_UID from ' +
-			' clinicalevaluatetbl as c, patienttbl as p where c.PATIENT_UID = p.PATIENT_UID and ' +
-			' c.EVALUATION_TIME < ' + params.endTime + ' and c.EVALUATION_TIME > ' + params.startTime;
+	} else {
+		if (params.startTime && params.endTime) {
+
+			sql = 'select p.REAL_NAME, p.GENDER, p.AGE, p.PATIENT_UID, c.EVALUATION_TIME, c.EVALUATION_UID from ' +
+				' clinicalevaluatetbl as c, patienttbl as p, doctortbl as d, patientdoctorrelationtbl as dp where ' +
+				' d.DOCTOR_UID = "' + params.doctorUID + '" '
+				' and d.DOCTOR_UID = dp.DOCTOR_UID and dp.PATIENT_UID = p.PATIENT_UID and c.PATIENT_UID = p.PATIENT_UID and ' +
+				' c.EVALUATION_TIME < ' + params.endTime + ' and c.EVALUATION_TIME > ' + params.startTime;
+		} else {
+			sql = 'select p.REAL_NAME, p.GENDER, p.AGE, p.PATIENT_UID, c.EVALUATION_TIME, c.EVALUATION_UID from ' +
+				' clinicalevaluatetbl as c, patienttbl as p, doctortbl as d, patientdoctorrelationtbl as dp where ' +
+				' d.DOCTOR_UID = "' + params.doctorUID + '" '
+				' and d.DOCTOR_UID = dp.DOCTOR_UID and dp.PATIENT_UID = p.PATIENT_UID and c.PATIENT_UID = p.PATIENT_UID '
+		}
+
 	}
 
 	var conn = GetConnection();
@@ -68,22 +106,24 @@ var QueryCheckList = function(params, res) {
 	conn.query(sql, function(err, rows, fields) {
 		if (err) throw err;
 		for (var i = 0; i < rows.length; i++) {
-			var row;
+			var row = {};
 			row['name'] = rows[i].REAL_NAME;
 			row['gender'] = rows[i].GENDER;
 			row['age'] = rows[i].AGE;
-			row['checktime'] = rows[i].PHONE_NUMBER;
+			row['checktime'] = rows[i].EVALUATION_TIME.Format("yyyy-MM-dd hh:mm:ss");
 			row['checkuid'] = rows[i].EVALUATION_UID;
 			row['patientuid'] = rows[i].PATIENT_UID;
 			resultSet.push(row)
 		}
 
-		// res.writeHead(200, {
-		// 	"Content-Type": "text/html;charset=UTF-8"
-		// });
-		// res.write(JSON.stringify({patients:resultSet}));
-		// res.end(function(err){});
-		// conn.end();
+		res.writeHead(200, {
+			"Content-Type": "text/html;charset=UTF-8"
+		});
+		res.write(JSON.stringify({
+			patients: resultSet
+		}));
+		res.end(function(err) {});
+		conn.end();
 	});
 };
 
@@ -121,7 +161,7 @@ var CreateOneCheck = function(params, res) {
 		} else {
 			var patientUID = uuid.v4();
 			var sqlInsertPatient = 'insert into patienttbl(PATIENT_UID, REAL_NAME,  GENDER) values(?, ?, ?) ';
-			var param = [patientUID, params.user,  params.gender];
+			var param = [patientUID, params.user, params.gender];
 			console.log('no patient ');
 			conn.query(sqlInsertPatient, param, function(err, result) {
 				if (err) throw err;
@@ -159,16 +199,16 @@ exports.CreateOneCheck = CreateOneCheck;
 var UpdateOneCheck = function(params, res) {
 	var conn = GetConnection();
 	var sql = 'update clinicalevaluatetbl set EVALUATION = ? where EVALUATION_UID = ? ';
-	var param = [params.checkcontent, params.checkuid];
+	var param = [params.checkContent, params.checkUID];
 	conn.query(sql, param, function(err, result) {
 		if (err) throw err;
 
-		// res.writeHead(200, {
-		// 	"Content-Type": "text/html;charset=UTF-8"
-		// });
-		// res.write(JSON.stringify({result:result}));
-		// res.end(function(err){});
-		// conn.end();
+		res.writeHead(200, {
+			"Content-Type": "text/html;charset=UTF-8"
+		});
+		res.write(JSON.stringify({success: true}));
+		res.end(function(err){});
+		conn.end();
 	});
 };
 exports.UpdateOneCheck = UpdateOneCheck;
@@ -177,7 +217,7 @@ exports.UpdateOneCheck = UpdateOneCheck;
 
 var GetOneCheck = function(params, res) {
 	var sql = 'select EVALUATION  from clinicalevaluatetbl  where EVALUATION_UID = ? ';
-	var param = [params.checkuid];
+	var param = [params.checkUID];
 	var result = {};
 	var conn = GetConnection();
 	conn.query(sql, param, function(err, rows, fields) {
@@ -202,7 +242,7 @@ exports.GetOneCheck = GetOneCheck;
 var DeleteOneCheck = function(params, res) {
 	var conn = GetConnection();
 	var sql = 'delete from clinicalevaluatetbl where EVALUATION_UID = ? ';
-	var param = [params.checkuid];
+	var param = [params.checkUID];
 	conn.query(sql, param, function(err, result) {
 		if (err) throw err;
 		res.writeHead(200, {
@@ -277,8 +317,6 @@ var UserInfoRegister = function(params, res) {
 					conn.end();
 				});
 			});
-
-
 		}
 	});
 };
