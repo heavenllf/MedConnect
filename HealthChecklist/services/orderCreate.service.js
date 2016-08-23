@@ -49,7 +49,7 @@
                     headers: {'Content-Type': 'application/json;charset=UTF-8'},
                 })
                     .then(function(response) {
-                            // success
+                            me.dataCache = JSON.parse(response.data.checkContent);
                         },
                         function(response) { // optional
                             // failed

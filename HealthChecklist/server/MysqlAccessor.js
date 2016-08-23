@@ -199,7 +199,7 @@ exports.CreateOneCheck = CreateOneCheck;
 var UpdateOneCheck = function(params, res) {
 	var conn = GetConnection();
 	var sql = 'update clinicalevaluatetbl set EVALUATION = ? where EVALUATION_UID = ? ';
-	var param = [params.checkContent, params.checkUID];
+	var param = [JSON.stringify(params.checkContent), params.checkUID];
 	conn.query(sql, param, function(err, result) {
 		if (err) throw err;
 
@@ -223,7 +223,7 @@ var GetOneCheck = function(params, res) {
 	conn.query(sql, param, function(err, rows, fields) {
 		if (err) throw err;
 		if (rows.length > 0) {
-			result['checkcontent'] = rows[0].EVALUATION;
+			result.checkContent = rows[0].EVALUATION;
 		}
 
 		res.writeHead(200, {
