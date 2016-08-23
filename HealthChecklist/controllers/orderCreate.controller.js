@@ -4,8 +4,8 @@ createOrder.controller("OrderCreateController", ['$rootScope', '$scope', '$state
             var applyInfo = OrderCreateService.dataCache.applyInfo;
             $scope.order_servicename = applyInfo.order_servicename;
             $scope.order_username = applyInfo.order_username;
-            $scope.male = applyInfo.male;
-            $scope.female = applyInfo.female;
+            $scope.sex = applyInfo.sex;
+            // $scope.female = applyInfo.female;
             $scope.order_phone = applyInfo.order_phone
             $scope.order_birthday = applyInfo.order_birthday
         }
@@ -17,8 +17,8 @@ createOrder.controller("OrderCreateController", ['$rootScope', '$scope', '$state
             var applyInfo = OrderCreateService.dataCache.applyInfo;
             applyInfo.order_servicename = $scope.order_servicename;
             applyInfo.order_username = $scope.order_username;
-            applyInfo.male = $scope.male;
-            applyInfo.female = $scope.female;
+            applyInfo.sex = $scope.sex;
+            // applyInfo.female = $scope.female;
             applyInfo.order_phone = $scope.order_phone;
             applyInfo.order_birthday = $scope.order_birthday;
         };

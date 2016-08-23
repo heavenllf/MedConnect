@@ -346,13 +346,15 @@ var UserLogin = function(params, res) {
 			} else {
 
 				res.write(JSON.stringify({
-					success: false
+					success: false,
+					message: '密码错误！'
 				}));
 				console.log('UserLogin: failed!');
 			}
 		} else {
 			res.write(JSON.stringify({
-				success: false
+				success: false,
+				message: '您输入的用户不存在！'
 			}));
 			console.log('UserLogin: failed!');
 		}

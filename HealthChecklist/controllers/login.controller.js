@@ -26,8 +26,9 @@
                     AuthenticationService.SetCredentials(vm.getUser.Username, vm.getUser.Password);
                     $state.go("app.createOrder");
                 } else {
-                    FlashService.Error(response.message);
-                    vm.dataLoading = false;
+                    alert(response.message);
+                    // FlashService.Error(response.message);
+                    // vm.dataLoading = false;
                 }
             });
         };
