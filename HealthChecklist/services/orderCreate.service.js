@@ -66,6 +66,10 @@
                 );
                 me.dataCache.checkUID = uid;
             },
+            clearDataCache: function() {
+                var me = this;
+                me.dataCache = {};
+            }
         };
 
         return service;

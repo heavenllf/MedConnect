@@ -5,8 +5,8 @@
         .module('app')
         .controller('AppController', AppController);
 
-    AppController.$inject = ['$rootScope', '$scope', '$state', '$location', 'appSettings'];
-    function AppController($rootScope, $scope, $state, $location,appSettings) {
+    AppController.$inject = ['$rootScope', '$scope', '$state', '$location', 'appSettings', 'OrderCreateService'];
+    function AppController($rootScope, $scope, $state, $location, appSettings, OrderCreateService) {
         $rootScope.theme = appSettings.theme;
         $rootScope.layout = appSettings.layout;
 
@@ -189,6 +189,12 @@
             $state.go('app.search');
         };
 
+        vm.menuClick = function (menuState) {
+            if(menuState === 'createOrder') {
+                OrderCreateService.clearDataCache();
+                $state.go('app.createOrder');
+            }
+        }
         console.log('getting in to the app controller');
     }
 

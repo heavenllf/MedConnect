@@ -107,7 +107,7 @@
             <!-- /.search form -->
             <ul class="sidebar-menu">
                 <li class="treeview" ui-sref-active="active" ng-click="vm.sideBar();" data-ng-repeat="menu in vm.menuItems">
-                    <a ui-sref="app.{{menu.state}}">
+                    <a ui-sref="app.{{menu.state}}" ng-click="vm.menuClick(menu.state)">
                         <i class="fa fa-{{menu.icon}}"></i> <span>{{menu.title}}</span>
                     </a>
                 </li>
