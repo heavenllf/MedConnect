@@ -12,14 +12,17 @@
         .module('app')
         .factory('OrderCreateService', OrderCreateService);
 
-    OrderCreateService.$inject = ['$http','$rootScope'];
+    OrderCreateService.$inject = ['$http', '$rootScope', '$state'];
 
-    function OrderCreateService($http,$rootScope) {
+    function OrderCreateService($http, $rootScope, $state) {
         var service = {
-            dataCache: {checkUID: null},
+            dataCache: {
+                checkUID: null
+            },
             sendCheckDataToServer: function() {
-                var me = this, action;
-                if(me.dataCache.checkUID) {
+                var me = this,
+                    action;
+                if (me.dataCache.checkUID) {
                     action = 'UpdateOneCheckActor';
                 } else {
                     action = 'CreateOneCheckActor';
@@ -29,10 +32,17 @@
                     url: action,
                     method: 'POST',
                     data: me.dataCache,
-                    headers: {'Content-Type': 'application/json;charset=UTF-8'},
+                    headers: {
+                        'Content-Type': 'application/json;charset=UTF-8'
+                    },
                 })
                     .then(function(response) {
-                            // success
+                            if (action === 'CreateOneCheckActor') {
+                                alert('检查结果保存完毕！');
+                                // success
+                            } else if (action === 'UpdateOneCheckActor') {
+                                alert('检查结果已更新！');
+                            }
                         },
                         function(response) { // optional
                             // failed
@@ -45,11 +55,16 @@
                 $http({
                     url: 'GetOneCheckActor',
                     method: 'GET',
-                    params: {checkUID: uid},
-                    headers: {'Content-Type': 'application/json;charset=UTF-8'},
+                    params: {
+                        checkUID: uid
+                    },
+                    headers: {
+                        'Content-Type': 'application/json;charset=UTF-8'
+                    },
                 })
                     .then(function(response) {
                             me.dataCache = JSON.parse(response.data.checkContent);
+                            $state.go('app.createOrder');
                         },
                         function(response) { // optional
                             // failed
