@@ -58,13 +58,14 @@
                 })
                     .then(function(response) {
                             me.dataCache = JSON.parse(response.data.checkContent);
+                            me.dataCache.checkUID = uid;
                             $state.go('app.createOrder');
                         },
                         function(response) { // optional
                             // failed
                         }
                 );
-                me.dataCache.checkUID = uid;
+                
             },
             clearDataCache: function() {
                 var me = this;

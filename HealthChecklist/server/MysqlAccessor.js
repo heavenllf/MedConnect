@@ -75,13 +75,18 @@ var QueryCheckList = function(params, res) {
 	var sql = '';
 	if (params.patientName) {
 		if (params.startTime && params.endTime) {
-
+			sql = 'select p.REAL_NAME, p.GENDER, p.AGE, p.PATIENT_UID, c.EVALUATION_TIME, c.EVALUATION_UID from ' +
+				' clinicalevaluatetbl as c, patienttbl as p, doctortbl as d, patientdoctorrelationtbl as dp where ' +
+				'd.DOCTOR_UID = dp.DOCTOR_UID and dp.PATIENT_UID = p.PATIENT_UID and c.PATIENT_UID = p.PATIENT_UID  ' +
+				' and d.DOCTOR_UID = "' + params.doctorUID + '" ' +
+				' and p.REAL_NAME like "%' + params.patientName + '%" ' + 
+				' and c.EVALUATION_TIME < "' + params.endTime + '" and c.EVALUATION_TIME > "' + params.startTime + '" ';
 		} else {
 			sql = 'select p.REAL_NAME, p.GENDER, p.AGE, p.PATIENT_UID, c.EVALUATION_TIME, c.EVALUATION_UID from ' +
 				' clinicalevaluatetbl as c, patienttbl as p, doctortbl as d, patientdoctorrelationtbl as dp where ' +
-				' d.DOCTOR_UID = "' + params.doctorUID + '" '
-				' and d.DOCTOR_UID = dp.DOCTOR_UID and dp.PATIENT_UID = p.PATIENT_UID and c.PATIENT_UID = p.PATIENT_UID and ' +
-				' p.REAL_NAME like "%' + params.patientName + "%";
+				' d.DOCTOR_UID = dp.DOCTOR_UID and dp.PATIENT_UID = p.PATIENT_UID and c.PATIENT_UID = p.PATIENT_UID  ' +
+				' and d.DOCTOR_UID = "' + params.doctorUID + '" ' +
+				' and p.REAL_NAME like "%' + params.patientName + '%" ';
 		}
 
 	} else {
@@ -89,18 +94,20 @@ var QueryCheckList = function(params, res) {
 
 			sql = 'select p.REAL_NAME, p.GENDER, p.AGE, p.PATIENT_UID, c.EVALUATION_TIME, c.EVALUATION_UID from ' +
 				' clinicalevaluatetbl as c, patienttbl as p, doctortbl as d, patientdoctorrelationtbl as dp where ' +
-				' d.DOCTOR_UID = "' + params.doctorUID + '" '
-				' and d.DOCTOR_UID = dp.DOCTOR_UID and dp.PATIENT_UID = p.PATIENT_UID and c.PATIENT_UID = p.PATIENT_UID and ' +
-				' c.EVALUATION_TIME < ' + params.endTime + ' and c.EVALUATION_TIME > ' + params.startTime;
+				' d.DOCTOR_UID = dp.DOCTOR_UID and dp.PATIENT_UID = p.PATIENT_UID and c.PATIENT_UID = p.PATIENT_UID ' +
+				' and d.DOCTOR_UID = "' + params.doctorUID + '" ' +
+				' and c.EVALUATION_TIME < "' + params.endTime + '" and c.EVALUATION_TIME > "' + params.startTime + '" ';
 		} else {
 			sql = 'select p.REAL_NAME, p.GENDER, p.AGE, p.PATIENT_UID, c.EVALUATION_TIME, c.EVALUATION_UID from ' +
-				' clinicalevaluatetbl as c, patienttbl as p, doctortbl as d, patientdoctorrelationtbl as dp where ' +
-				' d.DOCTOR_UID = "' + params.doctorUID + '" '
-				' and d.DOCTOR_UID = dp.DOCTOR_UID and dp.PATIENT_UID = p.PATIENT_UID and c.PATIENT_UID = p.PATIENT_UID '
+				' clinicalevaluatetbl as c,  patienttbl as p, doctortbl as d, patientdoctorrelationtbl as dp where ' +
+				' d.DOCTOR_UID = dp.DOCTOR_UID and dp.PATIENT_UID = p.PATIENT_UID and c.PATIENT_UID = p.PATIENT_UID ' +
+				' and d.DOCTOR_UID = "' + params.doctorUID + '" ';
+			 
 		}
 
 	}
 
+	console.log(sql);
 	var conn = GetConnection();
 	var resultSet = [];
 	conn.query(sql, function(err, rows, fields) {
