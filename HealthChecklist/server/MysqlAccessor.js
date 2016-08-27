@@ -102,7 +102,6 @@ var QueryCheckList = function(params, res) {
 				' clinicalevaluatetbl as c,  patienttbl as p, doctortbl as d, patientdoctorrelationtbl as dp where ' +
 				' d.DOCTOR_UID = dp.DOCTOR_UID and dp.PATIENT_UID = p.PATIENT_UID and c.PATIENT_UID = p.PATIENT_UID ' +
 				' and d.DOCTOR_UID = "' + params.doctorUID + '" ';
-			 
 		}
 
 	}
