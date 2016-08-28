@@ -34,6 +34,8 @@
 			$scope.order_teethcheck_fzy = temporo.order_teethcheck_fzy;
 			$scope.order_teethcheck_nmbb = temporo.order_teethcheck_nmbb;
 			$scope.order_teethcheck_qtkqwt = temporo.order_teethcheck_qtkqwt;
+
+			$scope.patientinfo = $rootScope.patientinfo;
 		}
 
 		$scope.storeModelsToService = function() {

@@ -5,9 +5,9 @@
             .module('app')
             .controller('FaceSmileController', FaceSmileController);
 
-      FaceSmileController.$inject = ['OrderCreateService', '$location', '$scope'];
+      FaceSmileController.$inject = ['OrderCreateService', '$location', '$scope', '$rootScope'];
 
-      function FaceSmileController(OrderCreateService, $location, $scope) {
+      function FaceSmileController(OrderCreateService, $location, $scope, $rootScope) {
             if (OrderCreateService.dataCache.faceSmile != undefined) {
                   var faceSmile = OrderCreateService.dataCache.faceSmile;
                   $scope.order_faceSmile_fsztlc = faceSmile.order_faceSmile_fsztlc;
@@ -36,7 +36,7 @@
                   $scope.order_faceSmile_ejcd = faceSmile.order_faceSmile_ejcd;
                   $scope.order_faceSmile_ejj = faceSmile.order_faceSmile_ejj;
 
-
+                  $scope.patientinfo = $rootScope.patientinfo;
             }
 
             $scope.storeModelsToService = function() {

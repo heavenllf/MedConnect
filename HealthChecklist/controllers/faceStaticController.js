@@ -2,9 +2,9 @@
     'use strict';
     angular.module('app')
         .controller('FaceStaticController', FaceStaticController);
-    FaceStaticController.$inject = ['OrderCreateService', '$location', '$scope'];
+    FaceStaticController.$inject = ['OrderCreateService', '$location', '$scope', '$rootScope'];
 
-    function FaceStaticController(OrderCreateService, $location, $scope) {
+    function FaceStaticController(OrderCreateService, $location, $scope, $rootScope) {
         if (OrderCreateService.dataCache.faceStatic != undefined) {
             var faceStatic = OrderCreateService.dataCache.faceStatic;
             $scope.order_faceStatic_ztmx = faceStatic.order_faceStatic_ztmx;
@@ -38,6 +38,7 @@
             $scope.order_faceStatic_bzgpq = faceStatic.order_faceStatic_bzgpq;
             $scope.order_faceStatic_xbjfdb = faceStatic.order_faceStatic_xbjfdb;
 
+            $scope.patientinfo = $rootScope.patientinfo;
         }
 
         $scope.storeModelsToService = function() {
