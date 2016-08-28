@@ -15,7 +15,7 @@
                 <div class="box-body box-body-padding">
                     <div class="row">
                         <div class="col-md-12">
-                             <form class="form-horizontal">
+                            <form class="form-horizontal">
                                 <div class="form-group">
                                     <label for="inputservicename" class="col-md-3 control-label">服务名称</label>
                                     <div class="col-md-9">
@@ -33,14 +33,12 @@
                                     <div class="col-md-9">
                                         <div class="radio">
                                             <label>
-                                                <input type="radio" name="UserRadios" id="sexman" ng-model="sex" value="0" >
-                                                男
+                                                <input type="radio" name="UserRadios" id="sexman" ng-model="sex" value="0"> 男
                                             </label>
                                         </div>
                                         <div class="radio">
                                             <label>
-                                                <input type="radio" name="UserRadios" id="sexwoman"  ng-model="sex" value="1">
-                                                女
+                                                <input type="radio" name="UserRadios" id="sexwoman" ng-model="sex" value="1"> 女
                                             </label>
                                         </div>
                                     </div>
@@ -54,7 +52,12 @@
                                 <div class="form-group">
                                     <label for="inputbirthday" class="col-md-3 control-label">出生日期</label>
                                     <div class="col-md-9">
-                                        <input type="datetime" class="form-control" id="inputbirthday" ng-model="order_birthday" placeholder="1988-12-1">
+                                        <div class="input-group date form_date" data-date="" data-date-format="yyyy-mm-dd" data-link-field="user_birthday" data-link-format="yyyy-mm-dd">
+                                            <input class="form-control" size="16" type="text" value="" readonly ng-model="endTime">
+                                            <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                                        </div>
+                                        <input type="hidden" id="user_birthday" value="" />
                                     </div>
                                 </div>
                             </form>
@@ -69,4 +72,15 @@
     </div>
 </section>
 
-
+<script type="text/javascript">
+$('.form_date').datetimepicker({
+    language: 'zh-CN',
+    weekStart: 1,
+    todayBtn: 1,
+    autoclose: 1,
+    todayHighlight: 1,
+    startView: 2,
+    minView: 2,
+    forceParse: 0
+});
+</script>
