@@ -9,6 +9,7 @@
     function AppController($rootScope, $scope, $state, $location, appSettings, OrderCreateService) {
         $rootScope.theme = appSettings.theme;
         $rootScope.layout = appSettings.layout;
+        $scope.loginuser = $rootScope.user;
 
         var vm = this;
 

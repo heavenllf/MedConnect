@@ -53,17 +53,16 @@
                     <li class="dropdown user user-menu">
                         <a class="dropdown-toggle" data-toggle="dropdown">
                             <img src="../public/images/doctor.jpg" class="user-image" alt="User Image" />
-                            <span class="hidden-xs">张三</span>
+                            <span class="hidden-xs">{{loginuser}}</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
                                 <img src="../public/images/doctor.jpg" class="img-circle" alt="User Image">
 
-                                <h3>张三</h3>
+                                <h3>{{loginuser}}</h3>
                                 <p class="text-center">
-                                    主任医师
-                                    <small>北京人民医院口腔科</small>
+                                    医生
                                 </p>
                             </li>
                             <!-- Menu Footer-->
@@ -91,8 +90,8 @@
                     <img src="../public/images/doctor.jpg" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
-                    <p>张三</p>
-                    <span class="text-aqua text-sm">主任医师</span>
+                    <p>{{loginuser}}</p>
+                    <span class="text-aqua text-sm">医生</span>
                 </div>
             </div>
             <!-- search form -->

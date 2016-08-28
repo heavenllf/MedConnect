@@ -5,8 +5,8 @@
         .module('app')
         .controller('LoginController', LoginController);
 
-    LoginController.$inject = ['$location','AuthenticationService','$state', 'FlashService'];
-    function LoginController($location,AuthenticationService,$state, FlashService) {
+    LoginController.$inject = ['$rootScope','$location','AuthenticationService','$state', 'FlashService'];
+    function LoginController($rootScope, $location, AuthenticationService, $state, FlashService) {
         var vm = this;
 
         vm.login = login;
@@ -24,6 +24,7 @@
             AuthenticationService.Login(vm.getUser.Username, vm.getUser.Password, function (response) {
                 if (response.success) {
                     AuthenticationService.SetCredentials(vm.getUser.Username, vm.getUser.Password);
+                    $rootScope.user = vm.getUser.Username;
                     $state.go("app.createOrder");
                 } else {
                     alert(response.message);
