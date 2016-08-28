@@ -28,7 +28,7 @@
                                          <label for="inputfsztlc" class="col-md-3 control-label">放松状态露齿</label>
                                          <div class="col-md-9">
                                              <div class="input-group">
-                                                 <input type="text" class="form-control" id="inputfsztlc" ng-model="order_faceSmile_fsztlc" placeholder="">
+                                                 <input type="number" min="1.5" max="3.0" step="0.1" class="form-control" id="inputfsztlc" ng-model="order_faceSmile_fsztlc" placeholder="">
                                                  <span class="input-group-addon">mm （1.5--3mm）</span>
                                              </div>
                                          </div>
@@ -38,12 +38,12 @@
                                          <div class="col-md-9">
                                              <div class="input-group">
                                                  <span class="input-group-addon">露齿</span>
-                                                 <input type="text" class="form-control" id="inputwxztlc" ng-model="order_faceSmile_wxztlc" placeholder="">
+                                                 <input type="number" min="8.0" max="12.0" step="0.1" class="form-control" id="inputwxztlc" ng-model="order_faceSmile_wxztlc" placeholder="">
                                                  <span class="input-group-addon">（正常范围：上切牙8-12，上中切牙高度9--12）</span>
                                              </div>
                                              <div class="input-group">
                                                  <span class="input-group-addon">露牙龈</span>
-                                                 <input type="text" class="form-control" id="inputwxztlyy" ng-model="order_faceSmile_wxztlyy" placeholder="">
+                                                 <input type="number" min="8.0" max="12.0" step="0.1" class="form-control" id="inputwxztlyy" ng-model="order_faceSmile_wxztlyy" placeholder="">
                                                  <span class="input-group-addon">（正常范围：上切牙8-12，上中切牙高度9--12）</span>
                                              </div>
                                          </div>
@@ -211,17 +211,17 @@
                                          <div class="col-md-9">
                                              <div class="input-group">
                                                  <span class="input-group-addon">上</span>
-                                                 <input type="text" class="form-control"  ng-model="order_faceSmile_czbls" id="inputczbls" placeholder="">
+                                                 <input type="number" min="0"  step="0.1" class="form-control"  ng-model="order_faceSmile_czbls" id="inputczbls" placeholder="">
                                                  <span class="input-group-addon">mm</span>
                                              </div>
                                              <div class="input-group">
                                                  <span class="input-group-addon">中</span>
-                                                 <input type="text" class="form-control" id="inputczblz"  ng-model="order_faceSmile_czblz" placeholder="">
+                                                 <input type="number" min="0"  step="0.1" class="form-control" id="inputczblz"  ng-model="order_faceSmile_czblz" placeholder="">
                                                  <span class="input-group-addon">mm</span>
                                              </div>
                                              <div class="input-group">
                                                  <span class="input-group-addon">下</span>
-                                                 <input type="text" class="form-control" id="inputczblx"  ng-model="order_faceSmile_czblx" placeholder="">
+                                                 <input type="number" min="0"  step="0.1" class="form-control" id="inputczblx"  ng-model="order_faceSmile_czblx" placeholder="">
                                                  <span class="input-group-addon">mm</span>
                                              </div>
                                          </div>
@@ -306,7 +306,7 @@
                                          <label for="inputbcg" class="col-md-3 control-label">鼻唇沟</label>
                                          <div class="col-md-9">
                                              <div class="input-group">
-                                                 <input type="text" class="form-control" id="inputbcg" placeholder=""  ng-model="order_faceSmile_bcg">
+                                                 <input type="number" min="90"  max="120" step="1" class="form-control" id="inputbcg" placeholder=""  ng-model="order_faceSmile_bcg">
                                                  <span class="input-group-addon"> 度 （90--120度）</span>
                                              </div>
                                          </div>
@@ -368,7 +368,7 @@
                                          <label for="inputejcd" class="col-md-3 control-label">颏颈长度</label>
                                          <div class="col-md-9">
                                              <div class="input-group">
-                                                 <input type="text" class="form-control" id="inputejcd" placeholder="" ng-model="order_faceSmile_ejcd">
+                                                 <input type="number" min="0"  step="0.1" class="form-control" id="inputejcd" placeholder="" ng-model="order_faceSmile_ejcd">
                                                  <span class="input-group-addon">mm</span>
                                              </div>
                                          </div>
@@ -377,7 +377,7 @@
                                          <label for="inputejj" class="col-md-3 control-label">颏颈角</label>
                                          <div class="col-md-9">
                                              <div class="input-group">
-                                                 <input type="text" class="form-control" id="inputejj" placeholder="" ng-model="order_faceSmile_ejj">
+                                                 <input type="number" min="105" max="120" step="1" class="form-control" id="inputejj" placeholder="" ng-model="order_faceSmile_ejj">
                                                  <span class="input-group-addon"> 度 （105--120度）</span>
                                              </div>
                                          </div>
