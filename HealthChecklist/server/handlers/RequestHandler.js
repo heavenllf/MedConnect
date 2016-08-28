@@ -65,7 +65,7 @@ var QueryPatients = function(action, req, res) {
 	// res.write(JSON.stringify(result));
 	// res.end();
 	//test code end
-
+	console.log(req.header('Host'));
 	console.log(JSON.stringify(params));
 	MysqlAccessor.QueryCheckList(params,res);
 };
