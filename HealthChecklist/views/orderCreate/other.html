@@ -86,3 +86,10 @@
         </div>
     </div>
 </section>
+
+<script>
+     if ( window.checklistLoginOK == undefined) {
+        alert('不支持手动刷新，请重新登录！');
+        window.location.replace('/views/index.html');
+    }
+</script>

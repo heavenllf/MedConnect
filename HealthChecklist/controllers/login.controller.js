@@ -25,6 +25,7 @@
                 if (response.success) {
                     AuthenticationService.SetCredentials(vm.getUser.Username, vm.getUser.Password);
                     $rootScope.user = vm.getUser.Username;
+                    window.checklistLoginOK = true;
                     $state.go("app.createOrder");
                 } else {
                     alert(response.message);
