@@ -165,6 +165,9 @@ var CreateOneCheck = function(params, res) {
 				conn.end();
 			});
 		} else {
+			var currentYear = (new Date()).getFullYear();
+			var patientAge = currentYear - (new Date(params.birthday)).getFullYear();
+			console.log('Age: ' + patientAge);
 			var patientUID = uuid.v4();
 			var sqlInsertPatient = 'insert into patienttbl(PATIENT_UID, REAL_NAME,  GENDER) values(?, ?, ?) ';
 			var param = [patientUID, params.user, params.gender];
