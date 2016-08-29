@@ -1,3 +1,9 @@
+<script>
+     if ( window.checklistLoginOK == undefined) {
+        window.location.replace('/views/index.html');
+    }
+</script>
+
 <div ng-controller="QueryPatientController" class="row-fluid sortable">
     <div class="box span12 no-box-margin-bottom">
         <div class="box-content">
@@ -99,9 +105,4 @@ $('.form_date').datetimepicker({
 });
 </script>
 
-<script>
-     if ( window.checklistLoginOK == undefined) {
-        alert('不支持手动刷新，请重新登录！');
-        window.location.replace('/views/index.html');
-    }
-</script>
+

@@ -1,3 +1,9 @@
+<script>
+     if ( window.checklistLoginOK == undefined) {
+        window.location.replace('/views/index.html');
+    }
+</script>
+
 <section class="content-header ng-scope">
     <h1 class="title">创建检查</h1>
     <ol class="breadcrumb">
@@ -328,9 +334,3 @@
     </div>
 </section>
 
-<script>
-     if ( window.checklistLoginOK == undefined) {
-        alert('不支持手动刷新，请重新登录！');
-        window.location.replace('/views/index.html');
-    }
-</script>
