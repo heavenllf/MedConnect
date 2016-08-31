@@ -45,28 +45,28 @@ var GetConnection = function() {
 var QueryCheckList = function(params, res) {
 	var mixAge = 0,
 		maxAge = 1000;
-	if (params.Age === '0～10岁') {
+	if (params.age === '0～10岁') {
 		mixAge = 0;
 		maxAge = 10;
-	} else if (params.Age === '11～20岁') {
+	} else if (params.age === '11～20岁') {
 		mixAge = 11;
 		maxAge = 20;
-	} else if (params.Age === '21～30岁') {
+	} else if (params.age === '21～30岁') {
 		mixAge = 21;
 		maxAge = 30;
-	} else if (params.Age === '31～40岁') {
+	} else if (params.age === '31～40岁') {
 		mixAge = 31;
 		maxAge = 40;
-	} else if (params.Age === '41～50岁') {
+	} else if (params.age === '41～50岁') {
 		mixAge = 41;
 		maxAge = 50;
-	} else if (params.Age === '51～60岁') {
+	} else if (params.age === '51～60岁') {
 		mixAge = 51;
 		maxAge = 60;
-	} else if (params.Age === '61～70岁') {
+	} else if (params.age === '61～70岁') {
 		mixAge = 61;
 		maxAge = 70;
-	} else if (params.Age === '71～  ') {
+	} else if (params.age === '71～  ') {
 		mixAge = 71;
 	} else {
 
@@ -80,12 +80,14 @@ var QueryCheckList = function(params, res) {
 				'd.DOCTOR_UID = dp.DOCTOR_UID and dp.PATIENT_UID = p.PATIENT_UID and c.PATIENT_UID = p.PATIENT_UID  ' +
 				' and d.DOCTOR_UID = "' + params.doctorUID + '" ' +
 				' and p.REAL_NAME like "%' + params.patientName + '%" ' + 
+				' and p.AGE >= ' + mixAge + ' and  p.AGE <= ' + maxAge +
 				' and c.EVALUATION_TIME < "' + params.endTime + '" and c.EVALUATION_TIME > "' + params.startTime + '" ';
 		} else {
 			sql = 'select p.REAL_NAME, p.GENDER, p.AGE, p.PATIENT_UID, c.EVALUATION_TIME, c.EVALUATION_UID from ' +
 				' clinicalevaluatetbl as c, patienttbl as p, doctortbl as d, patientdoctorrelationtbl as dp where ' +
 				' d.DOCTOR_UID = dp.DOCTOR_UID and dp.PATIENT_UID = p.PATIENT_UID and c.PATIENT_UID = p.PATIENT_UID  ' +
 				' and d.DOCTOR_UID = "' + params.doctorUID + '" ' +
+				' and p.AGE >= ' + mixAge + ' and  p.AGE <= ' + maxAge +
 				' and p.REAL_NAME like "%' + params.patientName + '%" ';
 		}
 
@@ -96,11 +98,13 @@ var QueryCheckList = function(params, res) {
 				' clinicalevaluatetbl as c, patienttbl as p, doctortbl as d, patientdoctorrelationtbl as dp where ' +
 				' d.DOCTOR_UID = dp.DOCTOR_UID and dp.PATIENT_UID = p.PATIENT_UID and c.PATIENT_UID = p.PATIENT_UID ' +
 				' and d.DOCTOR_UID = "' + params.doctorUID + '" ' +
+				' and p.AGE >= ' + mixAge + ' and  p.AGE <= ' + maxAge +
 				' and c.EVALUATION_TIME < "' + params.endTime + '" and c.EVALUATION_TIME > "' + params.startTime + '" ';
 		} else {
 			sql = 'select p.REAL_NAME, p.GENDER, p.AGE, p.PATIENT_UID, c.EVALUATION_TIME, c.EVALUATION_UID from ' +
 				' clinicalevaluatetbl as c,  patienttbl as p, doctortbl as d, patientdoctorrelationtbl as dp where ' +
 				' d.DOCTOR_UID = dp.DOCTOR_UID and dp.PATIENT_UID = p.PATIENT_UID and c.PATIENT_UID = p.PATIENT_UID ' +
+				' and p.AGE >= ' + mixAge + ' and  p.AGE <= ' + maxAge +
 				' and d.DOCTOR_UID = "' + params.doctorUID + '" ';
 		}
 
@@ -169,8 +173,8 @@ var CreateOneCheck = function(params, res) {
 			var patientAge = currentYear - (new Date(params.birthday)).getFullYear();
 			console.log('Age: ' + patientAge);
 			var patientUID = uuid.v4();
-			var sqlInsertPatient = 'insert into patienttbl(PATIENT_UID, REAL_NAME,  GENDER) values(?, ?, ?) ';
-			var param = [patientUID, params.user, params.gender];
+			var sqlInsertPatient = 'insert into patienttbl(PATIENT_UID, REAL_NAME, GENDER, AGE) values(?, ?, ?, ?) ';
+			var param = [patientUID, params.user, params.gender, patientAge];
 			console.log('no patient ');
 			conn.query(sqlInsertPatient, param, function(err, result) {
 				if (err) throw err;
