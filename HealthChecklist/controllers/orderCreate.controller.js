@@ -11,6 +11,25 @@ createOrder.controller("OrderCreateController", ['$rootScope', '$scope', '$state
         }
 
         $scope.storeModelsToService = function() {
+            var msg;
+            if ($scope.order_username === undefined || $scope.order_username === null) {
+                msg = '患者姓名';
+            }
+
+            if ($scope.order_birthday === undefined || $scope.order_birthday === null) {
+                if (msg !== undefined) {
+                    msg += ', 生日';
+                } else {
+                    msg = '患者生日';
+                }
+            }
+
+            if (msg !== undefined) {
+                msg += '不能为空！';
+                alert(msg);
+                return;
+            }
+
             if (OrderCreateService.dataCache.applyInfo == undefined) {
                 OrderCreateService.dataCache.applyInfo = {};
             }
@@ -23,5 +42,6 @@ createOrder.controller("OrderCreateController", ['$rootScope', '$scope', '$state
             applyInfo.order_birthday = $scope.order_birthday;
 
             $rootScope.patientinfo = $scope.order_username;
+            $state.go('app.faceStatic');
         };
     }]);

@@ -30,6 +30,7 @@
 		};
 
 		$scope.sendCheckDataToServer = function() {
+			$scope.storeModelsToService();
 			OrderCreateService.sendCheckDataToServer();
 		};
 

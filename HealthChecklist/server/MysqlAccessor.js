@@ -144,8 +144,8 @@ exports.QueryCheckList = QueryCheckList;
 var CreateOneCheck = function(params, res) {
 	var conn = GetConnection();
 
-	var sqlQueryPatient = 'select PATIENT_UID  from patienttbl  where REAL_NAME = ?  and GENDER = ? ';
-	var param = [params.user, params.gender];
+	var sqlQueryPatient = 'select PATIENT_UID  from patienttbl  where REAL_NAME = ?  and BIRTHDAY = ? ';
+	var param = [params.user, params.birthday];
 	var result = {};
 	var conn = GetConnection();
 	conn.query(sqlQueryPatient, param, function(err, rows, fields) {
@@ -173,8 +173,8 @@ var CreateOneCheck = function(params, res) {
 			var patientAge = currentYear - (new Date(params.birthday)).getFullYear();
 			console.log('Age: ' + patientAge);
 			var patientUID = uuid.v4();
-			var sqlInsertPatient = 'insert into patienttbl(PATIENT_UID, REAL_NAME, GENDER, AGE) values(?, ?, ?, ?) ';
-			var param = [patientUID, params.user, params.gender, patientAge];
+			var sqlInsertPatient = 'insert into patienttbl(PATIENT_UID, REAL_NAME, GENDER, AGE, BIRTHDAY) values(?, ?, ?, ?, ?) ';
+			var param = [patientUID, params.user, params.gender, patientAge, params.birthday];
 			console.log('no patient ');
 			conn.query(sqlInsertPatient, param, function(err, result) {
 				if (err) throw err;
