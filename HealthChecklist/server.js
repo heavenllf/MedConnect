@@ -38,7 +38,9 @@ console.log("Working Directoring: " + dir);
 
 var express = require('./node_modules/express');
 var app = express();
+var fs = require('fs');
 var http = require('http');
+var https = require('https');
 var bodyParser = require('./node_modules/body-Parser');
 var querystring = require('querystring');
 var Setting = require('./server/setting.js');
@@ -78,6 +80,13 @@ var Log = Logger.getLogger();
 
         });
         server.listen(port);
+
+        var privateKey = fs.readFileSync('test.pem');
+        var certificate = fs.readFileSync('test-cert.pem');
+        var credentials = {key: privateKey, cert: certificate};
+        var httpsServer = https.createServer(credentials,app);
+
+        httpsServer.listen(8443);
     };
     listen();
 }())
