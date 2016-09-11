@@ -15,76 +15,53 @@
 	<script src="js/frame/jquery.min.js"></script>
 	<script src="js/frame/jquery.mobile-1.4.5.min.js"></script> 
 	<script type="text/javascript" src="cordova.js"></script>  
-   <!-- <script type="text/javascript" src="cordova_plugins.js"></script>  -->  
+    <script type="text/javascript" src="cordova_plugins.js"></script>   
 	<script type="text/javascript" charset="utf-8" src="./js/user.js"></script> 
 	<script type="text/javascript" charset="utf-8" src="./js/init.js"></script>
 	<script type="text/javascript" charset="utf-8" src="./js/global.js"></script>
 	<script type="text/javascript" charset="utf-8" src="./js/notification.js"></script>
-	<!--  <script type="text/javascript" charset="utf-8" src="./js/backgroud.js"></script> -->
+	<script type="text/javascript" charset="utf-8" src="./js/backgroud.js"></script> 
+	<script type="text/javascript" charset="utf-8" src="./js/catureAudio.js"></script>
 </head>
 <body>
 	<!-- Container page -->
-<div data-role="page" data-title="问答" id="homepage" data-dom-cache="true" data-add-back-btn="true">
+<div data-role="page" data-title="医疗服务系统" id="homepage" data-dom-cache="true" data-add-back-btn="true">
 	<div data-role="header" data-theme="b" data-position="fixed" >
 		<h1>问答</h1>
 		<a href="#syspage" data-role="button" data-inline="true" data-transition="slide" class="ui-btn-right" data-icon="gear" >系统</a>
 	</div> 
-	<div data-role="content">
-	<a id="test" data-role="button">test</a>
-		<img src="img/introduce.jpg" width="100%" height="60em">
-		<ul data-role="listview" data-inset="true">
-		    <li data-role="list-divider">医院</li>
-		    <li>
-		     <a href="#">
-		        <img src="img/hospital1.jpg">
-		    <h2>北京第三人民医院</h2></a>
-		    </li>
-		    <li>
-		     <a href="#">
-		        <img src="img/hospital.jpg" >
-		    <h2>北京人民医院</h2></a>
-		    </li>
-		</ul>
-		<ul data-role="listview" data-count-theme="b" data-inset="true">
-			<li data-role="list-divider">最新问答信息</li>
-		    <li><a href="question.html" data-transition="fade">我有一个医疗技术问题 2016-03-24 <span class="ui-li-count">12</span></a></li>
-		    <li><a href="question.html" data-transition="fade">我有一个医疗技术问题 2016-03-24 <span class="ui-li-count">0</span></a></li>
-		    <li><a href="question.html" data-transition="fade">我有一个医疗技术问题 2016-03-24 <span class="ui-li-count">328</span></a></li>
-		    <li><a href="question.html" data-transition="fade">我有一个医疗技术问题 2016-03-24 <span class="ui-li-count">62</span></a></li>
-			<li><a href="question.html" data-transition="fade">我有一个医疗技术问题 2016-03-24 <span class="ui-li-count">33</span></a></li>	
-		</ul>
-	</div>
+    <div data-role="content">
+        <input type="text" id="userName" placeholder="请输入用户名或手机号">
+
+        <input type="password" id="password" placeholder="请输入密码">
+
+        <input type="checkbox" data-mini="true" id="rememberMe">
+        <label for="rememberMe">记住我</label>
+
+        <script type="text/javascript">
+        </script>
+
+        <a class="ui-shadow ui-btn"
+           onclick="login()">登录</a>
+		<div id="userop"><a id="registeruser" href="register.html">注册新用户</a><a id="forgetpwd" href="findpassword.html">忘记密码</a></div>
+    </div>
 	<!--footer-->
 	<div data-theme="b" class="ui-footer ui-bar-b ui-footer-fixed slidedown"
 	data-role="footer" data-position="fixed" data-id="footer" data-tap-toggle="false"> 
 		<div data-role="navbar" class="nav_bar">
 			<ul>
 				<li>
-					<a href="main1.html"  
+					<a href="servicelist.html"  
 						class="ui-btn-active ui-state-persist" data-icon="home"
 						data-transition="slide" >
-							首页
+							服务
 					</a>
 				</li>
 				<li>
-					<a href="patient.html"
+					<a href="newservice.html"
 						 data-icon="search"  
 						data-transition="slide">
-							病人
-					</a>
-				</li>
-				<li>
-					<a href="ask.html"
-						 data-icon="star" 
-						data-transition="slide">
-							提问
-						 </a>
-				</li>
-				<li>
-					<a href="doctor.html" 
-						 data-icon="info"
-						data-transition="slide">
-							医生
+							新服务
 					</a>
 				</li>
 				<li class="last">

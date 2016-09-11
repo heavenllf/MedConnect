@@ -41,7 +41,7 @@ function login() {
             success: function (data) {
                 if (data == "success") {
 //                $.mobile.changePage("main.html");
-                    window.location.href = "main.html";
+                    window.location.href = "newservice.html";
 					loading = true;
                 } else {
                     $().toastmessage('showToast', {
