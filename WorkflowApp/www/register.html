@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <title>注册</title>
+
+</head>
+<body>
+<div data-role="page" data-title="问答" id="loginpage">
+    <div data-role="header" data-theme="b">
+        <h1>注册</h1>
+		<a href="#" data-icon="back" data-rel="back" data-ajax="false" data-role="back">返回</a>
+    </div>
+    <div data-role="content">
+        <input type="text" id="inputphonenumber" placeholder="请输入手机号">
+        <ul id="ulvlcode">
+        <li><input type="text" id="validatecode" placeholder="请输入验证码"></li><li><a class="ui-btn" id="validatecd" onclick="getvalidatecode()">获取验证码</a></li></ul>
+		<div style="clear:both;"></div>
+        <input type="password" id="inputpwd" placeholder="请输入密码">
+		<input type="text" id="inputinvitedcode" placeholder="请输入邀请码(没有则不填)">
+
+        <a class="ui-shadow ui-btn"
+           onclick="register()">注册</a>
+    </div>
+</div>
+</body>
+</html>

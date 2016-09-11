@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>		
+		<title>提问</title> 
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body> 
+		<!-- Container page -->
+		<div data-role="page" data-title="问答" id="askpage" data-dom-cache="true" data-add-back-btn="true">
+			<div data-role="header" data-theme="b" data-position="fixed" >
+				<h1>提问</h1>
+				<a href="#" data-icon="back" data-rel="back" data-ajax="false" data-role="back">返回</a>
+			</div>
+			<div data-role="content">
+				<form action="" method="post" data-transition="none">
+					<div data-role="fieldcontain">
+						<label class="ui-hidden-accessible" for="select-native-4">问题描述:</label>
+						<select name="select-native-4" id="select-native-4" data-theme="b">
+							<option value="small">术前咨询</option>
+							<option value="medium">术中咨询</option>
+							<option value="large">术后咨询</option>
+						</select>
+					</div>
+					<div data-role="fieldcontain">
+						<label for="text-basic">问题:</label>
+						<input name="text-basic" id="text-basic" type="text" data-clear-btn="true" value="" required/>
+					</div>
+					<div data-role="fieldcontain">
+						<label  for="textarea-1">问题描述:</label>
+						<textarea name="textarea-1" id="textarea-1" rows="8" cols="40" placeholder="问题描述" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" ></textarea>			
+					</div>
+					<div data-role="fieldcontain" >
+						<input type="button" value="从我资料选择" id="choise" data-theme="b">
+						<input type="button" value="拍照" id='upload' data-theme="b">
+					</div>
+					<div data-role="fieldcontain">
+						<div id="divPhones" style="width:100%;height:auto;"></div>
+						<div data-role="popup" id="popupPhotoLandscape" class="photopopup" data-overlay-theme="a" data-corners="false" data-tolerance="30,15" >
+							<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a><img src="img/patient1.jpg" alt="Photo landscape" height=300 width=300>
+						</div>
+					</div>
+					<fieldset data-role="controlgroup" data-theme="d">
+					    <legend></legend>
+					    <input name="checkbox-1a" id="checkbox-1a" type="checkbox">
+					    <label for="checkbox-1a">允许医生回答</label>
+					    <input name="checkbox-2a" id="checkbox-2a" type="checkbox">
+					    <label for="checkbox-2a">允许其他病人回答</label>
+					</fieldset>
+		
+					<div data-role="fieldcontain">
+						<label class="select" for="select-choice-8">邀请医生回答:</label>
+						<select name="select-choice-8" id="select-choice-8" multiple="multiple" data-icon="grid" data-iconpos="left" data-native-menu="false">
+						    <option>选择医生:</option>
+						    <optgroup label="牙科">
+						        <option value="standard" selected>张大夫</option>
+						        <option value="rush">李大夫</option>
+						        <option value="express">张大夫</option>
+						        <option value="overnight">赵大夫</option>
+						    </optgroup>
+						    <optgroup label="放射科">
+						        <option value="firstOvernight">张大夫</option>
+						        <option value="expressSaver">王大夫</option>
+						        <option value="ground">钱大夫</option>
+						    </optgroup>
+						</select>
+					</div>
+					<input type="submit" value="提交" id='upload' data-theme="b">
+				</form>
+			</div>
+				<!--footer-->
+			<div data-theme="b" class="ui-footer ui-bar-b ui-footer-fixed slidedown"
+			data-role="footer" data-position="fixed" data-id="footer" data-tap-toggle="false"> 
+				<div data-role="navbar" class="nav_bar">
+					<ul>
+						<li>
+							<a href="main1.html" 
+								data-icon="home"
+								data-transition="slide" >
+									首页
+							</a>
+						</li>
+						<li>
+							<a href="patient.html" 
+								data-icon="search"
+								data-transition="slide">
+									病人
+							</a>
+						</li>
+						<li>
+							<a href="ask.html" 
+								class="ui-btn-active ui-state-persist" data-icon="star"
+								data-transition="slide" data->
+									提问
+								 </a>
+						</li>
+						<li>
+							<a href="doctor.html" 
+								 data-icon="info"
+								data-transition="slide">
+									医生
+							</a>
+						</li>
+						<li class="last">
+							<a href="my.html"  
+								data-icon="gear"
+								data-transition="slide">
+									我的
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>	
+			<script type="text/javascript" charset="utf-8" src="./js/upload_pic.js"></script>
+<!-- Page ends here -->
+</body>
+</html>
